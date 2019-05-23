@@ -28,7 +28,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.state.password);
     return (
       <form onSubmit={this.handleSubmit}>
         <label>username</label>
