@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Navbar from '../Navbar/Navbar';
+import Axios from 'axios';
 
 class Home extends Component {
+	componentDidMount() {
+		Axios.get('/api/auth/getuser').catch((err) => err);
+	}
 	render() {
 		return (
 			<div>
-				<h1>
-					<Navbar />
-				</h1>
+				<h1>Home</h1>
 			</div>
 		);
 	}
