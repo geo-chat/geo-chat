@@ -3,6 +3,7 @@ import axios from 'axios';
 // import { deleteAccount } from '../../store';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import '../Setting/Settings.css';
 
 class Settings extends Component {
 	constructor(props) {
@@ -39,24 +40,14 @@ class Settings extends Component {
 					<Link to="/">Logo</Link>
 
 					<Link to="/setting">
-						<i class="fas fa-cog" />
+						<i class="fas fa-cog" a />
 					</Link>
 
 					<div class="collapse navbar-collapse" id="navbarText">
 						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active">
-								<a class="nav-link" href="#">
-									Home <span class="sr-only">(current)</span>
-								</a>
-							</li>
 							<Link to="/login">
 								<li class="nav-item">Signup/Login</li>
 							</Link>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Contacts
-								</a>
-							</li>
 						</ul>
 					</div>
 				</nav>

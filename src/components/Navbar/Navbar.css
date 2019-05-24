@@ -1,5 +1,8 @@
 .bg-custom {
 	background: rgb(110, 231, 211);
+	text-decoration: none;
+	font-size: 30px;
+	color: black;
 }
 .fa-cog {
 	/* border: 2px solid red; */
@@ -34,4 +37,11 @@
 .navbar-nav li a {
 	text-decoration: none;
 	/* border: 2px solid red; */
+}
+
+.nav-pills {
+	/* border: 2px solid red; */
+	justify-content: flex-end;
+	align-items: center;
+	display: flex;
 }

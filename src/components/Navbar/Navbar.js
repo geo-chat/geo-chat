@@ -7,10 +7,30 @@ class Navbar extends Component {
 		return (
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-light bg-custom">
-					<a class="navbar-brand" href="#">
-						Logo
-					</a>
-
+					<Link to="/">Logo</Link>
+					<h4>Geo-Chat</h4>
+					<ul class="nav nav-pills">
+						<li class="nav-item dropdown">
+							<a
+								// class="nav-link dropdown-toggle"
+								data-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								<i class="far fa-caret-square-down" />
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="#">
+									Signup/Login
+								</a>
+								<a class="dropdown-item" href="#">
+									Logout
+								</a>
+							</div>
+						</li>
+					</ul>
 					<Link to="/setting">
 						<i class="fas fa-cog" />
 					</Link>
