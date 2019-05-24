@@ -54,7 +54,3 @@ export default connect(
   mapStateToProps,
   { login }
 )(Login);
-<<<<<<< HEAD
-=======
-export default Login;
->>>>>>> master
