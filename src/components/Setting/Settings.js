@@ -1,13 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import { connect } from "react-redux";
-
-class Settings extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Settings</h1>
-=======
 import axios from "axios";
 import { deleteAccount } from "../../store";
 
@@ -78,22 +69,13 @@ class Settings extends Component {
           <button onClick={this.deleteAccount}> Delete account</button>
           <button> Contact Us</button>
         </form>
->>>>>>> master
       </div>
     );
   }
 }
-<<<<<<< HEAD
-
-function mapStateToProps(state) {
-  return {};
-}
-export default connect(mapStateToProps)(Settings);
-=======
 const mapStateToProps = reduxState => reduxState;
 
 export default connect(
   mapStateToProps,
   { deleteAccount }
 )(Settings);
->>>>>>> master

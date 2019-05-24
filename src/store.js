@@ -9,13 +9,13 @@ initialState = {
 const LOGIN = "LOGIN";
 const SIGNUP = "SIGNUP";
 
-export function login() {
+export function login(username, password) {
   return {
     type: LOGIN,
     payload: axios.post("api/auth/login", { username, password })
   };
 }
-export function signup() {
+export function signup(username, password) {
   return {
     type: SIGNUP,
     payload: axios.post("api/auth/signup", { username, password })
