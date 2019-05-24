@@ -2,11 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const massive = require("massive");
-const { SESSION_SECRET, CONNECTION_STRING } = process.env;
 const ac = require("./controllers/authController");
+const session = require("express-session");
+
 app.use(express.json());
 
-const { CONNECTION_STRING } = process.env;
+const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
@@ -15,8 +16,22 @@ massive(CONNECTION_STRING)
   .catch(err => {
     err;
   });
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: false,
+    secret: SESSION_SECRET,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+  })
+);
 
-app.delete("/auth/delete/:id", ac.deleteAccount);
+app.delete("/api/auth/delete/:id", ac.deleteAccount);
+app.post("/api/auth/signup", ac.signup);
+app.get("/api/auth/getuser", ac.getUser);
+app.post("/api/auth/login", ac.login);
+app.delete("/api/auth/logout", ac.logout);
 
 const PORT = 6660;
 
