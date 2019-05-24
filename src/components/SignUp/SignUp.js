@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import { login } from "../../store";
-// import { connect } from "react-redux";
+import { signup } from "../../store";
+import { connect } from "react-redux";
 
 class Signup extends Component {
   constructor(props) {
@@ -48,10 +48,9 @@ class Signup extends Component {
     );
   }
 }
-// const mapStateToProps = reduxState => reduxState;
+const mapStateToProps = reduxState => reduxState;
 
-// export default connect(
-//   mapStateToProps,
-//   { login }
-// )(Login);
-export default Signup;
+export default connect(
+  mapStateToProps,
+  { signup }
+)(Signup);
