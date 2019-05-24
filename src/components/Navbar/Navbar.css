@@ -1,0 +1,23 @@
+.bg-custom {
+	background: rgb(26, 216, 190);
+}
+.fa-cog {
+	/* border: 2px solid red; */
+	font-size: 30px;
+}
+.btn-outline-success {
+	/* border: 2px solid red; */
+}
+
+.form-inline {
+	/* border: 2px solid blue; */
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.searchInput {
+	/* border: 2px solid yellow; */
+	width: 80%;
+}

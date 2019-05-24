@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.0.0-rc.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.4",
     "dotenv": "^8.0.0",
@@ -13,7 +14,10 @@
     "multiparty": "^4.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-redux": "^7.0.3",
+=======
+>>>>>>> master
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
