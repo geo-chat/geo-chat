@@ -1,9 +1,14 @@
 .bg-custom {
-	background: rgb(26, 216, 190);
+	background: rgb(110, 231, 211);
+	text-decoration: none;
+	font-size: 30px;
+	color: black;
 }
 .fa-cog {
 	/* border: 2px solid red; */
 	font-size: 30px;
+	text-decoration: none;
+	color: rgb(61, 61, 61);
 }
 .btn-outline-success {
 	/* border: 2px solid red; */
@@ -20,4 +25,23 @@
 .searchInput {
 	/* border: 2px solid yellow; */
 	width: 80%;
+	outline: none;
+	border: 1px solid rgb(110, 231, 211);
+}
+.btn-outline-custom {
+	background: white;
+	border: 1px solid rgb(110, 231, 211);
+	margin-left: 5px;
+}
+
+.navbar-nav li a {
+	text-decoration: none;
+	/* border: 2px solid red; */
+}
+
+.nav-pills {
+	/* border: 2px solid red; */
+	justify-content: flex-end;
+	align-items: center;
+	display: flex;
 }
