@@ -1,0 +1,1 @@
+select * from chatuser where username = $1;

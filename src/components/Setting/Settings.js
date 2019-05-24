@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { deleteAccount } from "../../store";
-import { connect } from "../../store";
+// import { deleteAccount, logout } from "../../store";
+import { connect } from "react-redux";
 
 class Settings extends Component {
   constructor(props) {
@@ -30,6 +30,9 @@ class Settings extends Component {
   };
   deleteAccount = () => {
     this.props.deleteAccount();
+  };
+  handleLogout = () => {
+    this.props.logout();
   };
   render() {
     return (
@@ -69,6 +72,7 @@ class Settings extends Component {
           </button>
           <button onClick={this.deleteAccount}> Delete account</button>
           <button> Contact Us</button>
+          <button onClick={this.handleLogout}>Logout</button>
         </form>
       </div>
     );
@@ -77,6 +81,6 @@ class Settings extends Component {
 const mapStateToProps = reduxState => reduxState;
 
 export default connect(
-  mapStateToProps,
-  { deleteAccount }
+  mapStateToProps
+  // { deleteAccount, logout }
 )(Settings);

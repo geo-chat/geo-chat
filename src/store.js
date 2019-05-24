@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import promise from "redux-promise-middleware";
 import axios from "axios";
 
-initialState = {
+const initialState = {
   username: "",
   id: 0
 };
@@ -12,13 +12,13 @@ const SIGNUP = "SIGNUP";
 export function login(username, password) {
   return {
     type: LOGIN,
-    payload: axios.post("api/auth/login", { username, password })
+    payload: axios.post("/api/auth/login", { username, password })
   };
 }
 export function signup(username, password) {
   return {
     type: SIGNUP,
-    payload: axios.post("api/auth/signup", { username, password })
+    payload: axios.post("/api/auth/signup", { username, password })
   };
 }
 
