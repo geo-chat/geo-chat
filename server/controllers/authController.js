@@ -3,8 +3,9 @@ const bcrypt = require("bcryptjs");
 const deleteAccount = (req, res) => {
   const db = req.app.get("db");
   const { id } = req.session.user;
-  db.delete_account(+id).catch(err => err);
-  res.sendStatus(200);
+  db.delete_account(+id)
+    .then(account => res.status(200).json(account))
+    .catch(err => err);
 };
 
 const signup = async (req, res) => {
@@ -16,7 +17,7 @@ const signup = async (req, res) => {
   } else {
     let hash = await bcrypt.hash(password, 10);
     db.signup([username, hash])
-      .then(response => res.status(200).json(response[0]))
+      .then(response => res.status(200).json(response))
       .catch(err => err);
   }
 };
@@ -49,11 +50,38 @@ const logout = (req, res) => {
   req.session.destroy();
   res.sendStatus(200);
 };
+const editUsername = (req, res) => {
+  const db = req.app.get("db");
+  const { username } = req.body;
+  const { id } = req.session.user;
+  db.edit_username([username, +id]);
+};
+const editPassword = async (req, res) => {
+  const db = req.app.get("db");
+  const { oldPassword, newPasword } = req.body;
+  const { id } = req.session.user;
+  const result = await db.compare_password(+id).catch(err => err);
+  let auth = await bcrypt.compareSync(oldPassword, result[0].password);
+  if (!auth) {
+    res.status(403).json("Passwords do not match");
+  } else {
+    let hash = await bcrypt.hash(newPasword, 10);
+    db.edit_password([hash, +id]).catch(err => err);
+    res.sendStatus(200);
+  }
+};
+const editImg = () => {};
+
+const editHexColor = () => {};
 
 module.exports = {
   deleteAccount,
   signup,
   login,
   getUser,
-  logout
+  logout,
+  editUsername,
+  editPassword,
+  editImg,
+  editHexColor
 };

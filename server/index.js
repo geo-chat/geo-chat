@@ -4,6 +4,7 @@ const app = express();
 const massive = require("massive");
 const ac = require("./controllers/authController");
 const session = require("express-session");
+console.log(ac);
 
 app.use(express.json());
 
@@ -27,11 +28,15 @@ app.use(
   })
 );
 
+app.delete("/api/auth/deleteaccount", ac.deleteAccount);
 app.post("/api/auth/signup", ac.signup);
 app.get("/api/auth/getuser", ac.getUser);
 app.post("/api/auth/login", ac.login);
 app.delete("/api/auth/logout", ac.logout);
-app.delete("/api/auth/deleteaccount", ac.deleteAccount);
+app.put("/api/auth/editusername", ac.editUsername);
+app.put("/api/auth/edithexcolor", ac.editHexColor);
+app.put("/api/auth/editimg", ac.editImg);
+app.put("/api/auth/editpassword", ac.editPassword);
 
 const PORT = 6660;
 
