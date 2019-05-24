@@ -2,9 +2,8 @@ import { createStore, applyMiddleware } from "redux";
 import promise from "redux-promise-middleware";
 import axios from "axios";
 
-initialState = {
-  username: "",
-  id: 0
+const initialState = {
+  user: {}
 };
 const LOGIN = "LOGIN";
 const SIGNUP = "SIGNUP";
@@ -27,14 +26,12 @@ function reducer(state = initialState, action) {
     case `${LOGIN}_FULFILLED`:
       return {
         ...state,
-        username: action.payload.username,
-        id: action.payload.id
+        user: action.payload.data
       };
     case `${SIGNUP}_FULFILLED`:
       return {
         ...state,
-        username: action.payload.username,
-        id: action.payload.id
+        user: action.payload.data
       };
     default:
       return state;
