@@ -5,10 +5,9 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/Navbar/Navbar";
 import routes from "./routes";
-import store from "./store";
-import { Provider } from "react-redux";
 import Signup from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
+import Settings from "./components/Setting/Settings";
 
 function App() {
   return (
@@ -16,10 +15,8 @@ function App() {
       <HashRouter>
         <div className="App">
           <Navbar />
-<<<<<<< HEAD
-=======
           <Login />
->>>>>>> master
+          <Settings />
           {routes}
         </div>
       </HashRouter>

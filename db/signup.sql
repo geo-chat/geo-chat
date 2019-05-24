@@ -1,3 +1,3 @@
-insert into chatuser(username,password)
-values($1,$2);
-select * from chatuser where username = $1;
+INSERT INTO chatuser(username,password)
+VALUES($1,$2);
+SELECT * FROM chatuser WHERE username = $1;

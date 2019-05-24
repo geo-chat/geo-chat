@@ -11,7 +11,7 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
-    console.log("Database Connected");
+    console.log("Database Is Watching You");
   })
   .catch(err => {
     err;
@@ -27,20 +27,13 @@ app.use(
   })
 );
 
-app.delete("/api/auth/delete/:id", ac.deleteAccount);
 app.post("/api/auth/signup", ac.signup);
 app.get("/api/auth/getuser", ac.getUser);
 app.post("/api/auth/login", ac.login);
 app.delete("/api/auth/logout", ac.logout);
+app.delete("/api/auth/deleteaccount", ac.deleteAccount);
 
 const PORT = 6660;
-
-massive(CONNECTION_STRING)
-  .then(db => {
-    app.set("db", db);
-    console.log("Database Is Watching You");
-  })
-  .catch(error => console.log(error));
 
 app.listen(PORT, () => {
   console.log(`Listening for bad things to happen on ${PORT}`);

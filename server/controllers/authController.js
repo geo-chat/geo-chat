@@ -1,11 +1,10 @@
 const bcrypt = require("bcryptjs");
 
-const deleteAccount = (req, res, next) => {
+const deleteAccount = (req, res) => {
   const db = req.app.get("db");
-  const { id } = req.params;
-  db.delete_account(id)
-    .then(account => res.status(200).json(account))
-    .catch(err => err);
+  const { id } = req.session.user;
+  db.delete_account(+id).catch(err => err);
+  res.sendStatus(200);
 };
 
 const signup = async (req, res) => {
@@ -17,7 +16,7 @@ const signup = async (req, res) => {
   } else {
     let hash = await bcrypt.hash(password, 10);
     db.signup([username, hash])
-      .then(response => res.status(200).json(response))
+      .then(response => res.status(200).json(response[0]))
       .catch(err => err);
   }
 };
