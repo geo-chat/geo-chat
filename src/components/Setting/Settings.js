@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { deleteAccount } from "../../store";
 
 class Settings extends Component {
   constructor(props) {
@@ -26,8 +27,8 @@ class Settings extends Component {
   handlePasswordCompare = () => {
     // axios.get call to compare old password
   };
-  deleteAccount = id => {
-    axios.delete(`/auth/delete/${id}`);
+  deleteAccount = () => {
+    this.props.deleteAccount();
   };
   render() {
     return (
@@ -72,5 +73,9 @@ class Settings extends Component {
     );
   }
 }
+const mapStateToProps = reduxState => reduxState;
 
-export default Settings;
+export default connect(
+  mapStateToProps,
+  { deleteAccount }
+)(Settings);
