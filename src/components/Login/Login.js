@@ -16,7 +16,6 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.login(this.state.username, this.state.password).catch(err => {
       console.log(err);
       alert("invalid username or password");
