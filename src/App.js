@@ -2,13 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { HashRouter } from 'react-router-dom';
-import NavBar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
+import routes from './routes';
 
 function App() {
 	return (
 		<HashRouter>
 			<div className="App">
-				<NavBar />
+				<Navbar />
+				{routes}
 			</div>
 		</HashRouter>
 	);
