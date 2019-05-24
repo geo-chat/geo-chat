@@ -14,7 +14,7 @@ function App() {
       <HashRouter>
         <div className="App">
           <Navbar />
-          <Login />
+          <Signup />
           {routes}
         </div>
       </HashRouter>
