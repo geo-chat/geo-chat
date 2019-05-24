@@ -4,15 +4,18 @@ import './App.css';
 import { HashRouter } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import routes from './routes';
+import { Provider } from 'react-redux';
 
 function App() {
 	return (
-		<HashRouter>
-			<div className="App">
-				<Navbar />
-				{routes}
-			</div>
-		</HashRouter>
+		<Provider store={store}>
+			<HashRouter>
+				<div className="App">
+					<Navbar />
+					{routes}
+				</div>
+			</HashRouter>
+		</Provider>
 	);
 }
 

@@ -1,5 +1,5 @@
 .bg-custom {
-	background: rgb(26, 216, 190);
+	background: rgb(228, 225, 225);
 }
 .fa-cog {
 	/* border: 2px solid red; */
@@ -20,4 +20,5 @@
 .searchInput {
 	/* border: 2px solid yellow; */
 	width: 80%;
+	outline: none;
 }
