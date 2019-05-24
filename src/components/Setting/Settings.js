@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { deleteAccount } from "../../store";
+import { connect } from "../../store";
 
 class Settings extends Component {
   constructor(props) {
