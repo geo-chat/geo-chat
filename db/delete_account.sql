@@ -1,0 +1,1 @@
+DELETE * FROM chatuser where id = $1;
