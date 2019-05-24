@@ -4,8 +4,7 @@ import axios from "axios";
 
 initialState = {
   username: "",
-  password: "",
-  loggedIn: false
+  id: 0
 };
 const LOGIN = "LOGIN";
 const SIGNUP = "SIGNUP";
@@ -28,14 +27,14 @@ function reducer(state = initialState, action) {
     case `${LOGIN}_FULFILLED`:
       return {
         ...state,
-        password: "",
-        loggedIn: true
+        username: action.payload.username,
+        id: action.payload.id
       };
     case `${SIGNUP}_FULFILLED`:
       return {
         ...state,
-        password: "",
-        loggedIn: true
+        username: action.payload.username,
+        id: action.payload.id
       };
     default:
       return state;
