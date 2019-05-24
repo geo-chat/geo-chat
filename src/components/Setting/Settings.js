@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Settings extends Component {
   constructor(props) {
@@ -25,11 +26,10 @@ class Settings extends Component {
   handlePasswordCompare = () => {
     // axios.get call to compare old password
   };
-  deleteAccount = () => {
-    // axios.delete call to remove the account from the database
+  deleteAccount = id => {
+    axios.delete(`/auth/delete/${id}`);
   };
   render() {
-    console.log(this.state);
     return (
       <div>
         <form className="settings-form">
@@ -45,6 +45,7 @@ class Settings extends Component {
             name="img"
             value={this.state.img}
             onChange={this.handleChange}
+            // replace with amazon s3 feature
           />
           <label>Enter new password</label>
           <input
