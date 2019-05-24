@@ -54,4 +54,3 @@ export default connect(
   mapStateToProps,
   { login }
 )(Login);
-export default Login;
