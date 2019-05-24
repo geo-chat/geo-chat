@@ -1,9 +1,11 @@
 .bg-custom {
-	background: rgb(228, 225, 225);
+	background: rgb(110, 231, 211);
 }
 .fa-cog {
 	/* border: 2px solid red; */
 	font-size: 30px;
+	text-decoration: none;
+	color: rgb(61, 61, 61);
 }
 .btn-outline-success {
 	/* border: 2px solid red; */
@@ -21,4 +23,15 @@
 	/* border: 2px solid yellow; */
 	width: 80%;
 	outline: none;
+	border: 1px solid rgb(110, 231, 211);
+}
+.btn-outline-custom {
+	background: white;
+	border: 1px solid rgb(110, 231, 211);
+	margin-left: 5px;
+}
+
+.navbar-nav li a {
+	text-decoration: none;
+	/* border: 2px solid red; */
 }
