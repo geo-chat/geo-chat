@@ -50,11 +50,32 @@ const logout = (req, res) => {
   req.session.destroy();
   res.sendStatus(200);
 };
-
+const editUsername = (req, res) => {
+  const db = req.app.get("db");
+  const { username } = req.body;
+  const { id } = req.session.user;
+  db.edit_username([username, +id]);
+};
+const editPassword = async (req, res) => {
+  const db = req.app.get("db");
+  const { oldPassword, newPasword } = req.body;
+  const { id } = req.session.user;
+  const result = await db.compare_password(+id).catch(err => err);
+  let auth = await bcrypt.compareSync(oldPassword, result[0].password);
+  if (!auth) {
+    res.status(403).json("Passwords do not match");
+  } else {
+    let hash = await bcrypt.hash(newPasword, 10);
+    db.edit_password([hash, +id]).catch(err => err);
+    res.sendStatus(200);
+  }
+};
 module.exports = {
   deleteAccount,
   signup,
   login,
   getUser,
-  logout
+  logout,
+  editUsername,
+  editPassword
 };

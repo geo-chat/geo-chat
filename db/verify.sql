@@ -1,1 +1,1 @@
-select * from chatuser where username = $1;
+SELECT * FROM chatuser WHERE username = $1;

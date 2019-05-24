@@ -1,1 +1,1 @@
-DELETE * FROM chatuser where id = $1;
+DELETE * FROM chatuser WHERE id = $1;

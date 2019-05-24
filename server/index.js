@@ -32,15 +32,12 @@ app.post("/api/auth/signup", ac.signup);
 app.get("/api/auth/getuser", ac.getUser);
 app.post("/api/auth/login", ac.login);
 app.delete("/api/auth/logout", ac.logout);
+app.put("/api/auth/editusername", ac.editUsername);
+app.put("/api/auth/edithexcolor", ac.editHexColor);
+app.put("/api/auth/editimg", ac.editimg);
+app.put("/api/auth/editpassword", ac.editpassword);
 
 const PORT = 6660;
-
-massive(CONNECTION_STRING)
-  .then(db => {
-    app.set("db", db);
-    console.log("Database Is Watching You");
-  })
-  .catch(error => console.log(error));
 
 app.listen(PORT, () => {
   console.log(`Listening for bad things to happen on ${PORT}`);
