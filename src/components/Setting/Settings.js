@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { deleteAccount, logout } from "../../store";
+// import { deleteAccount, logout, editUsername, editImg, hexColor, updatePassword } from "../../store";
 import { connect } from "react-redux";
 
 class Settings extends Component {
@@ -10,23 +10,24 @@ class Settings extends Component {
       newUsername: "",
       img: "",
       oldPassword: "",
-      newPassword: ""
+      newPassword: "",
+      hexColor: ""
     };
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleUsernameSubmit = () => {
-    // axios.put call to change the username
+    this.props.editUsername();
   };
   handleImgSubmit = () => {
-    // axios.put call to add a profile picture
-  };
-  handlePasswordSubmit = () => {
-    // axios.put call to change the password axios.get call to compare old password
+    this.props.editImg();
   };
   handlePasswordCompare = () => {
-    // axios.get call to compare old password
+    this.props.updatePassword();
+  };
+  handleHexcolor = () => {
+    this.props.hexColor();
   };
   deleteAccount = () => {
     this.props.deleteAccount();
@@ -42,6 +43,12 @@ class Settings extends Component {
           <input
             name="newUsername"
             value={this.state.newUsername}
+            onChange={this.handleChange}
+          />
+          <label>Change Text background</label>
+          <input
+            name="hexColor"
+            value={this.state.hexColor}
             onChange={this.handleChange}
           />
           <button onClick={this.handleUsernameSubmit}>Change username</button>
@@ -82,5 +89,5 @@ const mapStateToProps = reduxState => reduxState;
 
 export default connect(
   mapStateToProps
-  // { deleteAccount, logout }
+  // { deleteAccount, logout, editUsername, editImg, hexColor, updatePassword  }
 )(Settings);
