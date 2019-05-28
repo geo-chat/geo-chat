@@ -1,9 +1,9 @@
 const bcrypt = require("bcryptjs");
 
-const deleteAccount = (req, res, next) => {
+const deleteAccount = (req, res) => {
   const db = req.app.get("db");
-  const { id } = req.params;
-  db.delete_account(id)
+  const { id } = req.session.user;
+  db.delete_account(+id)
     .then(account => res.status(200).json(account))
     .catch(err => err);
 };
@@ -58,14 +58,14 @@ const editUsername = (req, res) => {
 };
 const editPassword = async (req, res) => {
   const db = req.app.get("db");
-  const { oldPassword, newPasword } = req.body;
+  const { oldPassword, newPassword } = req.body;
   const { id } = req.session.user;
   const result = await db.compare_password(+id).catch(err => err);
   let auth = await bcrypt.compareSync(oldPassword, result[0].password);
   if (!auth) {
     res.status(403).json("Passwords do not match");
   } else {
-    let hash = await bcrypt.hash(newPasword, 10);
+    let hash = await bcrypt.hash(newPassword, 10);
     db.edit_password([hash, +id]).catch(err => err);
     res.sendStatus(200);
   }

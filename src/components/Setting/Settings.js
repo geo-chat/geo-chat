@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import axios from "axios";
-// import { deleteAccount, logout, editUsername, editImg, hexColor, updatePassword } from "../../store";
+import {
+  deleteAccount,
+  logout,
+  editUsername,
+  editImg,
+  editHexcolor,
+  editPassword
+} from "../../store";
 import { connect } from "react-redux";
 
 class Settings extends Component {
@@ -18,17 +24,18 @@ class Settings extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleUsernameSubmit = () => {
-    this.props.editUsername();
+    this.props.editUsername(this.state.newUsername);
+    this.setState({ newUsername: "" });
   };
   handleImgSubmit = () => {
-    this.props.editImg();
+    this.props.editImg(this.state.img);
+    this.setState({ img: "" });
   };
-  handlePasswordCompare = () => {
-    this.props.updatePassword();
+  handlePasswordSubmit = () => {
+    this.props.editPassword(this.state.oldPassword, this.state.newPassword);
+    this.setState({ oldPassword: "", newPassword: "" });
   };
-  handleHexcolor = () => {
-    this.props.hexColor();
-  };
+
   deleteAccount = () => {
     this.props.deleteAccount();
   };
@@ -45,12 +52,12 @@ class Settings extends Component {
             value={this.state.newUsername}
             onChange={this.handleChange}
           />
-          <label>Change Text background</label>
+          {/* <label>Change Text background</label>
           <input
             name="hexColor"
             value={this.state.hexColor}
             onChange={this.handleChange}
-          />
+          /> */}
           <button onClick={this.handleUsernameSubmit}>Change username</button>
           <label>Upload a profile picture</label>
           <input
@@ -58,6 +65,13 @@ class Settings extends Component {
             value={this.state.img}
             onChange={this.handleChange}
             // replace with amazon s3 feature
+          />
+          <label> Old password</label>
+          <input
+            name="oldPassword"
+            value={this.state.oldPassword}
+            onChange={this.handleChange}
+            type="password"
           />
           <label>Enter new password</label>
           <input
@@ -67,18 +81,8 @@ class Settings extends Component {
             type="password"
           />
           <button onClick={this.handlePasswordSubmit}>Change password</button>
-          <label> Old password</label>
-          <input
-            name="oldPassword"
-            value={this.state.oldPassword}
-            onChange={this.handleChange}
-            type="password"
-          />
-          <button onClick={this.handlePasswordCompare}>
-            submit old password
-          </button>
           <button onClick={this.deleteAccount}> Delete account</button>
-          <button> Contact Us</button>
+          <a href={"mailto:" + "Trevorrhoffman@gmail.con"}>Contact Us</a>
           <button onClick={this.handleLogout}>Logout</button>
         </form>
       </div>
@@ -88,6 +92,6 @@ class Settings extends Component {
 const mapStateToProps = reduxState => reduxState;
 
 export default connect(
-  mapStateToProps
-  // { deleteAccount, logout, editUsername, editImg, hexColor, updatePassword  }
+  mapStateToProps,
+  { deleteAccount, logout, editUsername, editImg, editHexcolor, editPassword }
 )(Settings);

@@ -4,6 +4,7 @@ const app = express();
 const massive = require("massive");
 const ac = require("./controllers/authController");
 const session = require("express-session");
+console.log(ac);
 
 app.use(express.json());
 
@@ -11,7 +12,7 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
-    console.log("Database Connected");
+    console.log("Database Is Watching You");
   })
   .catch(err => {
     err;
@@ -27,7 +28,7 @@ app.use(
   })
 );
 
-app.delete("/api/auth/delete/:id", ac.deleteAccount);
+app.delete("/api/auth/deleteaccount", ac.deleteAccount);
 app.post("/api/auth/signup", ac.signup);
 app.get("/api/auth/getuser", ac.getUser);
 app.post("/api/auth/login", ac.login);
