@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import '../Navbar/Navbar.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../store';
 
 class Navbar extends Component {
+	constructor() {}
+	handleLogout = () => {
+		this.props.logout();
+	};
 	render() {
 		return (
 			<div>
@@ -26,7 +32,7 @@ class Navbar extends Component {
 									Signup/Login
 								</Link>
 								<a class="dropdown-item" href="#">
-									Logout
+									<button onClick={this.handleLogout}>Logout</button>
 								</a>
 							</div>
 						</li>
@@ -69,4 +75,6 @@ class Navbar extends Component {
 	}
 }
 
-export default Navbar;
+const mapStateToProps = (reduxState) => reduxState;
+
+export default connect(mapStateToProps, { logout })(Navbar);
