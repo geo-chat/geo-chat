@@ -52,6 +52,12 @@ class Settings extends Component {
             value={this.state.newUsername}
             onChange={this.handleChange}
           />
+          {/* <label>Change Text background</label>
+          <input
+            name="hexColor"
+            value={this.state.hexColor}
+            onChange={this.handleChange}
+          /> */}
           <button onClick={this.handleUsernameSubmit}>Change username</button>
           <label>Upload a profile picture</label>
           <input
@@ -76,7 +82,7 @@ class Settings extends Component {
           />
           <button onClick={this.handlePasswordSubmit}>Change password</button>
           <button onClick={this.deleteAccount}> Delete account</button>
-          <button> Contact Us</button>
+          <a href={"mailto:" + "Trevorrhoffman@gmail.con"}>Contact Us</a>
           <button onClick={this.handleLogout}>Logout</button>
         </form>
       </div>
