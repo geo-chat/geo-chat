@@ -22,9 +22,9 @@ class Navbar extends Component {
 								<i class="far fa-caret-square-down" />
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item" href="#">
+								<Link to="/login" class="dropdown-item">
 									Signup/Login
-								</a>
+								</Link>
 								<a class="dropdown-item" href="#">
 									Logout
 								</a>

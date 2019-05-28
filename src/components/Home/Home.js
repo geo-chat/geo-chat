@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import Navbar from '../Navbar/Navbar';
 
 class Home extends Component {
 	componentDidMount() {
@@ -9,7 +10,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Home</h1>
+				<Navbar />
 			</div>
 		);
 	}
