@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { logout } from '../../store';
 
 class Navbar extends Component {
-	constructor() {}
 	handleLogout = () => {
 		this.props.logout();
 	};
@@ -32,7 +31,12 @@ class Navbar extends Component {
 									Signup/Login
 								</Link>
 								<a class="dropdown-item" href="#">
-									<button onClick={this.handleLogout}>Logout</button>
+									<button>Create Chat-Room</button>
+								</a>
+								<a class="dropdown-item" href="#">
+									<button className="logoutBtn" onClick={this.handleLogout}>
+										Logout
+									</button>
 								</a>
 							</div>
 						</li>
