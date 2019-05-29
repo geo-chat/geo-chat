@@ -4,7 +4,6 @@ const app = express();
 const massive = require("massive");
 const ac = require("./controllers/authController");
 const session = require("express-session");
-console.log(ac);
 
 app.use(express.json());
 
