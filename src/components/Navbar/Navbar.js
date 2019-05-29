@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import '../Navbar/Navbar.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../store';
 
 class Navbar extends Component {
+	handleLogout = () => {
+		this.props.logout();
+	};
 	render() {
 		return (
 			<div>
@@ -22,11 +27,16 @@ class Navbar extends Component {
 								<i class="far fa-caret-square-down" />
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item" href="#">
+								<Link to="/login" class="dropdown-item">
 									Signup/Login
+								</Link>
+								<a class="dropdown-item" href="#">
+									<button>Create Chat-Room</button>
 								</a>
 								<a class="dropdown-item" href="#">
-									Logout
+									<button className="logoutBtn" onClick={this.handleLogout}>
+										Logout
+									</button>
 								</a>
 							</div>
 						</li>
@@ -69,4 +79,6 @@ class Navbar extends Component {
 	}
 }
 
-export default Navbar;
+const mapStateToProps = (reduxState) => reduxState;
+
+export default connect(mapStateToProps, { logout })(Navbar);

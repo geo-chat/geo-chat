@@ -1,9 +1,107 @@
 .settings-form {
-	border: 2px solid red;
+	border: 2px solid blue;
+	justify-content: space-evenly;
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
 }
 input {
-	border: 2px solid gray;
+	border: none;
+	border-bottom: 2px solid rgb(165, 163, 163);
+	/* border: 2px solid red; */
+	outline: none;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
-button {
-	border: 2px solid red;
+
+label {
+	/* border-bottom: 2px solid black; */
+	height: 2vh;
+	font-size: 13px;
+}
+
+.usernameForm {
+	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 12vh;
+	flex-direction: column;
+}
+
+.smallUsernameForm {
+	justify-content: space-around;
+	align-items: center;
+	display: flex;
+	font-size: 10px;
+	flex-direction: column;
+	/* border: 2px solid red; */
+	height: 8vh;
+}
+
+.changeUsernameBtn {
+	border: 2px solid transparent;
+	background: skyblue;
+	border-radius: 5px;
+}
+
+.ImageUploadForm {
+	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 12vh;
+	flex-direction: column;
+}
+
+.oldPasswordForm {
+	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 12vh;
+	flex-direction: column;
+}
+
+.newPasswordForm {
+	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 12vh;
+	flex-direction: column;
+}
+
+.deleteBtn {
+	border: 2px solid transparent;
+	background: rgb(74, 74, 219);
+	border-radius: 5px;
+	color: white;
+}
+
+.contact {
+	border-radius: 5px;
+	background: rgb(74, 74, 219);
+	color: white;
+	width: 130px;
+	height: 30px;
+}
+
+.contact:hover {
+	color: white;
+	text-decoration: none;
 }

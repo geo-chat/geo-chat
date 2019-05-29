@@ -70,10 +70,18 @@ const editPassword = async (req, res) => {
     res.sendStatus(200);
   }
 };
-const editImg = () => {};
-
-const editHexColor = () => {};
-
+const editImg = (req, res) => {
+  const db = req.app.get("db");
+  const { img } = req.body;
+  const { id } = req.session.user;
+  db.edit_img([img, +id]);
+};
+const editHexColor = (req, res) => {
+  const db = req.app.get("db");
+  const { hexcolor } = req.body;
+  const { id } = req.session.user;
+  db.edit_hex_color([hexcolor, +id]);
+};
 module.exports = {
   deleteAccount,
   signup,
