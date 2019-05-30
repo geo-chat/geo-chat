@@ -55,50 +55,62 @@ class Settings extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-custom">
-          <Link to="/">Logo</Link>
-          <h4>Geo-Chat</h4>
-          <ul className="nav nav-pills">
-            <li className="nav-item dropdown">
-              <a
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="far fa-caret-square-down" />
-              </a>
-              <div className="dropdown-menu dropdown-menu-right">
-                <Link to="/login" className="dropdown-item">
-                  Signup/Login
-                </Link>
-                <a className="dropdown-item" href="#">
-                  <button className="logoutBtn" onClick={this.handleLogout}>
-                    Logout
-                  </button>
-                </a>
-              </div>
-            </li>
-          </ul>
-          <Link to="/setting">
-            <i className="fas fa-cog" />
-          </Link>
+        <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://banner2.kisspng.com/20180424/oaq/kisspng-honda-logo-car-2007-honda-cr-v-decorative-stickers-5adfa878c61c14.8927719915246070968115.jpg"
+              class=" topnavBarImage d-inline-block align-center"
+              alt=""
+            />
+            Geo-Chat
+          </a>
 
-          <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">
-                  Home <span className="sr-only">(current)</span>
-                </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon" />
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <Link to="/" class="nav-link">
+                  <i class="fas fa-home" /> Home{" "}
+                  <span class="sr-only">(current)</span>
+                </Link>
               </li>
-              <Link to="/login">
-                <li className="nav-item">Signup/Login</li>
-              </Link>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Contacts
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-caret-square-down" /> Dropdown
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">
+                    Action
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </div>
+              </li>
+              <li class="nav-item ">
+                <Link class="nav-link" to="/setting">
+                  <i class="fas fa-cog" /> Settings
+                </Link>
               </li>
             </ul>
           </div>
