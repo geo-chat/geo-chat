@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 const massive = require("massive");
 const ac = require("./controllers/authController");
+const cc = require("./controllers/chatController");
 const session = require("express-session");
-console.log(ac);
 
 app.use(express.json());
 
@@ -37,6 +37,7 @@ app.put("/api/auth/editusername", ac.editUsername);
 app.put("/api/auth/edithexcolor", ac.editHexColor);
 app.put("/api/auth/editimg", ac.editImg);
 app.put("/api/auth/editpassword", ac.editPassword);
+app.post("/api/chat/create", cc.createChatRoom);
 
 const PORT = 6660;
 

@@ -1,0 +1,1 @@
+INSERT INTO chatroom (name, creationdate, lat, lng) VALUES ($1, NOW(), $2, $3);
