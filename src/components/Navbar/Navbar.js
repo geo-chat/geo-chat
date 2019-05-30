@@ -12,68 +12,215 @@ class Navbar extends Component {
 		return (
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-light bg-custom">
-					<Link to="/">Logo</Link>
-					<h4>Geo-Chat</h4>
-					<ul class="nav nav-pills">
-						<li class="nav-item dropdown">
-							<a
-								// class="nav-link dropdown-toggle"
-								data-toggle="dropdown"
-								href="#"
-								role="button"
-								aria-haspopup="true"
-								aria-expanded="false"
-							>
-								<i class="far fa-caret-square-down" />
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<Link to="/login" class="dropdown-item">
-									Signup/Login
-								</Link>
-								<a class="dropdown-item" href="#">
-									<button>Create Chat-Room</button>
-								</a>
-								<a class="dropdown-item" href="#">
-									<button className="logoutBtn" onClick={this.handleLogout}>
-										Logout
-									</button>
-								</a>
-							</div>
-						</li>
-					</ul>
-					<Link to="/setting">
-						<i class="fas fa-cog" />
-					</Link>
+					<a class="navbar-brand" href="#">
+						<img
+							src="https://banner2.kisspng.com/20180424/oaq/kisspng-honda-logo-car-2007-honda-cr-v-decorative-stickers-5adfa878c61c14.8927719915246070968115.jpg"
+							class=" topnavBarImage d-inline-block align-center"
+							alt=""
+						/>
+						Geo-Chat
+					</a>
 
-					<div class="collapse navbar-collapse" id="navbarText">
-						<ul class="navbar-nav mr-auto">
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon" />
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto">
 							<li class="nav-item active">
-								<a class="nav-link" href="#">
-									Home <span class="sr-only">(current)</span>
-								</a>
+								<Link to="/" class="nav-link">
+									<i class="fas fa-home" /> Home <span class="sr-only">(current)</span>
+								</Link>
 							</li>
-							<Link to="/login">
-								<li class="nav-item">Signup/Login</li>
-							</Link>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Contacts
+
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<i class="far fa-caret-square-down" /> Dropdown
 								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#">
+										Action
+									</a>
+									<a class="dropdown-item" href="#">
+										Another action
+									</a>
+								</div>
+							</li>
+							<li class="nav-item ">
+								<Link class="nav-link" to="/setting">
+									<i class="fas fa-cog" /> Settings
+								</Link>
 							</li>
 						</ul>
 					</div>
 				</nav>
-				<form class="form-inline">
-					<input
-						class="searchInput form-control mr-sm-2"
-						type="search"
-						placeholder="Search"
-						aria-label="Search"
-					/>
-					<button class="btn btn-outline-custom my-2 my-sm-0" type="submit">
-						<i class="fas fa-search" />
-					</button>
-				</form>
+				{/* CHAT-ROOM PRODUCT CARD */}
+				<section className="menuIntro">
+					<div class="jumbotron">
+						<h1 class="display-4">Chat Room</h1>
+						<p class="lead">
+							This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+							to featured content or information.
+						</p>
+						{/* SEARCH BAR */}
+						<form class="navbar-form " role="search">
+							<div class="input-group">
+								<input type="search" class="form-control" placeholder="Search" />
+								<button type="submit" class="btn btn-outline-custom">
+									<i class="fas fa-search" />
+								</button>
+							</div>
+						</form>
+
+						{/* 
+						<a href="#about" class="scroll-icon smoothscroll">
+							<i class="fas fa-angle-down" aria-hidden="true" />
+						</a> */}
+					</div>
+				</section>
+
+				<main className="chatRooms">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+							<p class="card-text">
+								Some quick example text to build on the card title and make up the bulk of the card's
+								content.
+							</p>
+							<a href="#" class="card-link">
+								Enter Chat Room
+							</a>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+							<p class="card-text">
+								Some quick example text to build on the card title and make up the bulk of the card's
+								content.
+							</p>
+							<a href="#" class="card-link">
+								Enter Chat Room
+							</a>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+							<p class="card-text">
+								Some quick example text to build on the card title and make up the bulk of the card's
+								content.
+							</p>
+							<a href="#" class="card-link">
+								Enter Chat Room
+							</a>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+							<p class="card-text">
+								Some quick example text to build on the card title and make up the bulk of the card's
+								content.
+							</p>
+							<a href="#" class="card-link">
+								Enter Chat Room
+							</a>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+							<p class="card-text">
+								Some quick example text to build on the card title and make up the bulk of the card's
+								content.
+							</p>
+							<a href="#" class="card-link">
+								Enter Chat Room
+							</a>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+							<p class="card-text">
+								Some quick example text to build on the card title and make up the bulk of the card's
+								content.
+							</p>
+							<a href="#" class="card-link">
+								Enter Chat Room
+							</a>
+						</div>
+					</div>
+				</main>
+
+				<section className="chatRoomInfo">
+					<div className="productInfo">
+						<img
+							className="chat-room-image"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFky8r6qohFr-P7vGduFMmNCpAAjxYhBP5m8Ltz07a4RN-sOVquQ"
+							alt="chat-room"
+						/>
+						<h1>Chat</h1>
+						<p className="text">
+							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+							of type and scrambled it to make a type specimen book.
+						</p>
+					</div>
+					<div className="productInfo">
+						<img
+							className="chat-room-image"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFky8r6qohFr-P7vGduFMmNCpAAjxYhBP5m8Ltz07a4RN-sOVquQ"
+							alt="chat-room"
+						/>
+						<h1>Chat</h1>
+						<p className="text">
+							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+							of type and scrambled it to make a type specimen book.
+						</p>
+					</div>
+					<div className="productInfo">
+						<img
+							className="chat-room-image"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFky8r6qohFr-P7vGduFMmNCpAAjxYhBP5m8Ltz07a4RN-sOVquQ"
+							alt="chat-room"
+						/>
+						<h1>Chat</h1>
+						<p className="text">
+							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+							of type and scrambled it to make a type specimen book.
+						</p>
+					</div>
+				</section>
 			</div>
 		);
 	}
