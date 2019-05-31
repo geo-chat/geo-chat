@@ -9,18 +9,23 @@ class Home extends Component {
     this.state = {
       lat: null,
       lng: null,
-      chatName: ""
+      chatName: "",
+      rooms: []
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
   async componentDidMount() {
     axios.get("/api/auth/getuser").catch(err => err);
-    navigator.geolocation.getCurrentPosition(position => {
+    await navigator.geolocation.getCurrentPosition(position => {
       console.log(position.coords);
       this.setState({
         lat: position.coords.latitude,
         lng: position.coords.longitude
       });
+    });
+    let results = await axios.post("/api/chat/getrooms");
+    this.setState({
+      rooms: results.data
     });
   }
   changeHandler = e => {
@@ -38,6 +43,7 @@ class Home extends Component {
     this.setState({ chatName: "" });
   }
   render() {
+    console.log(this.state);
     return (
       <div>
         <Navbar />
