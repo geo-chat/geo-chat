@@ -71,6 +71,7 @@ class Navbar extends Component {
             </ul>
           </div>
         </nav>
+<<<<<<< HEAD
         {/* CHAT-ROOM PRODUCT CARD */}
         <section className="menuIntro">
           <div className="jumbotron">
@@ -229,6 +230,8 @@ class Navbar extends Component {
             </p>
           </div>
         </section>
+=======
+>>>>>>> master
       </div>
     );
   }

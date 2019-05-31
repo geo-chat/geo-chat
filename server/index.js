@@ -44,6 +44,7 @@ app.put("/api/auth/edithexcolor", ac.editHexColor);
 app.put("/api/auth/editimg", ac.editImg);
 app.put("/api/auth/editpassword", ac.editPassword);
 app.post("/api/chat/create", cc.createChatRoom);
+app.post("/api/chat/getrooms", cc.getRooms);
 
 const PORT = 6660;
 
