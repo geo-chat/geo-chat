@@ -41,6 +41,10 @@ app.post("/api/chat/create", cc.createChatRoom);
 
 const PORT = 6660;
 
+http.listen(7000, () => {
+  console.log("socket server is listening");
+});
+
 app.listen(PORT, () => {
   console.log(`Listening for bad things to happen on ${PORT}`);
 });
