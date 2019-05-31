@@ -46,7 +46,7 @@ app.put("/api/auth/editpassword", ac.editPassword);
 app.post("/api/chat/create", cc.createChatRoom);
 app.post("/api/chat/getrooms", cc.getRooms);
 
-const PORT = 6660;
+const PORT = 6969;
 
 io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
