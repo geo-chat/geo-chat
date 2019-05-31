@@ -11,18 +11,18 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-custom">
-          <a class="navbar-brand" href="#">
+        <nav className="navbar navbar-expand-lg navbar-light bg-custom">
+          <a className="navbar-brand" href="#">
             <img
               src="https://banner2.kisspng.com/20180424/oaq/kisspng-honda-logo-car-2007-honda-cr-v-decorative-stickers-5adfa878c61c14.8927719915246070968115.jpg"
-              class=" topnavBarImage d-inline-block align-center"
+              className=" topnavBarImage d-inline-block align-center"
               alt=""
             />
             Geo-Chat
           </a>
 
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -30,21 +30,21 @@ class Navbar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon" />
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item active">
-                <Link to="/" class="nav-link">
-                  <i class="fas fa-home" /> Home{" "}
-                  <span class="sr-only">(current)</span>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="nav navbar-nav ml-auto">
+              <li className="nav-item active">
+                <Link to="/" className="nav-link">
+                  <i className="fas fa-home" /> Home{" "}
+                  <span className="sr-only">(current)</span>
                 </Link>
               </li>
 
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link"
+                  className="nav-link"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -52,20 +52,20 @@ class Navbar extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="far fa-caret-square-down" /> Dropdown
+                  <i className="far fa-caret-square-down" /> Dropdown
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a className="dropdown-item" href="#">
                     Action
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </div>
               </li>
-              <li class="nav-item ">
-                <Link class="nav-link" to="/setting">
-                  <i class="fas fa-cog" /> Settings
+              <li className="nav-item ">
+                <Link className="nav-link" to="/setting">
+                  <i className="fas fa-cog" /> Settings
                 </Link>
               </li>
             </ul>
