@@ -82,8 +82,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-http.listen(7000, () => {
-  console.log("Big brother listening on 7000");
+http.listen(7777, () => {
+  console.log("Big brother listening on 7777");
 });
 
 app.listen(PORT, () => {
