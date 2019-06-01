@@ -56,6 +56,7 @@ io.of("/chat").on("connection", socket => {
       socket.join(room, () => {
         // console.log(socket.rooms);
       });
+
       io.of("/chat")
         .in(room)
         .emit("newUser", `new User has joined ${room}`);
@@ -66,6 +67,7 @@ io.of("/chat").on("connection", socket => {
   });
   socket.on("leave", room => {
     socket.leave(room);
+
     socket.emit("left", `left ${room}`);
   });
   socket.on("newMsg", obj => {
