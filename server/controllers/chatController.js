@@ -15,8 +15,7 @@ const getRooms = async (req, res) => {
       res.sendStatus(400);
     });
   rooms = [...results];
-  res.status(200).json(results);
-  console.log(results);
+  res.status(200).json(rooms);
 };
 
 module.exports = { createChatRoom, getRooms, rooms };

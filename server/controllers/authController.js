@@ -17,7 +17,7 @@ const signup = async (req, res) => {
   } else {
     let hash = await bcrypt.hash(password, 10);
     db.signup([username, hash])
-      .then(response => res.status(200).json(response))
+      .then(response => res.status(200).json(response[0]))
       .catch(err => err);
   }
 };
@@ -45,6 +45,8 @@ const getUser = async (req, res) => {
   if (!session.user) {
     session.user = { username: "", id: 0 };
   }
+  console.log(session.user);
+  res.status(200).json(session.user);
 };
 const logout = (req, res) => {
   req.session.destroy();

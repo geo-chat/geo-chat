@@ -8,7 +8,6 @@ import Chatroom from "./components/Chatroom/Chatroom";
 
 export default (
   <Switch>
-    <Route path="/.well-known/pki-validation/A270EF727935D2F0E844B9B1005CB3ED.txt" />
     <Route path="/chatroom/:room" component={Chatroom} />
     <Route path="/setting" component={Setting} />
     <Route path="/signup" component={SignUp} />

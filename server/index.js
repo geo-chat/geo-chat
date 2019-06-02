@@ -9,8 +9,6 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const path = require("path");
 
-const chatrooms = ["test", "maybe"];
-
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
@@ -52,7 +50,7 @@ io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
   console.log("New Client is connected");
   socket.on("joinRoom", room => {
-    if (chatrooms.includes(room)) {
+    if (cc.rooms.includes(room)) {
       socket.join(room, () => {
         // console.log(socket.rooms);
       });

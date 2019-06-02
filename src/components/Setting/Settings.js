@@ -174,7 +174,7 @@ class Settings extends Component {
           <button className="deleteBtn" onClick={this.deleteAccount}>
             Delete account
           </button>
-          <a className="contact" href={"mailto:" + "Trevorrhoffman@gmail.con"}>
+          <a className="contact" href={"mailto:Trevorrhoffman@gmail.con"}>
             Contact Us
           </a>
         </form>
