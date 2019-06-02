@@ -50,18 +50,13 @@ io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
   console.log("New Client is connected");
   socket.on("joinRoom", room => {
-    if (cc.rooms.includes(room)) {
-      socket.join(room, () => {
-        // console.log(socket.rooms);
-      });
-
-      io.of("/chat")
-        .in(room)
-        .emit("newUser", `new User has joined ${room}`);
-      socket.emit("success", `You joined ${room}`);
-    } else {
-      return socket.emit("err", `No room named ${room}`);
-    }
+    socket.join(room, () => {
+      // console.log(socket.rooms);
+    });
+    io.of("/chat")
+      .in(room)
+      .emit("newUser", `new User has joined ${room}`);
+    socket.emit("success", `You joined ${room}`);
   });
   socket.on("leave", room => {
     socket.leave(room);

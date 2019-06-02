@@ -59,22 +59,22 @@ class Home extends Component {
         <Navbar />
         {/* CHAT-ROOM PRODUCT CARD */}
         <section className="menuIntro">
-          <div class="jumbotron">
-            <h1 class="display-4">Chat Room</h1>
-            <p class="lead">
+          <div className="jumbotron">
+            <h1 className="display-4">Chat Room</h1>
+            <p className="lead">
               This is a simple hero unit, a simple jumbotron-style component for
               calling extra attention to featured content or information.
             </p>
             {/* SEARCH BAR */}
-            <form class="navbar-form " role="search">
-              <div class="input-group">
+            <form className="navbar-form " role="search">
+              <div className="input-group">
                 <input
                   type="search"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Search"
                 />
                 <button type="submit" class="btn btn-outline-custom">
-                  <i class="fas fa-search" />
+                  <i className="fas fa-search" />
                 </button>
               </div>
             </form>
@@ -90,14 +90,16 @@ class Home extends Component {
           {this.state.rooms !== []
             ? this.state.rooms.map((room, index) => (
                 <div key={index} class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">{room.name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">
+                  <div className="card-body">
+                    <h5 className="card-title">{room.name}</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      Card subtitle
+                    </h6>
+                    <p className="card-text">
                       Some quick example text to build on the card title and
                       make up the bulk of the card's content.
                     </p>
-                    <Link to="/chatroom/test" class="card-link">
+                    <Link to={`/chatroom/${room.name}`} class="card-link">
                       Enter Chat Room
                     </Link>
                   </div>
