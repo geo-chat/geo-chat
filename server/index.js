@@ -9,8 +9,6 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const path = require("path");
 
-const chatrooms = ["test", "maybe"];
-
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
@@ -45,6 +43,7 @@ app.put("/api/auth/editimg", ac.editImg);
 app.put("/api/auth/editpassword", ac.editPassword);
 app.post("/api/chat/create", cc.createChatRoom);
 app.post("/api/chat/getrooms", cc.getRooms);
+app.post("/test-upload", ac.uploadFiles);
 
 const PORT = 6969;
 
@@ -52,20 +51,18 @@ io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
   console.log("New Client is connected");
   socket.on("joinRoom", room => {
-    if (chatrooms.includes(room)) {
-      socket.join(room, () => {
-        // console.log(socket.rooms);
-      });
-      io.of("/chat")
-        .in(room)
-        .emit("newUser", `new User has joined ${room}`);
-      socket.emit("success", `You joined ${room}`);
-    } else {
-      return socket.emit("err", `No room named ${room}`);
-    }
+    socket.join(room, () => {
+      console.log(socket.rooms);
+      console.log(cc);
+    });
+    io.of("/chat")
+      .in(room)
+      .emit("newUser", `new User has joined ${room}`);
+    socket.emit("success", `You joined ${room}`);
   });
   socket.on("leave", room => {
     socket.leave(room);
+
     socket.emit("left", `left ${room}`);
   });
   socket.on("newMsg", obj => {
