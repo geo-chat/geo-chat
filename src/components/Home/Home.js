@@ -17,16 +17,16 @@ class Home extends Component {
   }
   async componentDidMount() {
     axios.get("/api/auth/getuser").catch(err => err);
-    await navigator.geolocation.getCurrentPosition(position => {
-      console.log(position.coords);
+    axios.get("/api/getGoogle").then(res => {
+      console.log(res.data.location);
       this.setState({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
+        lat: res.data.location.lat,
+        lng: res.data.location.lng
       });
       axios
         .post("/api/chat/getrooms", {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
+          lat: res.data.location.lat,
+          lng: res.data.location.lng
         })
         .then(response => {
           console.log(response.data);
