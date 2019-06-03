@@ -7,8 +7,8 @@ const cc = require("./controllers/chatController");
 const session = require("express-session");
 const fs = require("fs");
 const options = {
-  key: fs.readFileSync("./cert/client.key"),
-  cert: fs.readFileSync("./cert/client.crt"),
+  key: fs.readFileSync("../my_key.key"),
+  cert: fs.readFileSync("../my_cert.crt"),
   requestCert: true
 };
 const http = require("http").createServer(options, app);
