@@ -11,10 +11,7 @@ function App() {
   return (
     <Provider store={store}>
       <HashRouter>
-        <Login />
-        <Chatroom />
-
-        {/* <div className="App">{routes}</div> */}
+        <div className="App">{routes}</div>
       </HashRouter>
     </Provider>
   );
