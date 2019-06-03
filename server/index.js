@@ -5,8 +5,8 @@ const massive = require("massive");
 const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
+const https = require("https").createServer(app);
+const io = require("socket.io")(https);
 const path = require("path");
 
 app.use(express.static(`${__dirname}/../build`));
@@ -79,7 +79,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-http.listen(7777, () => {
+https.listen(7777, () => {
   console.log("Big brother listening on 7777");
 });
 
