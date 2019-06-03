@@ -5,15 +5,10 @@ const massive = require("massive");
 const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
-const fs = require("fs");
-var options = {
-  key: fs.readFileSync("ssl/server.key"),
-  cert: fs.readFileSync("ssl/server.crt"),
-  ca: fs.readFileSync("ssl/ca.crt")
-};
-const https = require("https").createServer(options);
-const io = require("socket.io")(https);
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 const path = require("path");
+const axios = require("axios");
 
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
@@ -50,6 +45,16 @@ app.put("/api/auth/editpassword", ac.editPassword);
 app.post("/api/chat/create", cc.createChatRoom);
 app.post("/api/chat/getrooms", cc.getRooms);
 app.post("/test-upload", ac.uploadFiles);
+app.get("/api/getGoogle", (req, res) => {
+  axios
+    .post(
+      "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyByZu5ucxdwZvoCHLRbane634jGUP7tjCo"
+    )
+    .then(response => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    });
+});
 
 const PORT = 6969;
 
@@ -85,7 +90,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-https.listen(7777, () => {
+http.listen(7777, () => {
   console.log("Big brother listening on 7777");
 });
 
