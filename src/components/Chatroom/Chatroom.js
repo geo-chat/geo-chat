@@ -7,17 +7,21 @@ class Chatroom extends Component {
     super();
     this.state = {
       messages: [],
-      message: []
+      message: [],
+      username: false
     };
   }
   componentDidMount() {
     this.initSocket();
+    if (this.props.user.username) {
+      this.setState({ username: true });
+    }
   }
 
   initSocket = () => {
-    // const socket = io("http://172.31.99.90:7777/chat");
+    const socket = io("http://172.31.99.90:7777/chat", { secure: true });
     // const socket = io("http://192.168.254.58:7777/chat");
-    const socket = io("http://192.241.133.39:7777/chat", { secure: true });
+    // const socket = io("http://192.241.133.39:7777/chat", { secure: true });
     socket.on("connected", msg => {
       console.log(msg);
     });
@@ -30,9 +34,9 @@ class Chatroom extends Component {
     });
   };
   sendMessage = () => {
-    // const socket = io("http://172.31.99.90:7777/chat");
+    const socket = io("http://172.31.99.90:7777/chat", { secure: true });
     // const socket = io("http://192.168.254.58:7777/chat");
-    const socket = io("http://192.241.133.39:7777/chat", { secure: true });
+    // const socket = io("http://192.241.133.39:7777/chat", { secure: true });
     socket.emit("newMsg", {
       room: this.props.match.params.room,
       data: {
@@ -60,7 +64,11 @@ class Chatroom extends Component {
           onChange={ev => this.setState({ message: ev.target.value })}
         />
         <br />
-        <button onClick={this.sendMessage}>Send</button>
+        {this.props.user.username ? (
+          <button onClick={this.sendMessage}>Send</button>
+        ) : (
+          <button disabled>Send</button>
+        )}
       </div>
     );
   }
