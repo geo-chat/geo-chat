@@ -26,7 +26,6 @@ class Settings extends Component {
   }
   updateImg(value) {
     this.props.editImg(value);
-    console.log(value);
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });

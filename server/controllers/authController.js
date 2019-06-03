@@ -34,7 +34,6 @@ const uploadFiles = (request, response) => {
       const timestamp = Date.now().toString();
       const fileName = `bucketFolder/${timestamp}-lg`;
       const data = await uploadFile(buffer, fileName, type);
-      console.log(data);
       return response.status(200).send(data);
     } catch (error) {
       return response.status(400).send(error);
