@@ -52,7 +52,8 @@ io.of("/chat").on("connection", socket => {
   console.log("New Client is connected");
   socket.on("joinRoom", room => {
     socket.join(room, () => {
-      // console.log(socket.rooms);
+      console.log(socket.rooms);
+      console.log(cc);
     });
     io.of("/chat")
       .in(room)

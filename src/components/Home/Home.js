@@ -87,25 +87,27 @@ class Home extends Component {
         </section>
 
         <main className="chatRooms">
-          {this.state.rooms !== []
-            ? this.state.rooms.map((room, index) => (
-                <div key={index} class="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{room.name}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">
-                      Card subtitle
-                    </h6>
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <Link to={`/chatroom/${room.name}`} class="card-link">
-                      Enter Chat Room
-                    </Link>
-                  </div>
+          {this.state.rooms !== [] ? (
+            this.state.rooms.map((room, index) => (
+              <div key={index} class="card">
+                <div className="card-body">
+                  <h5 className="card-title">{room.name}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    Card subtitle
+                  </h6>
+                  <p className="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <Link to={`/chatroom/${room.name}`} class="card-link">
+                    Enter Chat Room
+                  </Link>
                 </div>
-              ))
-            : null}
+              </div>
+            ))
+          ) : (
+            <h3>No Rooms Available</h3>
+          )}
         </main>
 
         <section className="chatRoomInfo">

@@ -19,4 +19,4 @@ const getRooms = async (req, res) => {
   res.status(200).json(rooms);
 };
 
-module.exports = { createChatRoom, getRooms };
+module.exports = { createChatRoom, getRooms, rooms };
