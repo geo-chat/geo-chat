@@ -17,7 +17,7 @@ class Chatroom extends Component {
   initSocket = () => {
     // const socket = io("http://172.31.99.90:7777/chat");
     // const socket = io("http://192.168.254.58:7777/chat");
-    const socket = io("http://157.230.212.208:7777/chat");
+    const socket = io("http://192.241.133.39:7777/chat");
     socket.on("connected", msg => {
       console.log(msg);
     });
@@ -32,7 +32,7 @@ class Chatroom extends Component {
   sendMessage = () => {
     // const socket = io("http://172.31.99.90:7777/chat");
     // const socket = io("http://192.168.254.58:7777/chat");
-    const socket = io("http://157.230.212.208:7777/chat");
+    const socket = io("http://192.241.133.39:7777/chat");
     socket.emit("newMsg", {
       room: this.props.match.params.room,
       data: {

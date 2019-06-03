@@ -17,23 +17,26 @@ class Home extends Component {
   }
   async componentDidMount() {
     axios.get("/api/auth/getuser").catch(err => err);
-    axios.get("/api/getGoogle").then(res => {
-      console.log(res.data.location);
-      this.setState({
-        lat: res.data.location.lat,
-        lng: res.data.location.lng
-      });
-      axios
-        .post("/api/chat/getrooms", {
+    axios
+      .get("/api/getGoogle")
+      .then(res => {
+        console.log(res.data.location);
+        this.setState({
           lat: res.data.location.lat,
           lng: res.data.location.lng
-        })
-        .then(response => {
-          console.log(response.data);
-          this.setState({ rooms: response.data });
-        })
-        .catch(error => console.log(error));
-    });
+        });
+        axios
+          .post("/api/chat/getrooms", {
+            lat: res.data.location.lat,
+            lng: res.data.location.lng
+          })
+          .then(response => {
+            console.log(response.data);
+            this.setState({ rooms: response.data });
+          })
+          .catch(error => console.log(error));
+      })
+      .catch(error => console.log(error));
   }
   changeHandler = e => {
     this.setState({ chatName: e.target.value });
