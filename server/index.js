@@ -5,7 +5,13 @@ const massive = require("massive");
 const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
-const https = require("https").createServer(app);
+const fs = require("fs");
+var options = {
+  key: fs.readFileSync("ssl/server.key"),
+  cert: fs.readFileSync("ssl/server.crt"),
+  ca: fs.readFileSync("ssl/ca.crt")
+};
+const https = require("https").createServer(options);
 const io = require("socket.io")(https);
 const path = require("path");
 
