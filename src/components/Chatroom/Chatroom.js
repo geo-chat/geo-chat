@@ -15,12 +15,13 @@ class Chatroom extends Component {
   }
 
   initSocket = () => {
-    const socket = io("http://172.31.99.90:7000/chat");
-    // const socket = io("http://157.230.212.208:7000/chat");
+    // const socket = io("http://172.31.99.90:7777/chat");
+    // const socket = io("http://192.168.254.58:7777/chat");
+    const socket = io("http://192.241.133.39:7777/chat");
     socket.on("connected", msg => {
       console.log(msg);
     });
-    socket.emit("joinRoom", "test");
+    socket.emit("joinRoom", this.props.match.params.room);
     socket.on("err", err => console.log(err));
     socket.on("success", res => console.log(res));
     socket.on("newUser", res => console.log(res));
@@ -29,11 +30,11 @@ class Chatroom extends Component {
     });
   };
   sendMessage = () => {
-    const socket = io("http://172.31.99.90:7000/chat");
-    // const socket = io("http://157.230.212.208:7000/chat");
+    // const socket = io("http://172.31.99.90:7777/chat");
+    // const socket = io("http://192.168.254.58:7777/chat");
+    const socket = io("http://192.241.133.39:7777/chat");
     socket.emit("newMsg", {
-      //   room: this.props.match.params.room,
-      room: "test",
+      room: this.props.match.params.room,
       data: {
         user: this.props.user.username,
         message: this.state.message
