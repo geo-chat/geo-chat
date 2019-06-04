@@ -37,7 +37,7 @@ class Navbar extends Component {
 						<ul className="nav navbar-nav ml-auto">
 							<li className="nav-item active">
 								<Link to="/" className="nav-link">
-									<i className="fas fa-home" /> <span className="sr-only">(current)</span>
+									<i className="fas fa-home" /> Home <span className="sr-only">(current)</span>
 								</Link>
 							</li>
 
@@ -51,20 +51,33 @@ class Navbar extends Component {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									<i className="far fa-caret-square-down" />
+									<i className="far fa-caret-square-down" /> Dropdown
 								</a>
+
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link to="/login" className="dropdown-item">
-										Login
-									</Link>
+									{!this.props.user.username ? (
+										<Link className="dropdown-item" to="/login">
+											<h6> Login </h6>
+										</Link>
+									) : (
+										<Link to="/login" className="dropdown-item" onClick={this.props.logout}>
+											<h6> Log out </h6>
+										</Link>
+									)}
+
 									<Link to="/signup" className="dropdown-item">
 										Sign up
 									</Link>
+
+									<Link to="/create" className="dropdown-item">
+										Add Chatroom
+									</Link>
 								</div>
 							</li>
+
 							<li className="nav-item ">
 								<Link className="nav-link" to="/setting">
-									<i className="fas fa-cog" />
+									<i className="fas fa-cog" /> Settings
 								</Link>
 							</li>
 						</ul>
@@ -75,6 +88,11 @@ class Navbar extends Component {
 	}
 }
 
-const mapStateToProps = (reduxState) => reduxState;
+const mapStateToProps = (reduxState) => {
+	console.log(reduxState);
+	return {
+		user: reduxState.user
+	};
+};
 
 export default connect(mapStateToProps, { logout })(Navbar);

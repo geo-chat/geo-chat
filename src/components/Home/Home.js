@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
+import { getCoords, getRooms } from '../../store';
 
 class Home extends Component {
 	constructor(props) {
@@ -13,49 +14,13 @@ class Home extends Component {
 			chatName: '',
 			rooms: []
 		};
-		this.clickHandler = this.clickHandler.bind(this);
 	}
 	async componentDidMount() {
 		axios.get('/api/auth/getuser').catch((err) => err);
-		axios
-			.get('/api/getGoogle')
-			.then((res) => {
-				console.log(res.data.location);
-				this.setState({
-					lat: res.data.location.lat,
-					lng: res.data.location.lng
-				});
-				axios
-					.post('/api/chat/getrooms', {
-						lat: res.data.location.lat,
-						lng: res.data.location.lng
-					})
-					.then((response) => {
-						console.log(response.data);
-						this.setState({ rooms: response.data });
-					})
-					.catch((error) => console.log(error));
-			})
-			.catch((error) => console.log(error));
+		await this.props.getCoords();
+		this.props.getRooms(this.props.lat, this.props.lng);
 	}
-	changeHandler = (e) => {
-		this.setState({ chatName: e.target.value });
-	};
-	async clickHandler() {
-		console.log(this.state);
-		if (this.state.name === '') {
-			alert('Please enter a name for your chatroom');
-		} else {
-			await axios
-				.post('/api/chat/create', {
-					name: this.state.chatName,
-					lat: this.state.lat,
-					lng: this.state.lng
-				})
-				.catch((err) => console.log(err));
-			this.setState({ chatName: '' });
-		}
-	}
+
 	render() {
 		return (
 			<div>
@@ -87,7 +52,7 @@ class Home extends Component {
 
 				<main className="chatRooms">
 					{this.state.rooms !== [] ? (
-						this.state.rooms.map((room, index) => (
+						this.props.rooms.map((room, index) => (
 							<div key={index} class="card">
 								<div className="card-body">
 									<h5 className="card-title">{room.name}</h5>
@@ -107,7 +72,7 @@ class Home extends Component {
 					)}
 				</main>
 
-				{/* <section className="chatRoomInfo">
+				<section className="chatRoomInfo">
 					<div className="productInfo">
 						<img
 							className="chat-room-image"
@@ -147,7 +112,7 @@ class Home extends Component {
 							of type and scrambled it to make a type specimen book.
 						</p>
 					</div>
-				</section> */}
+				</section>
 				<input onChange={this.changeHandler} value={this.state.name} />
 				<button onClick={this.clickHandler}>Add ChatRoom</button>
 			</div>
@@ -156,6 +121,10 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-	return {};
+	return {
+		lat: state.lat,
+		lng: state.lng,
+		rooms: state.rooms
+	};
 }
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, { getCoords, getRooms })(Home);
