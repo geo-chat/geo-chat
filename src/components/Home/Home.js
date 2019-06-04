@@ -51,7 +51,7 @@ class Home extends Component {
 				</section>
 
 				<main className="chatRooms">
-					{this.state.rooms !== [] ? (
+					{this.props.rooms !== [] ? (
 						this.props.rooms.map((room, index) => (
 							<div key={index} class="card">
 								<div className="card-body">
