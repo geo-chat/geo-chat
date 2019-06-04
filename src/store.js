@@ -1,10 +1,17 @@
 import { createStore, applyMiddleware } from "redux";
 import promise from "redux-promise-middleware";
 import axios from "axios";
+import { func } from "prop-types";
 
 const initialState = {
-  user: {}
+  user: {},
+  lat: null,
+  lng: null,
+  rooms: []
 };
+
+const GET_COORDS = "GET_COORDS";
+const GET_ROOMS = "GET_ROOMS";
 const LOGIN = "LOGIN";
 const SIGNUP = "SIGNUP";
 const LOGOUT = "LOGOUT";
@@ -14,6 +21,18 @@ const EDIT_IMG = "EDIT_IMG";
 const EDIT_PASSWORD = "EDIT_PASSWORD";
 const EDIT_HEXCOLOR = "EDIT_HEXCOLOR";
 
+export function getCoords() {
+  return {
+    type: GET_COORDS,
+    payload: axios.get("/api/getGoogle")
+  };
+}
+export function getRooms(lat, lng) {
+  return {
+    type: GET_ROOMS,
+    payload: axios.post("/api/chat/getrooms", { lat, lng })
+  };
+}
 export function login(username, password) {
   return {
     type: LOGIN,
@@ -65,6 +84,17 @@ export function editPassword(oldPassword, newPassword) {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case `${GET_COORDS}_FULFILLED`:
+      return {
+        ...state,
+        lat: action.payload.data.location.lat,
+        lng: action.payload.data.location.lng
+      };
+    case `${GET_ROOMS}_FULFILLED`:
+      return {
+        ...state,
+        rooms: action.payload.data
+      };
     case `${LOGIN}_FULFILLED`:
       return {
         ...state,

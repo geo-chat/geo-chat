@@ -13,7 +13,7 @@ const axios = require("axios");
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
-const { CONNECTION_STRING, SESSION_SECRET } = process.env;
+const { CONNECTION_STRING, SESSION_SECRET, GOOGLE_KEY } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
@@ -48,7 +48,7 @@ app.post("/test-upload", ac.uploadFiles);
 app.get("/api/getGoogle", (req, res) => {
   axios
     .post(
-      "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyByZu5ucxdwZvoCHLRbane634jGUP7tjCo"
+      `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_KEY}`
     )
     .then(response => {
       console.log(response.data);
