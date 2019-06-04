@@ -50,6 +50,9 @@
 .fa-cog:hover {
 	color: #825eeb;
 }
+.fa-plus {
+	font-size: 24px;
+}
 .nav-item:hover {
 	background: rgb(204, 203, 203);
 	border: 2px solid red;

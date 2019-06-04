@@ -68,13 +68,53 @@ class Navbar extends Component {
 									<Link to="/signup" className="dropdown-item">
 										Sign up
 									</Link>
-
-									<Link to="/create" className="dropdown-item">
-										Add Chatroom
-									</Link>
 								</div>
 							</li>
 
+							<button
+								// type="button"
+								class="btn btn-primary"
+								data-toggle="modal"
+								data-target="#exampleModalCenter"
+							>
+								<i class="fas fa-plus" />
+								<Link to="/create" className="dropdown-item">
+									Add Chatroom
+								</Link>
+							</button>
+
+							<div
+								class="modal fade"
+								id="exampleModalCenter"
+								tabindex="-1"
+								role="dialog"
+								aria-labelledby="exampleModalCenterTitle"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalCenterTitle">
+												Modal title
+											</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">....</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">
+												Close
+											</button>
+											<button type="button" class="btn btn-primary">
+												<Link to="/create" className="dropdown-item">
+													Add Chatroom
+												</Link>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
 							<li className="nav-item ">
 								<Link className="nav-link" to="/setting">
 									<i className="fas fa-cog" /> Settings

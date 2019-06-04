@@ -72,7 +72,7 @@ class Home extends Component {
 					)}
 				</main>
 
-				<section className="chatRoomInfo">
+				{/* <section className="chatRoomInfo">
 					<div className="productInfo">
 						<img
 							className="chat-room-image"
@@ -112,7 +112,7 @@ class Home extends Component {
 							of type and scrambled it to make a type specimen book.
 						</p>
 					</div>
-				</section>
+				</section> */}
 				<input onChange={this.changeHandler} value={this.state.name} />
 				<button onClick={this.clickHandler}>Add ChatRoom</button>
 			</div>
