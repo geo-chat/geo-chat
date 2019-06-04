@@ -12,6 +12,8 @@ const initialState = {
 
 const GET_COORDS = "GET_COORDS";
 const GET_ROOMS = "GET_ROOMS";
+const ADD_TO_ROOM = "ADD_TO_ROOM";
+const LEAVE_ROOM = "LEAVE_ROOM";
 const LOGIN = "LOGIN";
 const SIGNUP = "SIGNUP";
 const LOGOUT = "LOGOUT";
@@ -31,6 +33,18 @@ export function getRooms(lat, lng) {
   return {
     type: GET_ROOMS,
     payload: axios.post("/api/chat/getrooms", { lat, lng })
+  };
+}
+export function addToRoom(room) {
+  return {
+    type: ADD_TO_ROOM,
+    payload: axios.put("/api/chat/addtoroom", room)
+  };
+}
+export function leaveRoom(room) {
+  return {
+    type: LEAVE_ROOM,
+    payload: axios.put("/api/chat/leaveroom", room)
   };
 }
 export function login(username, password) {
@@ -91,6 +105,16 @@ function reducer(state = initialState, action) {
         lng: action.payload.data.location.lng
       };
     case `${GET_ROOMS}_FULFILLED`:
+      return {
+        ...state,
+        rooms: action.payload.data
+      };
+    case `${ADD_TO_ROOM}_FULFILLED`:
+      return {
+        ...state,
+        rooms: action.payload.data
+      };
+    case `${LEAVE_ROOM}_FULFILLED`:
       return {
         ...state,
         rooms: action.payload.data
