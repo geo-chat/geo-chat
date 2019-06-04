@@ -37,7 +37,7 @@ class Navbar extends Component {
 						<ul className="nav navbar-nav ml-auto">
 							<li className="nav-item active">
 								<Link to="/" className="nav-link">
-									<i className="fas fa-home" /> Home <span className="sr-only">(current)</span>
+									<i className="fas fa-home" /> <span className="sr-only">(current)</span>
 								</Link>
 							</li>
 
@@ -51,7 +51,7 @@ class Navbar extends Component {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									<i className="far fa-caret-square-down" /> Dropdown
+									<i className="far fa-caret-square-down" />
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
 									<Link to="/login" className="dropdown-item">
@@ -64,7 +64,7 @@ class Navbar extends Component {
 							</li>
 							<li className="nav-item ">
 								<Link className="nav-link" to="/setting">
-									<i className="fas fa-cog" /> Settings
+									<i className="fas fa-cog" />
 								</Link>
 							</li>
 						</ul>

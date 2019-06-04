@@ -46,7 +46,13 @@
 	/* border: 2px solid red; */
 	font-size: 30px;
 	text-decoration: none;
+}
+.fa-cog:hover {
 	color: #825eeb;
+}
+.nav-item:hover {
+	background: rgb(204, 203, 203);
+	border: 2px solid red;
 }
 .btn-outline-success {
 	/* border: 2px solid red; */
