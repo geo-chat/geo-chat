@@ -56,7 +56,7 @@ class Home extends Component {
 							<div key={index} class="card">
 								<div className="card-body">
 									<h5 className="card-title">{room.name}</h5>
-									<h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+
 									<p className="card-text">
 										Some quick example text to build on the card title and make up the bulk of the
 										card's content.
@@ -71,50 +71,6 @@ class Home extends Component {
 						<h3>No Rooms Available</h3>
 					)}
 				</main>
-
-				{/* <section className="chatRoomInfo">
-					<div className="productInfo">
-						<img
-							className="chat-room-image"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFky8r6qohFr-P7vGduFMmNCpAAjxYhBP5m8Ltz07a4RN-sOVquQ"
-							alt="chat-room"
-						/>
-						<h1>Chat</h1>
-						<p className="text">
-							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-							of type and scrambled it to make a type specimen book.
-						</p>
-					</div>
-					<div className="productInfo">
-						<img
-							className="chat-room-image"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFky8r6qohFr-P7vGduFMmNCpAAjxYhBP5m8Ltz07a4RN-sOVquQ"
-							alt="chat-room"
-						/>
-						<h1>Chat</h1>
-						<p className="text">
-							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-							of type and scrambled it to make a type specimen book.
-						</p>
-					</div>
-					<div className="productInfo">
-						<img
-							className="chat-room-image"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFky8r6qohFr-P7vGduFMmNCpAAjxYhBP5m8Ltz07a4RN-sOVquQ"
-							alt="chat-room"
-						/>
-						<h1>Chat</h1>
-						<p className="text">
-							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-							of type and scrambled it to make a type specimen book.
-						</p>
-					</div>
-				</section> */}
-				<input onChange={this.changeHandler} value={this.state.name} />
-				<button onClick={this.clickHandler}>Add ChatRoom</button>
 			</div>
 		);
 	}

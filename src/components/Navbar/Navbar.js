@@ -3,11 +3,61 @@ import '../Navbar/Navbar.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../store';
+import axios from 'axios';
 
 class Navbar extends Component {
+	constructor() {
+		super();
+		this.state = {
+			lat: null,
+			lng: null,
+			chatName: '',
+			rooms: []
+		};
+		this.clickHandler = this.clickHandler.bind(this);
+	}
+	async componentDidMount() {
+		axios.get('/api/auth/getuser').catch((err) => err);
+		await navigator.geolocation.getCurrentPosition((position) => {
+			console.log(position.coords);
+			this.setState({
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			});
+			axios
+				.post('/api/chat/getrooms', {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				})
+				.then((response) => {
+					console.log(response.data);
+					this.setState({ rooms: response.data });
+				})
+				.catch((error) => console.log(error));
+		});
+	}
+	changeHandler = (e) => {
+		this.setState({ chatName: e.target.value });
+	};
 	handleLogout = () => {
 		this.props.logout();
 	};
+	async clickHandler() {
+		console.log(this.props);
+		if (this.state.name === '') {
+			alert('Please enter a name for your chatroom');
+		} else {
+			await axios
+				.post('/api/chat/create', {
+					name: this.state.chatName,
+					lat: this.props.lat,
+					lng: this.props.lng
+				})
+				.catch((err) => console.log(err));
+			this.setState({ chatName: '' });
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -51,7 +101,7 @@ class Navbar extends Component {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									<i className="far fa-caret-square-down" /> Dropdown
+									<i className="far fa-caret-square-down" /> Login/Signup
 								</a>
 
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -73,13 +123,12 @@ class Navbar extends Component {
 
 							<button
 								// type="button"
-								class="btn btn-primary"
+								class="btn btn-custom"
 								data-toggle="modal"
 								data-target="#exampleModalCenter"
 							>
-								<i class="fas fa-plus" />
 								<Link to="/create" className="dropdown-item">
-									Add Chatroom
+									<i class="fas fa-plus" /> Add Chatroom
 								</Link>
 							</button>
 
@@ -95,18 +144,20 @@ class Navbar extends Component {
 									<div class="modal-content">
 										<div class="modal-header">
 											<h5 class="modal-title" id="exampleModalCenterTitle">
-												Modal title
+												Create Chatroom
 											</h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
-										<div class="modal-body">....</div>
+										<div class="modal-body">
+											<input onChange={this.changeHandler} />
+										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">
 												Close
 											</button>
-											<button type="button" class="btn btn-primary">
+											<button onClick={this.clickHandler} type="button" class="btn btn-custom">
 												<Link to="/create" className="dropdown-item">
 													Add Chatroom
 												</Link>
@@ -131,7 +182,9 @@ class Navbar extends Component {
 const mapStateToProps = (reduxState) => {
 	console.log(reduxState);
 	return {
-		user: reduxState.user
+		user: reduxState.user,
+		lat: reduxState.lat,
+		lng: reduxState.lng
 	};
 };
 
