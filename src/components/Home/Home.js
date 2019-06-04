@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
-import { getCoords, getRooms } from "../../store";
 
 class Home extends Component {
+<<<<<<< HEAD
+=======
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,6 +21,7 @@ class Home extends Component {
     this.props.getRooms(this.props.lat, this.props.lng);
   };
 
+>>>>>>> master
   render() {
     return (
       <div>
@@ -55,7 +56,7 @@ class Home extends Component {
         </section>
 
         <main className="chatRooms">
-          {this.state.rooms !== [] ? (
+          {this.props.rooms !== [] ? (
             this.props.rooms.map((room, index) => (
               <div key={index} class="card">
                 <div className="card-body">
@@ -141,7 +142,4 @@ function mapStateToProps(state) {
     user: state.user
   };
 }
-export default connect(
-  mapStateToProps,
-  { getCoords, getRooms }
-)(Home);
+export default connect(mapStateToProps)(Home);

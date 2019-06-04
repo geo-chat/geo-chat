@@ -35,16 +35,16 @@ export function getRooms(lat, lng) {
     payload: axios.post("/api/chat/getrooms", { lat, lng })
   };
 }
-export function addToRoom(room) {
+export function addToRoom(id, lat, lng) {
   return {
     type: ADD_TO_ROOM,
-    payload: axios.put("/api/chat/addtoroom", room)
+    payload: axios.put("/api/chat/addtoroom", { id, lat, lng })
   };
 }
-export function leaveRoom(room) {
+export function leaveRoom(id, lat, lng) {
   return {
     type: LEAVE_ROOM,
-    payload: axios.put("/api/chat/leaveroom", room)
+    payload: axios.put("/api/chat/leaveroom", { id, lat, lng })
   };
 }
 export function login(username, password) {
