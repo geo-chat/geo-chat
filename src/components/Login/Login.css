@@ -1,0 +1,237 @@
+.loginForm {
+	/* border: 2px solid red; */
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+.usernameLogin {
+	border: 2px solid transparent;
+	width: 90%;
+	height: 50px;
+	border-radius: 10px;
+	background: rgb(238, 236, 236);
+	margin-bottom: 40px;
+}
+
+.passwordLogin {
+	border: 2px solid transparent;
+	width: 90%;
+	height: 50px;
+	border-radius: 10px;
+	background: rgb(238, 236, 236);
+	margin-bottom: 40px;
+}
+.loginBtn {
+	/* border: 2px solid green; */
+	background: #825eeb;
+	width: 80%;
+	height: 50px;
+	border-radius: 10px;
+	outline: none;
+	color: white;
+	font-size: 30px;
+	margin-bottom: 25px;
+}
+.loginBtn:hover {
+	background: #6341ca;
+}
+
+.imageLogin {
+	/* display: none; */
+	/* border: 2px solid green; */
+	background: url('https://cdn.dribbble.com/users/145218/screenshots/1440547/chaticon.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: white;
+	height: 100%;
+	border-radius: 5px;
+	width: 53%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.smallLoginForm {
+	/* border: 2px solid blue; */
+	width: 70%;
+	justify-content: flex-start;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.outsideLogin {
+	border-radius: 5px;
+	/* border: 2px solid rgb(119, 119, 119); */
+	justify-content: flex-start;
+	align-items: center;
+	display: flex;
+	height: 68vh;
+	width: 56vw;
+	flex-direction: row;
+	box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+	/* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
+}
+.descriptionLogin {
+	font-size: 30px;
+	color: black;
+}
+.titleLogin {
+	font-size: 50px;
+	color: black;
+}
+.descLogin {
+	/* border: 2px solid red; */
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 15vh;
+	margin-bottom: 10vh;
+}
+.iconInside {
+	position: relative;
+	color: #aaa;
+	font-size: 16px;
+}
+.iconInside input {
+	width: 25vw;
+	box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+.iconInside input {
+	text-indent: 32px;
+}
+.iconInside .fa-user {
+	position: absolute;
+	top: 18px;
+	left: 10px;
+	color: #825eeb;
+}
+.iconInside .fa-lock {
+	position: absolute;
+	top: 18px;
+	left: 10px;
+	color: #825eeb;
+}
+
+@media (max-width: 500px) {
+	.loginForm {
+		/* border: 2px solid red; */
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+	}
+	.usernameLogin {
+		border: 2px solid transparent;
+		width: 90%;
+		height: 38px;
+		border-radius: 10px;
+		background: rgb(238, 236, 236);
+		margin-bottom: 25px;
+	}
+
+	.passwordLogin {
+		border: 2px solid transparent;
+		width: 90%;
+		height: 38px;
+		border-radius: 10px;
+		background: rgb(238, 236, 236);
+		margin-bottom: 25px;
+	}
+	.loginBtn {
+		/* border: 2px solid green; */
+		background: #825eeb;
+		width: 90%;
+		height: 38px;
+		border-radius: 10px;
+		outline: none;
+		color: white;
+		font-size: 23px;
+		margin-bottom: 10px;
+	}
+
+	.imageLogin {
+		/* display: none; */
+		/* border: 2px solid green; */
+		background: url('https://cdn.dribbble.com/users/145218/screenshots/1440547/chaticon.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		color: white;
+		height: 33vh;
+		border-radius: 5px;
+		width: 100%;
+	}
+	.smallLoginForm {
+		/* border: 2px solid blue; */
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.outsideLogin {
+		border-radius: 5px;
+		/* border: 1px solid rgb(218, 215, 215); */
+		justify-content: flex-start;
+		align-items: center;
+		display: flex;
+		height: 68vh;
+		width: 90vw;
+		flex-direction: column;
+		box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+		/* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
+	}
+	/* .signUpInLogin {
+		cursor: pointer;
+		outline: blueviolet;
+	} */
+	.description {
+		font-size: 20px;
+	}
+	.title {
+		font-size: 35px;
+	}
+	.iconInside {
+		position: relative;
+		color: #aaa;
+		font-size: 16px;
+	}
+	.iconInside input {
+		width: 80vw;
+		box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+	}
+	.iconInside input {
+		text-indent: 32px;
+	}
+	.iconInside .fa-user {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		color: #825eeb;
+	}
+	.iconInside .fa-lock {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		color: #825eeb;
+	}
+	.descLogin {
+		/* border: 2px solid red; */
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 15vh;
+		margin-bottom: 5vh;
+	}
+}

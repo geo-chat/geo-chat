@@ -1,5 +1,5 @@
 .navbar {
-	/* background: rgb(140, 231, 235); */
+	background: rgb(229, 229, 230);
 	text-decoration: none;
 	font-size: 30px;
 	color: black;
@@ -128,7 +128,7 @@
 	background-size: cover;
 	width: 100vw;
 	height: 55vh;
-	background-image: url('https://images.unsplash.com/photo-1543409742-080d01661481?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+	background-image: url('https://images.unsplash.com/photo-1557424120-32c81c3d50e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
 }
 .fa-angle-down {
 	font-size: 45px;
