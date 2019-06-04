@@ -163,6 +163,7 @@
 		background: url('https://cdn.dribbble.com/users/145218/screenshots/1440547/chaticon.jpg');
 		background-size: cover;
 		background-repeat: no-repeat;
+		background-position: center;
 		color: white;
 		height: 33vh;
 		border-radius: 5px;

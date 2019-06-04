@@ -38,15 +38,48 @@
 }
 .fa-caret-square-down {
 	color: #825eeb;
+	font-size: 27px;
 }
 .fa-home {
 	color: #825eeb;
+	font-size: 24px;
 }
 .fa-cog {
 	/* border: 2px solid red; */
 	font-size: 30px;
 	text-decoration: none;
+	font-size: 24px;
 	color: #825eeb;
+}
+/* .fa-cog:hover {
+} */
+.fa-plus {
+	font-size: 24px;
+	color: #825eeb;
+}
+.nav-link {
+	/* border: 2px solid red; */
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dropdown-item {
+	/* border: 2px solid red; */
+
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	outline: none;
+}
+.dropdown-item:hover {
+	background: rgb(229, 229, 230);
+}
+.nav-item:hover {
+	/* background: #ffffff, opacity 0%; */
+	/* border: 2px solid forestgreen; */
 }
 .btn-outline-success {
 	/* border: 2px solid red; */
