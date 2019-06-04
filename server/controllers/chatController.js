@@ -1,5 +1,3 @@
-let rooms = [];
-
 const createChatRoom = (req, res) => {
   req.app
     .get("db")
@@ -19,22 +17,24 @@ const getRooms = async (req, res) => {
     .catch(err => {
       res.sendStatus(400);
     });
-  rooms = [...results];
   res.status(200).json(results);
 };
 const addToRoom = async (req, res) => {
-  const room = req.body;
-  let index;
-  for (let i = 0; i < rooms.length; i++) {
-    if (rooms[i].name === room) {
-      index = i;
-    }
-  }
-  console.log(index);
+  const { id, lat, lng } = req.body;
+  let results = await req.app
+    .get("db")
+    .add_to_room([+id, +lat, +lng, 5])
+    .catch(err => console.log(err));
+  res.status(200).json(results);
 };
 
 const leaveRoom = async (req, res) => {
-  const room = req.body;
+  const { id, lat, lng } = req.body;
+  let results = await req.app
+    .get("db")
+    .leave_room([+id, +lat, +lng, 5])
+    .catch(err => console.log(err));
+  res.status(200).json(results);
 };
 
 module.exports = { createChatRoom, getRooms, addToRoom, leaveRoom };

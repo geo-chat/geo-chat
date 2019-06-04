@@ -1,26 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
-import { getCoords, getRooms } from "../../store";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lat: null,
-      lng: null,
-      chatName: "",
-      rooms: []
-    };
-  }
-  async componentDidMount() {
-    axios.get("/api/auth/getuser").catch(err => err);
-    await this.props.getCoords();
-    this.props.getRooms(this.props.lat, this.props.lng);
-  }
-
   render() {
     return (
       <div>
@@ -55,7 +38,7 @@ class Home extends Component {
         </section>
 
         <main className="chatRooms">
-          {this.state.rooms !== [] ? (
+          {this.props.rooms !== [] ? (
             this.props.rooms.map((room, index) => (
               <div key={index} class="card">
                 <div className="card-body">
@@ -134,7 +117,4 @@ function mapStateToProps(state) {
     rooms: state.rooms
   };
 }
-export default connect(
-  mapStateToProps,
-  { getCoords, getRooms }
-)(Home);
+export default connect(mapStateToProps)(Home);

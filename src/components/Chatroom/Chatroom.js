@@ -2,22 +2,46 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import io from "socket.io-client";
 import "../Chatroom/Chatroom.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { addToRoom, leaveRoom, getRooms } from "../../store";
+
 class Chatroom extends Component {
   constructor() {
     super();
     this.state = {
       messages: [],
       message: [],
-      username: false
+      index: -1
     };
   }
   componentDidMount() {
     this.initSocket();
-    if (this.props.user.username) {
-      this.setState({ username: true });
+    let index;
+    for (let i = 0; i < this.props.rooms.length; i++) {
+      if (this.props.rooms[i].name === this.props.match.params.room) {
+        index = i;
+      }
     }
+    let chatid = this.props.rooms[index].id;
+    this.setState({ index });
+    const { lat, lng } = this.props;
+    this.props.addToRoom(chatid, lat, lng);
+  }
+  componentWillUnmount() {
+    const socket = io("http://172.31.99.90:7777/chat", { secure: true });
+    socket.emit("leave", this.props.match.params.room);
+    let index;
+    for (let i = 0; i < this.props.rooms.length; i++) {
+      if (this.props.rooms[i].name === this.props.match.params.room) {
+        index = i;
+      }
+    }
+    let chatid = this.props.rooms[index].id;
+    const { lat, lng } = this.props;
+    this.props.leaveRoom(chatid, lat, lng);
   }
 
   initSocket = () => {
@@ -30,7 +54,14 @@ class Chatroom extends Component {
     socket.emit("joinRoom", this.props.match.params.room);
     socket.on("err", err => console.log(err));
     socket.on("success", res => console.log(res));
-    socket.on("newUser", res => console.log(res));
+    socket.on("newUser", res => {
+      this.props.getRooms(this.props.lat, this.props.lng);
+      toast.success(res);
+    });
+    socket.on("left", res => {
+      this.props.getRooms(this.props.lat, this.props.lng);
+      toast.warning(res);
+    });
     socket.on("msg", res => {
       this.setState({ messages: [...this.state.messages, res.data] });
     });
@@ -50,48 +81,53 @@ class Chatroom extends Component {
   };
 
   render() {
-    if (!this.props.rooms.includes(this.props.match.params.room)) {
-      return <Redirect to="/" />;
-    } else {
-      return (
-        <div>
-          <Navbar />
-          <div className="chatRoomForm">
-            {/* <div className="msgForm"> */}
-            {this.state.messages.map((message, index) => {
-              return (
-                <div className="messages" key={index}>
-                  <p className="userMessage">
-                    {message.user}: {message.message}
-                  </p>
-                </div>
-              );
-            })}
-            {/* </div> */}
-            <div className="input-Btn">
-              <input
-                className="inputMessage"
-                type="text"
-                placeholder="Message"
-                value={this.state.message}
-                onChange={ev => this.setState({ message: ev.target.value })}
-              />
-              <br />
-              <button className="sendBtn" onClick={this.sendMessage}>
-                <i class="far fa-paper-plane" />
-              </button>
-            </div>
+    return (
+      <div>
+        <Navbar />
+        <div className="chatRoomForm">
+          {/* <div className="msgForm"> */}
+          {this.state.index !== -1 ? (
+            <h2>{this.props.rooms[this.state.index].member}</h2>
+          ) : null}
+          <ToastContainer />
+          {this.state.messages.map((message, index) => {
+            return (
+              <div className="messages" key={index}>
+                <p className="userMessage">
+                  {message.user}: {message.message}
+                </p>
+              </div>
+            );
+          })}
+          {/* </div> */}
+          <div className="input-Btn">
+            <input
+              className="inputMessage"
+              type="text"
+              placeholder="Message"
+              value={this.state.message}
+              onChange={ev => this.setState({ message: ev.target.value })}
+            />
+            <br />
+            <button className="sendBtn" onClick={this.sendMessage}>
+              <i class="far fa-paper-plane" />
+            </button>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
-const mapStateToProps = reduxState => {
+function mapStateToProps(reduxState) {
   return {
     user: reduxState.user,
-    rooms: reduxState.rooms
+    rooms: reduxState.rooms,
+    lat: reduxState.lat,
+    lng: reduxState.lng
   };
-};
+}
 
-export default connect(mapStateToProps)(Chatroom);
+export default connect(
+  mapStateToProps,
+  { addToRoom, leaveRoom, getRooms }
+)(Chatroom);
