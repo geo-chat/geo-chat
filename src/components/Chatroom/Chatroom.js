@@ -50,43 +50,43 @@ class Chatroom extends Component {
   };
 
   render() {
-    if (!this.props.rooms.includes(this.props.match.params.room)) {
-      return <Redirect to="/" />;
-    } else {
-      return (
-        <div>
-          <Navbar />
-          <div className="chatRoomForm">
-            {/* <div className="msgForm"> */}
-            {this.state.messages.map((message, index) => {
-              return (
-                <div className="messages" key={index}>
-                  <p className="userMessage">
-                    {message.user}: {message.message}
-                  </p>
-                </div>
-              );
-            })}
-            {/* </div> */}
-            <div className="input-Btn">
-              <input
-                className="inputMessage"
-                type="text"
-                placeholder="Message"
-                value={this.state.message}
-                onChange={ev => this.setState({ message: ev.target.value })}
-              />
-              <br />
-              <button className="sendBtn" onClick={this.sendMessage}>
-                <i class="far fa-paper-plane" />
-              </button>
-            </div>
+    // if (!this.props.rooms.includes(this.props.match.params.room)) {
+    //   return <Redirect to="/" />;
+    // } else {
+    return (
+      <div>
+        <Navbar />
+        <div className="chatRoomForm">
+          {/* <div className="msgForm"> */}
+          {this.state.messages.map((message, index) => {
+            return (
+              <div className="messages" key={index}>
+                <p className="userMessage">
+                  {message.user}: {message.message}
+                </p>
+              </div>
+            );
+          })}
+          {/* </div> */}
+          <div className="input-Btn">
+            <input
+              className="inputMessage"
+              type="text"
+              placeholder="Message"
+              value={this.state.message}
+              onChange={ev => this.setState({ message: ev.target.value })}
+            />
+            <br />
+            <button className="sendBtn" onClick={this.sendMessage}>
+              <i class="far fa-paper-plane" />
+            </button>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
+
 const mapStateToProps = reduxState => {
   return {
     user: reduxState.user,

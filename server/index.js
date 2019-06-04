@@ -32,7 +32,7 @@ app.use(
 		}
 	})
 );
-
+app.delete('/api/chat/deleteroom/:chatid', cc.deleteRoom);
 app.delete('/api/auth/deleteaccount', ac.deleteAccount);
 app.post('/api/auth/signup', ac.signup);
 app.get('/api/auth/getuser', ac.getUser);
