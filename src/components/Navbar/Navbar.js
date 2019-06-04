@@ -12,14 +12,14 @@ class Navbar extends Component {
 		return (
 			<div>
 				<nav className="navbar navbar-expand-lg navbar-light bg-custom">
-					<a className="navbar-brand" href="#">
+					<Link className="navbar-brand" to="/">
 						<img
 							src="https://banner2.kisspng.com/20180424/oaq/kisspng-honda-logo-car-2007-honda-cr-v-decorative-stickers-5adfa878c61c14.8927719915246070968115.jpg"
 							className=" topnavBarImage d-inline-block align-center"
 							alt=""
 						/>
 						Geo-Chat
-					</a>
+					</Link>
 
 					<button
 						className="navbar-toggler"
@@ -54,10 +54,12 @@ class Navbar extends Component {
 									<i className="far fa-caret-square-down" /> Dropdown
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a className="dropdown-item" href="#">
-										Action
-									</a>
-									<a className="dropdown-item">Chat-room</a>
+									<Link to="/login" className="dropdown-item">
+										Login
+									</Link>
+									<Link to="/signup" className="dropdown-item">
+										Sign up
+									</Link>
 								</div>
 							</li>
 							<li className="nav-item ">

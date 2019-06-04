@@ -46,10 +46,7 @@ class Home extends Component {
 				<section className="menuIntro">
 					<div class="jumbotron">
 						<h1 class="display-4">Chat Room</h1>
-						<p class="lead">
-							This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-							to featured content or information.
-						</p>
+						<p class="lead">Welcome to Geo-Chat where you can chat with other people.</p>
 						{/* SEARCH BAR */}
 						<form class="navbar-form " role="search">
 							<div class="input-group">

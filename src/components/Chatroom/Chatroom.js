@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import io from 'socket.io-client';
-
+import '../Chatroom/Chatroom.css';
+import Navbar from '../Navbar/Navbar';
 class Chatroom extends Component {
 	constructor() {
 		super();
@@ -44,21 +45,33 @@ class Chatroom extends Component {
 	render() {
 		return (
 			<div>
-				{this.state.messages.map((message, index) => {
-					return (
-						<div key={index}>
-							{message.user}: {message.message}
-						</div>
-					);
-				})}
-				<input
-					type="text"
-					placeholder="Message"
-					value={this.state.message}
-					onChange={(ev) => this.setState({ message: ev.target.value })}
-				/>
-				<br />
-				<button onClick={this.sendMessage}>Send</button>
+				<Navbar />
+				<div className="chatRoomForm">
+					{/* <div className="msgForm"> */}
+					{this.state.messages.map((message, index) => {
+						return (
+							<div className="messages" key={index}>
+								<p className="userMessage">
+									{message.user}: {message.message}
+								</p>
+							</div>
+						);
+					})}
+					{/* </div> */}
+					<div className="input-Btn">
+						<input
+							className="inputMessage"
+							type="text"
+							placeholder="Message"
+							value={this.state.message}
+							onChange={(ev) => this.setState({ message: ev.target.value })}
+						/>
+						<br />
+						<button className="sendBtn" onClick={this.sendMessage}>
+							<i class="far fa-paper-plane" />
+						</button>
+					</div>
+				</div>
 			</div>
 		);
 	}
