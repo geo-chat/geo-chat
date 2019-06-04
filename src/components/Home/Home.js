@@ -122,8 +122,6 @@ class Home extends Component {
             </p>
           </div>
         </section>
-        <input onChange={this.changeHandler} value={this.state.name} />
-        <button onClick={this.clickHandler}>Add ChatRoom</button>
       </div>
     );
   }
