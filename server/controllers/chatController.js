@@ -36,5 +36,15 @@ const leaveRoom = async (req, res) => {
     .catch(err => console.log(err));
   res.status(200).json(results);
 };
+const deleteRoom = async (req, res) => {
+  console.log(req.session.user.id);
+  console.log(req.params.chatid);
+  const db = req.app.get("db");
+  const { id } = req.session.user;
+  const { chatid } = req.params;
+  db.delete_room([+chatid, +id])
+    .then(response => res.status(200).json(response))
+    .catch(err => err);
+};
 
-module.exports = { createChatRoom, getRooms, addToRoom, leaveRoom };
+module.exports = { createChatRoom, getRooms, addToRoom, leaveRoom, deleteRoom };

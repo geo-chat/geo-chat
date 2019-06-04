@@ -4,6 +4,24 @@ import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 
 class Home extends Component {
+<<<<<<< HEAD
+=======
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  async componentDidMount() {
+    axios.get("/api/auth/getuser").catch(err => err);
+    await this.props.getCoords();
+    this.props.getRooms(this.props.lat, this.props.lng);
+  }
+  deleteRoom = chatid => {
+    console.log("anna");
+    axios.delete(`/api/chat/deleteroom/${chatid}`).catch(err => err);
+    this.props.getRooms(this.props.lat, this.props.lng);
+  };
+
+>>>>>>> master
   render() {
     return (
       <div>
@@ -53,6 +71,11 @@ class Home extends Component {
                   <Link to={`/chatroom/${room.name}`} class="card-link">
                     Enter Chat Room
                   </Link>
+                  {room.userid === this.props.user.id ? (
+                    <button onClick={() => this.deleteRoom(room.id)}>
+                      Delete
+                    </button>
+                  ) : null}
                 </div>
               </div>
             ))
@@ -111,10 +134,12 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     lat: state.lat,
     lng: state.lng,
-    rooms: state.rooms
+    rooms: state.rooms,
+    user: state.user
   };
 }
 export default connect(mapStateToProps)(Home);

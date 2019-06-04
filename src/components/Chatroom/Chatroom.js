@@ -118,14 +118,15 @@ class Chatroom extends Component {
     );
   }
 }
-function mapStateToProps(reduxState) {
+
+const mapStateToProps = reduxState => {
   return {
     user: reduxState.user,
     rooms: reduxState.rooms,
     lat: reduxState.lat,
     lng: reduxState.lng
   };
-}
+};
 
 export default connect(
   mapStateToProps,
