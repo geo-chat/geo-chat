@@ -77,7 +77,9 @@ class Chatroom extends Component {
 			toast.warning(res);
 		});
 		socket.on('msg', (res) => {
-			this.setState({ messages: [ ...this.state.messages, res.data ] });
+			let { messages } = this.state;
+			messages.unshift(res.data);
+			this.setState({ messages });
 		});
 	};
 	sendMessage = () => {
@@ -141,28 +143,33 @@ class Chatroom extends Component {
 							{this.state.messages.map((message, index) => {
 								return (
 									<div className="messages" key={index}>
-										<p className="userMessage">
-											{message.user}: {message.message}
+										<p className="userMessage" style={{ color: message.color }}>
+											<p>{message.user}: </p> <p className="userMsg"> {message.message}</p>
 										</p>
 									</div>
 								);
 							})}
 							{/* </div> */}
 						</div>
-						<div className="input-Btn">
-							<div className="wholeInput">
-								<input
-									className="inputMessage"
-									type="text"
-									placeholder="Type a Message"
-									value={this.state.message}
-									onChange={(ev) => this.setState({ message: ev.target.value })}
-								/>
+						{this.props.user.username ? (
+							<div className="input-Btn">
+								<div className="wholeInput">
+									<input
+										onKeyPress={this.keyPressed}
+										className="inputMessage"
+										type="text"
+										placeholder="Type a Message"
+										value={this.state.message}
+										onChange={(ev) => this.setState({ message: ev.target.value })}
+									/>
+								</div>
+								<div className="wholeSend">
+									<i type="submit" onClick={this.sendMessage} className="far fa-paper-plane" />
+								</div>
 							</div>
-							<div className="wholeSend">
-								<i onClick={this.sendMessage} class="far fa-paper-plane" />
-							</div>
-						</div>
+						) : (
+							<div className="inputMessage">Please Login To Chat</div>
+						)}
 					</div>
 				</div>
 			</div>

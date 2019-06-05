@@ -75,7 +75,11 @@
 	/* border: 2px solid blue; */
 	width: 92%;
 	max-height: 90vh;
-	overflow: auto;
+	overflow: scroll;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column-reverse;
 }
 .fa-paper-plane {
 	/* border: 2px solid blue; */
@@ -102,7 +106,7 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	display: flex;
-	height: 11vh;
+	min-height: 13vh;
 	width: 100%;
 	box-sizing: border-box;
 	word-break: break-all;
@@ -132,20 +136,29 @@
 	/* border: 2px solid red; */
 	border-radius: 20px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: stretch;
-	align-content: stretch;
+	justify-content: flex-start;
+	align-items: center;
+	/* align-content: center; */
 	width: 100%;
-	height: 100%;
-	font-size: 15px;
+	min-height: 100px;
+	font-size: 20px;
 	word-break: break-all;
 	hyphens: auto;
 	overflow-wrap: break-word;
+	padding: 50px;
+
+	font-weight: bold;
+	/* overflow: auto; */
+	/* overflow-wrap: inherit; */
+}
+.userMsg {
+	font-size: 25px;
+	padding-left: 10px;
 }
 .wholeInput {
-	/* border: 2px solid red; */
+	/* border: 2px solid blue; */
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -164,9 +177,10 @@
 	height: 70px;
 	border-radius: 50%;
 }
-.scrollMsg {
+/* .scrollMsg {
 	width: 80%;
-}
+	border: red solid;
+} */
 .fa-arrow-left {
 	color: white;
 	font-size: 25px;
@@ -243,7 +257,7 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		display: flex;
-		height: 11vh;
+		min-height: 11vh;
 		width: 100%;
 		box-sizing: border-box;
 		word-break: break-all;
