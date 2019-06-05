@@ -13,7 +13,7 @@ class Chatroom extends Component {
     super();
     this.state = {
       messages: [],
-      message: [],
+      message: "",
       socket: null
     };
   }
@@ -86,7 +86,8 @@ class Chatroom extends Component {
       room: this.props.match.params.room,
       data: {
         user: this.props.user.username,
-        message: this.state.message
+        message: this.state.message,
+        color: this.props.user.hexcolor
       }
     });
     this.setState({ message: "" });
@@ -102,7 +103,7 @@ class Chatroom extends Component {
           {this.state.messages.map((message, index) => {
             return (
               <div className="messages" key={index}>
-                <p className="userMessage">
+                <p className="userMessage" style={{ color: message.color }}>
                   {message.user}: {message.message}
                 </p>
               </div>
