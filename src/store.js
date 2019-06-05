@@ -1,14 +1,12 @@
 import { createStore, applyMiddleware } from "redux";
 import promise from "redux-promise-middleware";
 import axios from "axios";
-import io from "socket.io-client";
 
 const initialState = {
   user: {},
   lat: null,
   lng: null,
-  rooms: [],
-  socket: io("http://172.31.99.90:7777/chat", { secure: true })
+  rooms: []
 };
 
 const GET_COORDS = "GET_COORDS";
