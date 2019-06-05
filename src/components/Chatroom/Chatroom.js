@@ -13,7 +13,7 @@ class Chatroom extends Component {
     super();
     this.state = {
       messages: [],
-      message: [],
+      message: "",
       socket: null
     };
   }
@@ -82,14 +82,17 @@ class Chatroom extends Component {
   };
   sendMessage = () => {
     const { socket } = this.state;
-    socket.emit("newMsg", {
-      room: this.props.match.params.room,
-      data: {
-        user: this.props.user.username,
-        message: this.state.message
-      }
-    });
-    this.setState({ message: "" });
+    if (this.state.message !== "") {
+      socket.emit("newMsg", {
+        room: this.props.match.params.room,
+        data: {
+          user: this.props.user.username,
+          message: this.state.message,
+          color: this.props.user.hexcolor
+        }
+      });
+      this.setState({ message: "" });
+    }
   };
   keyPressed = event => {
     if (event.key === "Enter") {
@@ -102,7 +105,7 @@ class Chatroom extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-custom">
           <Link className="navbar-brand menuForChatRoom" to="/">
-            <i class="fas fa-less-than" /> MENU
+            <i className="fas fa-less-than" /> MENU
           </Link>
         </nav>
         <div className="addingFormSide">
@@ -117,7 +120,7 @@ class Chatroom extends Component {
               {this.state.messages.map((message, index) => {
                 return (
                   <div className="messages" key={index}>
-                    <p className="userMessage">
+                    <p className="userMessage" style={{ color: message.color }}>
                       {message.user}: {message.message}
                     </p>
                   </div>
@@ -125,27 +128,29 @@ class Chatroom extends Component {
               })}
               {/* </div> */}
             </div>
-            <div className="input-Btn">
-              <div className="wholeInput">
-                <input
-                  onKeyPress={this.keyPressed}
-                  className="inputMessage"
-                  type="text"
-                  placeholder="Type a Message"
-                  value={this.state.message}
-                  onChange={ev => this.setState({ message: ev.target.value })}
-                />
+            {this.props.user.username ? (
+              <div className="input-Btn">
+                <div className="wholeInput">
+                  <input
+                    onKeyPress={this.keyPressed}
+                    className="inputMessage"
+                    type="text"
+                    placeholder="Type a Message"
+                    value={this.state.message}
+                    onChange={ev => this.setState({ message: ev.target.value })}
+                  />
+                </div>
+                <div className="wholeSend">
+                  <i
+                    type="submit"
+                    onClick={this.sendMessage}
+                    className="far fa-paper-plane"
+                  />
+                </div>
               </div>
-              <div className="wholeSend">
-                {/* <button className="sendBtn" onClick={this.sendMessage}> */}
-                <i
-                  type="submit"
-                  onClick={this.sendMessage}
-                  class="far fa-paper-plane"
-                />
-                {/* </button> */}
-              </div>
-            </div>
+            ) : (
+              <div className="inputMessage">Please Login To Chat</div>
+            )}
           </div>
         </div>
       </div>

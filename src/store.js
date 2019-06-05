@@ -149,6 +149,7 @@ function reducer(state = initialState, action) {
         user: action.payload.data
       };
     case `${EDIT_HEXCOLOR}_FULFILLED`:
+      console.log(action.payload.data);
       return {
         ...state,
         user: action.payload.data

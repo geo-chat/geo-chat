@@ -10,7 +10,7 @@ const io = require("socket.io")(http);
 const path = require("path");
 const axios = require("axios");
 
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
 const { CONNECTION_STRING, SESSION_SECRET, GOOGLE_KEY } = process.env;
@@ -61,7 +61,6 @@ app.get("/api/getGoogle", (req, res) => {
 const PORT = 6969;
 
 io.of("/chat").on("connection", socket => {
-  // setTimeout(() => socket.disconnect(true), 5000);
   socket.emit("connected", "Hello and welcome");
   console.log("New Client is connected");
   socket.on("joinRoom", obj => {
@@ -88,9 +87,9 @@ io.of("/chat").on("connection", socket => {
   });
 });
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 http.listen(7777, () => {
   console.log("Big brother listening on 7777");
