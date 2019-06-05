@@ -84,14 +84,35 @@ class Chatroom extends Component {
 	render() {
 		return (
 			<div>
-				<nav className="navbar navbar-expand-lg navbar-light bg-custom">
-					<Link className="navbar-brand menuForChatRoom" to="/">
-						<i class="fas fa-less-than" /> MENU
-					</Link>
-				</nav>
 				<div className="addingFormSide">
 					<div className="peopleInChat">
-						<p>Hello</p>
+						<nav className="navbar navbar-expand-lg navbar-light bg-custom navbarInsidePeople ">
+							<Link className="navbar-brand menuForChatRoom" to="/">
+								<i class="fas fa-arrow-left" />
+							</Link>
+							<h3 className="chatRoomNav">Geo-Chat</h3>
+						</nav>
+						<div className="borderBoxChatRoom">
+							<img
+								className="imageInSideChat"
+								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHsq42gI4nJHpUBrVwfQZ8wVi6hrc_hIvkffMRVkdioqqmgySv_Q"
+							/>
+							<h3>Carlos</h3>
+						</div>
+						<div className="borderBoxChatRoom">
+							<img
+								className="imageInSideChat"
+								src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
+							/>
+							<h3>Trevor</h3>
+						</div>
+						<div className="borderBoxChatRoom">
+							<img
+								className="imageInSideChat"
+								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsJ1BBquBgmlDfhk6ZAzHLC-1JBZv5wGguUhL59arbW5Qp1LWg"
+							/>
+							<h3>Anna</h3>
+						</div>
 					</div>
 					<div className="chatRoomForm">
 						{/* <div className="msgForm"> */}
@@ -120,9 +141,7 @@ class Chatroom extends Component {
 								/>
 							</div>
 							<div className="wholeSend">
-								{/* <button className="sendBtn" onClick={this.sendMessage}> */}
 								<i onClick={this.sendMessage} class="far fa-paper-plane" />
-								{/* </button> */}
 							</div>
 						</div>
 					</div>

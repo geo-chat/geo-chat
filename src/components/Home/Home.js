@@ -42,11 +42,6 @@ class Home extends Component {
 								</button>
 							</div>
 						</form>
-
-						{/* 
-						<a href="#about" class="scroll-icon smoothscroll">
-							<i class="fas fa-angle-down" aria-hidden="true" />
-						</a> */}
 					</div>
 				</section>
 
