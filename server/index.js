@@ -61,7 +61,6 @@ app.get("/api/getGoogle", (req, res) => {
 const PORT = 6969;
 
 io.of("/chat").on("connection", socket => {
-  // setTimeout(() => socket.disconnect(true), 5000);
   socket.emit("connected", "Hello and welcome");
   console.log("New Client is connected");
   socket.on("joinRoom", obj => {

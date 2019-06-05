@@ -40,7 +40,7 @@ class Home extends Component {
                   className="form-control"
                   placeholder="Search"
                 />
-                <button type="submit" class="btn btn-outline-custom">
+                <button type="submit" className="btn btn-outline-custom">
                   <i className="fas fa-search" />
                 </button>
               </div>
@@ -68,7 +68,7 @@ class Home extends Component {
                   </p> */}
                   <Link
                     to={`/chatroom/${room.id}/${room.name}`}
-                    class="card-link"
+                    className="card-link"
                   >
                     Enter Chat Room
                   </Link>
