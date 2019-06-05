@@ -3,7 +3,18 @@
 	text-decoration: none;
 	font-size: 30px;
 	color: black;
+	height: 8vh;
 	/* border: 2px solid red; */
+}
+.navbar-brand {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.geoChat {
+	color: #825eeb;
+	font-weight: bold;
+	font-size: 35px;
 }
 
 .card-text {
@@ -38,23 +49,23 @@
 }
 .fa-caret-square-down {
 	color: #825eeb;
-	font-size: 27px;
+	font-size: 35px;
 }
 .fa-home {
 	color: #825eeb;
-	font-size: 24px;
+	font-size: 35px;
 }
 .fa-cog {
 	/* border: 2px solid red; */
-	font-size: 30px;
+
 	text-decoration: none;
-	font-size: 24px;
+	font-size: 35px;
 	color: #825eeb;
 }
 /* .fa-cog:hover {
 } */
 .fa-plus {
-	font-size: 24px;
+	font-size: 35px;
 	color: #825eeb;
 }
 .nav-link {
@@ -167,6 +178,7 @@
 	display: flex;
 	/* border: 2px solid green; */
 	width: 10vw;
+	/* background: gray; */
 }
 
 .jumbotron {
@@ -378,5 +390,9 @@
 		display: flex;
 		height: 8vh;
 		width: 100%;
+	}
+	.navbar-collapse {
+		background: gray;
+		width: 100vw;
 	}
 }

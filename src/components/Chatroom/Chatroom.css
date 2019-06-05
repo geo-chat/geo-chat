@@ -6,8 +6,23 @@
 	flex-direction: column;
 	height: 95vh;
 	width: 100%;
+	background: #fcfcfe;
 
 	/* max-height: 100vh; */
+}
+.chatRoomNav {
+	/* border: 2px solid red; */
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+.imageInSideChat {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+	margin-left: 20px;
 }
 
 .addingFormSide {
@@ -18,7 +33,32 @@
 }
 .peopleInChat {
 	border-right: 2px solid rgb(114, 114, 116);
-	width: 28%;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	border-radius: 10px;
+	background: #3f429b;
+	color: white;
+	height: 100vh;
+}
+.borderBoxChatRoom {
+	/* border-bottom: 2px solid rgb(250, 248, 248); */
+	justify-content: flex-start;
+	align-items: center;
+	display: flex;
+	height: 10vh;
+}
+.borderBoxChatRoom:hover {
+	transform: scale(1.01);
+	/* -webkit-box-shadow: 0px 1px 13px 1px rgba(168, 166, 168, 1);
+	-moz-box-shadow: 0px 1px 13px 1px rgba(168, 166, 168, 1);
+	box-shadow: 0px 1px 13px 1px rgba(168, 166, 168, 1); */
+	cursor: pointer;
+	background: #f14d7b;
 }
 
 .inputMessage {
@@ -35,7 +75,11 @@
 	/* border: 2px solid blue; */
 	width: 92%;
 	max-height: 90vh;
-	overflow: auto;
+	overflow: scroll;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column-reverse;
 }
 .fa-paper-plane {
 	/* border: 2px solid blue; */
@@ -62,7 +106,7 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	display: flex;
-	height: 11vh;
+	min-height: 13vh;
 	width: 100%;
 	box-sizing: border-box;
 	word-break: break-all;
@@ -88,24 +132,33 @@
 	height: 90vh;
 } */
 .userMessage {
-	background: rgb(233, 227, 227);
+	background: #d5d6f0;
 	/* border: 2px solid red; */
 	border-radius: 20px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: stretch;
-	align-content: stretch;
+	justify-content: flex-start;
+	align-items: center;
+	/* align-content: center; */
 	width: 100%;
-	height: 100%;
-	font-size: 15px;
+	min-height: 100px;
+	font-size: 20px;
 	word-break: break-all;
 	hyphens: auto;
 	overflow-wrap: break-word;
+	padding: 50px;
+
+	font-weight: bold;
+	/* overflow: auto; */
+	/* overflow-wrap: inherit; */
+}
+.userMsg {
+	font-size: 25px;
+	padding-left: 10px;
 }
 .wholeInput {
-	/* border: 2px solid red; */
+	/* border: 2px solid blue; */
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -124,8 +177,17 @@
 	height: 70px;
 	border-radius: 50%;
 }
-.scrollMsg {
+/* .scrollMsg {
 	width: 80%;
+	border: red solid;
+} */
+.fa-arrow-left {
+	color: white;
+	font-size: 25px;
+}
+.navbarInsidePeople {
+	background: #3f429b;
+	color: white;
 }
 
 @media (max-width: 500px) {
@@ -195,7 +257,7 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		display: flex;
-		height: 11vh;
+		min-height: 11vh;
 		width: 100%;
 		box-sizing: border-box;
 		word-break: break-all;
