@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import promise from "redux-promise-middleware";
 import axios from "axios";
-import { func } from "prop-types";
 
 const initialState = {
   user: {},

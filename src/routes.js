@@ -8,7 +8,7 @@ import Chatroom from "./components/Chatroom/Chatroom";
 
 export default (
   <Switch>
-    <Route path="/chatroom/:room" component={Chatroom} />
+    <Route path="/chatroom/:chatid/:room" component={Chatroom} />
     <Route path="/setting" component={Setting} />
     <Route path="/signup" component={SignUp} />
     <Route path="/login" component={Login} />

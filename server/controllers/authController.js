@@ -84,7 +84,7 @@ const login = async (req, res) => {
 const getUser = async (req, res) => {
   const { session } = req;
   if (!session.user) {
-    session.user = { username: "", id: 0 };
+    session.user = { username: "Guest", id: 0 };
   }
   console.log(session.user);
   res.status(200).json(session.user);
