@@ -84,7 +84,7 @@ const login = async (req, res) => {
 const getUser = async (req, res) => {
   const { session } = req;
   if (!session.user) {
-    session.user = { username: "", id: 0 };
+    session.user = { username: "Guest", id: 0 };
   }
   console.log(session.user);
   res.status(200).json(session.user);
@@ -119,11 +119,14 @@ const editImg = (req, res) => {
   const { id } = req.session.user;
   db.edit_img([img, +id]);
 };
-const editHexColor = (req, res) => {
+const editHexColor = async (req, res) => {
   const db = req.app.get("db");
   const { hexcolor } = req.body;
   const { id } = req.session.user;
-  db.edit_hex_color([hexcolor, +id]);
+  let user = await db
+    .edit_hex_color([hexcolor, +id])
+    .catch(error => console.log(error));
+  res.status(200).json(user[0]);
 };
 module.exports = {
   deleteAccount,

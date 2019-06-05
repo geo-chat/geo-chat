@@ -11,12 +11,11 @@ class Home extends Component {
 		this.state = {};
 	}
 	async componentDidMount() {
-		axios.get('/api/auth/getuser').catch((err) => err);
+		// window.location.reload();
 		await this.props.getCoords();
 		this.props.getRooms(this.props.lat, this.props.lng);
 	}
 	deleteRoom = (chatid) => {
-		console.log('anna');
 		axios.delete(`/api/chat/deleteroom/${chatid}`).catch((err) => err);
 		this.props.getRooms(this.props.lat, this.props.lng);
 	};
@@ -37,11 +36,16 @@ class Home extends Component {
 						<form className="navbar-form " role="search">
 							<div className="input-group">
 								<input type="search" className="form-control" placeholder="Search" />
-								<button type="submit" class="btn btn-outline-custom">
+								<button type="submit" className="btn btn-outline-custom">
 									<i className="fas fa-search" />
 								</button>
 							</div>
 						</form>
+
+						{/* 
+						<a href="#about" class="scroll-icon smoothscroll">
+							<i class="fas fa-angle-down" aria-hidden="true" />
+						</a> */}
 					</div>
 				</section>
 
@@ -51,11 +55,12 @@ class Home extends Component {
 							<div key={index} class="card">
 								<div className="card-body">
 									<h5 className="card-title">{room.name}</h5>
-									<p className="card-text">
-										Some quick example text to build on the card title and make up the bulk of the
-										card's content.
-									</p>
-									<Link to={`/chatroom/${room.name}`} class="card-link">
+									<h6 className="card-subtitle mb-2 text-muted">{room.member} members</h6>
+									{/* <p className="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p> */}
+									<Link to={`/chatroom/${room.id}/${room.name}`} className="card-link">
 										Enter Chat Room
 									</Link>
 									{room.userid === this.props.user.id ? (
@@ -74,7 +79,6 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log(state);
 	return {
 		lat: state.lat,
 		lng: state.lng,

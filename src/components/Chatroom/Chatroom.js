@@ -1,58 +1,71 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import io from 'socket.io-client';
 import '../Chatroom/Chatroom.css';
+import io from 'socket.io-client';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import { addToRoom, leaveRoom, getRooms } from '../../store';
-import { Link } from 'react-router-dom';
 
 class Chatroom extends Component {
 	constructor() {
 		super();
 		this.state = {
 			messages: [],
-			message: [],
-			index: -1
+			message: '',
+			socket: null
 		};
 	}
-	componentDidMount() {
+	async componentDidMount() {
+		window.addEventListener('beforeunload', this.componentCleanup);
+		const socket = io('http://172.31.99.90:7777/chat', { secure: true });
+		// const socket = io("http://192.168.254.58:7777/chat");
+		// const socket = io("http://192.241.133.39:7777/chat", { secure: true });
+		await this.setState({ socket });
 		this.initSocket();
-		let index;
-		for (let i = 0; i < this.props.rooms.length; i++) {
-			if (this.props.rooms[i].name === this.props.match.params.room) {
-				index = i;
-			}
-		}
-		let chatid = this.props.rooms[index].id;
-		this.setState({ index });
 		const { lat, lng } = this.props;
+		const chatid = this.props.match.params.chatid;
 		this.props.addToRoom(chatid, lat, lng);
 	}
-	componentWillUnmount() {
-		const socket = io('http://172.31.99.90:7777/chat', { secure: true });
-		socket.emit('leave', this.props.match.params.room);
-		let index;
-		for (let i = 0; i < this.props.rooms.length; i++) {
-			if (this.props.rooms[i].name === this.props.match.params.room) {
-				index = i;
-			}
+	componentCleanup = () => {
+		const { socket } = this.state;
+		if (this.props.user.username) {
+			socket.emit('leave', {
+				room: this.props.match.params.room,
+				username: this.props.user.username
+			});
+		} else {
+			socket.emit('leave', {
+				room: this.props.match.params.room,
+				username: 'A Lurker'
+			});
 		}
-		let chatid = this.props.rooms[index].id;
 		const { lat, lng } = this.props;
+		const chatid = this.props.match.params.chatid;
 		this.props.leaveRoom(chatid, lat, lng);
+	};
+	componentWillUnmount() {
+		this.componentCleanup();
+		window.removeEventListener('beforeunload', this.componentCleanup);
 	}
 
 	initSocket = () => {
-		const socket = io('http://172.31.99.178:7777/chat', { secure: true });
-		// const socket = io("http://192.168.254.58:7777/chat");
-		// const socket = io("http://192.241.133.39:7777/chat", { secure: true });
+		const { socket } = this.state;
 		socket.on('connected', (msg) => {
 			console.log(msg);
 		});
-		socket.emit('joinRoom', this.props.match.params.room);
+		if (this.props.user.username) {
+			socket.emit('joinRoom', {
+				room: this.props.match.params.room,
+				username: this.props.user.username
+			});
+		} else {
+			socket.emit('joinRoom', {
+				room: this.props.match.params.room,
+				username: 'A Lurker'
+			});
+		}
 		socket.on('err', (err) => console.log(err));
 		socket.on('success', (res) => console.log(res));
 		socket.on('newUser', (res) => {
@@ -68,17 +81,23 @@ class Chatroom extends Component {
 		});
 	};
 	sendMessage = () => {
-		const socket = io('http://172.31.99.178:7777/chat', { secure: true });
-		// const socket = io("http://192.168.254.58:7777/chat");
-		// const socket = io("http://192.241.133.39:7777/chat", { secure: true });
-		socket.emit('newMsg', {
-			room: this.props.match.params.room,
-			data: {
-				user: this.props.user.username,
-				message: this.state.message
-			}
-		});
-		this.setState({ message: '' });
+		const { socket } = this.state;
+		if (this.state.message !== '') {
+			socket.emit('newMsg', {
+				room: this.props.match.params.room,
+				data: {
+					user: this.props.user.username,
+					message: this.state.message,
+					color: this.props.user.hexcolor
+				}
+			});
+			this.setState({ message: '' });
+		}
+	};
+	keyPressed = (event) => {
+		if (event.key === 'Enter') {
+			this.sendMessage();
+		}
 	};
 
 	render() {

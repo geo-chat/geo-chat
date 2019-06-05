@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import promise from "redux-promise-middleware";
 import axios from "axios";
-import { func } from "prop-types";
 
 const initialState = {
   user: {},
@@ -150,6 +149,7 @@ function reducer(state = initialState, action) {
         user: action.payload.data
       };
     case `${EDIT_HEXCOLOR}_FULFILLED`:
+      console.log(action.payload.data);
       return {
         ...state,
         user: action.payload.data
