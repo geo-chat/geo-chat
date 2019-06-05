@@ -120,18 +120,18 @@ class Navbar extends Component {
 									</Link>
 								</div>
 							</li>
-
-							<button
-								// type="button"
-								class="btn btn-custom"
-								data-toggle="modal"
-								data-target="#exampleModalCenter"
-							>
-								<Link to="/create" className="dropdown-item">
+							<li className="nav-item ">
+								<Link
+									to="/create"
+									className="nav-link"
+									// type="button"
+									// class="btn btn-custom"
+									data-toggle="modal"
+									data-target="#exampleModalCenter"
+								>
 									<i class="fas fa-plus" /> Add Chatroom
 								</Link>
-							</button>
-
+							</li>
 							<div
 								class="modal fade"
 								id="exampleModalCenter"
@@ -151,21 +151,27 @@ class Navbar extends Component {
 											</button>
 										</div>
 										<div class="modal-body">
-											<input onChange={this.changeHandler} />
+											{/* <label className="chatRoomName">Chatroom Name:</label> */}
+											<input
+												className="popUpInput"
+												onChange={this.changeHandler}
+												placeholder="Enter Name"
+											/>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">
 												Close
 											</button>
-											<button onClick={this.clickHandler} type="button" class="btn btn-custom">
-												<Link to="/create" className="dropdown-item">
+											<li className="nav-item ">
+												<Link to="/create" className="nav-link addBtnInPopUp">
 													Add Chatroom
 												</Link>
-											</button>
+											</li>
 										</div>
 									</div>
 								</div>
 							</div>
+
 							<li className="nav-item ">
 								<Link className="nav-link" to="/setting">
 									<i className="fas fa-cog" /> Settings

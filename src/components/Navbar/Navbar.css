@@ -1,5 +1,5 @@
 .navbar {
-	background: rgb(229, 229, 230);
+	background: rgba(240, 240, 240, 0.979);
 	text-decoration: none;
 	font-size: 30px;
 	color: black;
@@ -65,18 +65,26 @@
 	align-items: center;
 }
 
-.dropdown-item {
-	/* border: 2px solid red; */
-
+/* .dropdown-item {
+	border: 2px solid blue;
 	flex-direction: column;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	outline: none;
+	width: 20%;
+	font-size: 20px;
+} */
+
+/* .addBtnInPopUp {
+	background: #825eeb;
+	border-radius: 5px;
+	height: 4vh;
 }
-.dropdown-item:hover {
-	background: rgb(229, 229, 230);
-}
+.addBtnInPopUp:hover {
+	text-decoration: none;
+	color: white;
+} */
 .nav-item:hover {
 	/* background: #ffffff, opacity 0%; */
 	/* border: 2px solid forestgreen; */
@@ -85,6 +93,19 @@
 	/* border: 2px solid red; */
 }
 
+.popUpInput {
+	border: 2px solid #c9c9ca;
+	border-radius: 5px;
+	font-size: 23px;
+}
+
+.chatRoomName {
+	font-size: 10px;
+}
+
+.btn-custom {
+	/* background: #825eeb; */
+}
 .navbar-form {
 	width: 80vw;
 	margin-left: auto;
@@ -248,6 +269,12 @@
 }
 
 @media (max-width: 375px) {
+	/* .navbar {
+		border: 2px solid red;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+	} */
 	.chatRooms {
 		display: flex;
 		flex-direction: row;
@@ -275,11 +302,19 @@
 		margin-left: auto;
 		margin-top: 10px;
 	}
-	.navbar-nav {
+	.nav-item {
+		border-bottom: 2px solid #825eeb;
 		justify-content: center;
-		align-items: flex-start;
+		align-items: center;
 		display: flex;
 		width: 100%;
+	}
+	.navbar-nav {
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		width: 100%;
+		/* border: solid blue 2px; */
 	}
 
 	.form-control {
@@ -335,5 +370,13 @@
 	.text {
 		/* border: 2px solid yellow; */
 		text-align: center;
+	}
+	.nav-link {
+		/* border: 2px solid green; */
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		height: 8vh;
+		width: 100%;
 	}
 }
