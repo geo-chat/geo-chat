@@ -4,7 +4,7 @@ import "../Chatroom/Chatroom.css";
 import io from "socket.io-client";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { addToRoom, leaveRoom, getRooms } from "../../store";
 
