@@ -55,6 +55,7 @@ class Login extends Component {
                     onChange={this.handleChange}
                     value={this.state.username}
                     placeholder="Username"
+                    id="username_input"
                   />
                 </div>
                 <div className="iconInside">
@@ -66,9 +67,14 @@ class Login extends Component {
                     value={this.state.password}
                     type="password"
                     placeholder="Password"
+                    id="password_input"
                   />
                 </div>
-                <button className="loginBtn" onClick={this.handleSubmit}>
+                <button
+                  className="loginBtn"
+                  onClick={this.handleSubmit}
+                  id="send_login_button"
+                >
                   Login
                 </button>
                 <span>

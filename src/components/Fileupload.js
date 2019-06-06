@@ -21,7 +21,14 @@ class FileUpload extends Component {
   };
 
   render() {
-    return <input label="upload file" type="file" onChange={this.submitFile} />;
+    return (
+      <input
+        label="upload file"
+        type="file"
+        onChange={this.submitFile}
+        id="img_button"
+      />
+    );
   }
 }
 

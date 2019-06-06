@@ -1,4 +1,5 @@
 const createChatRoom = (req, res) => {
+  console.log(req.body);
   req.app
     .get("db")
     .create_chat_room([

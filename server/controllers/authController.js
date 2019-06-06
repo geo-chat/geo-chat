@@ -52,7 +52,6 @@ const deleteAccount = (req, res) => {
 const signup = async (req, res) => {
   const db = req.app.get("db");
   const { username, password } = req.body;
-  console.log(req.body);
   const taken = await db.verify(username).catch(err => err);
   if (taken[0]) {
     res.status(403).json("username is already taken");
@@ -89,7 +88,6 @@ const getUser = async (req, res) => {
   if (!session.user) {
     session.user = { username: "A Lurker", id: 0 };
   }
-  console.log(session.user);
   res.status(200).json(session.user);
 };
 const logout = (req, res) => {
