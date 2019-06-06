@@ -19,7 +19,7 @@ class Chatroom extends Component {
 	}
 	async componentDidMount() {
 		window.addEventListener('beforeunload', this.componentCleanup);
-		const socket = io('http://172.31.99.90:7777/chat', { secure: true });
+		const socket = io('http://172.31.99.178:7777/chat', { secure: true });
 		// const socket = io("http://192.168.254.58:7777/chat");
 		// const socket = io("http://192.241.133.39:7777/chat", { secure: true });
 		await this.setState({ socket });
@@ -113,38 +113,59 @@ class Chatroom extends Component {
 							</Link>
 							<h3 className="chatRoomNav">Geo-Chat</h3>
 						</nav>
-						<div className="borderBoxChatRoom">
-							<img
-								className="imageInSideChat"
-								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHsq42gI4nJHpUBrVwfQZ8wVi6hrc_hIvkffMRVkdioqqmgySv_Q"
-							/>
-							<h3>Carlos</h3>
-						</div>
-						<div className="borderBoxChatRoom">
-							<img
-								className="imageInSideChat"
-								src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
-							/>
-							<h3>Trevor</h3>
-						</div>
-						<div className="borderBoxChatRoom">
-							<img
-								className="imageInSideChat"
-								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsJ1BBquBgmlDfhk6ZAzHLC-1JBZv5wGguUhL59arbW5Qp1LWg"
-							/>
-							<h3>Anna</h3>
+						<div className="workOnProg">
+							<div className="borderBoxChatRoom">
+								<img
+									className="imageInSideChat"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHsq42gI4nJHpUBrVwfQZ8wVi6hrc_hIvkffMRVkdioqqmgySv_Q"
+								/>
+								<h3 className="personName">Carlos</h3>
+							</div>
+							<div className="borderBoxChatRoom">
+								<img
+									className="imageInSideChat"
+									src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
+								/>
+								<h3 className="personName">Trevor</h3>
+							</div>
+							<div className="borderBoxChatRoom">
+								<img
+									className="imageInSideChat"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsJ1BBquBgmlDfhk6ZAzHLC-1JBZv5wGguUhL59arbW5Qp1LWg"
+								/>
+								<h3 className="personName">Anna</h3>
+							</div>
+							<div className="borderBoxChatRoom">
+								<img
+									className="imageInSideChat"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsJ1BBquBgmlDfhk6ZAzHLC-1JBZv5wGguUhL59arbW5Qp1LWg"
+								/>
+								<h3 className="personName">Anna</h3>
+							</div>
+							<div className="borderBoxChatRoom">
+								<img
+									className="imageInSideChat"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsJ1BBquBgmlDfhk6ZAzHLC-1JBZv5wGguUhL59arbW5Qp1LWg"
+								/>
+								<h3 className="personName">Anna</h3>
+							</div>
+							<div className="borderBoxChatRoom">
+								<img
+									className="imageInSideChat"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsJ1BBquBgmlDfhk6ZAzHLC-1JBZv5wGguUhL59arbW5Qp1LWg"
+								/>
+								<h3 className="personName">Anna</h3>
+							</div>
 						</div>
 					</div>
 					<div className="chatRoomForm">
-						{/* <div className="msgForm"> */}
-						{/* {this.state.index !== -1 ? <h2>{this.props.rooms[this.state.index].member}</h2> : null} */}
 						<ToastContainer />
 						<div className="scrollMsg">
 							{this.state.messages.map((message, index) => {
 								return (
 									<div className="messages" key={index}>
 										<p className="userMessage" style={{ color: message.color }}>
-											<p>{message.user}: </p> <p className="userMsg"> {message.message}</p>
+											{message.user}: {message.message}
 										</p>
 									</div>
 								);
@@ -164,7 +185,9 @@ class Chatroom extends Component {
 									/>
 								</div>
 								<div className="wholeSend">
-									<i type="submit" onClick={this.sendMessage} className="far fa-paper-plane" />
+									<button className="btnOutSidePaperPlane" type="submit" onClick={this.sendMessage}>
+										<i className="far fa-paper-plane" />
+									</button>
 								</div>
 							</div>
 						) : (
