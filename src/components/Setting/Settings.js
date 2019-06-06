@@ -47,6 +47,7 @@ class Settings extends Component {
   handleLogout = () => {
     this.props.logout();
   };
+
   updateColor = () => {
     console.log(this.state.hexColor);
     this.props.editHexcolor(this.state.hexColor);
@@ -71,7 +72,6 @@ class Settings extends Component {
                     type="color"
                     value={this.state.hexColor}
                     onChange={e => this.setState({ hexColor: e.target.value })}
-                    id="color_input"
                   />
                   {/* <button > */}
                   <i

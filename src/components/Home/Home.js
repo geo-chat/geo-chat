@@ -29,27 +29,14 @@ class Home extends Component {
         {/* CHAT-ROOM PRODUCT CARD */}
         <section className="menuIntro">
           <div className="jumbotron">
-            <h1 className="display-4">Chat Room</h1>
+            <h1 className="display-4">Geo-Chat</h1>
             <p className="lead">
-              This is a simple hero unit, a simple jumbotron-style component for
-              calling extra attention to featured content or information.
+              Welcome to Geo-chat! find a room that piques your interest and
+              chat with users with mutual interests Nearby. Don't see a room you
+              like? create a room, invite your friends, and meet new people!
             </p>
-            {/* SEARCH BAR */}
-            <form className="navbar-form " role="search">
-              <div className="input-group">
-                <input
-                  type="search"
-                  className="form-control"
-                  placeholder="Search"
-                />
-                <button type="submit" className="btn btn-outline-custom">
-                  <i className="fas fa-search" />
-                </button>
-              </div>
-            </form>
           </div>
         </section>
-
         <main className="chatRooms">
           {this.props.rooms !== [] ? (
             this.props.rooms.map((room, index) => (
@@ -59,10 +46,7 @@ class Home extends Component {
                   <h6 className="card-subtitle mb-2 text-muted">
                     {room.member} members
                   </h6>
-                  {/* <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p> */}
+
                   <Link
                     to={`/chatroom/${room.id}/${room.name}`}
                     className="card-link"

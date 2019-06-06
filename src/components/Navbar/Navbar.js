@@ -46,7 +46,7 @@ class Navbar extends Component {
         <nav className="navbar navbar-expand-lg navbar-light bg-custom">
           <Link className="navbar-brand" to="/">
             <img
-              src="https://banner2.kisspng.com/20180424/oaq/kisspng-honda-logo-car-2007-honda-cr-v-decorative-stickers-5adfa878c61c14.8927719915246070968115.jpg"
+              src="https://freepngimg.com/download/map/66970-map-google-icons-house-maps-computer-marker.png"
               className=" topnavBarImage d-inline-block align-center"
               alt=""
             />
@@ -65,11 +65,12 @@ class Navbar extends Component {
             <span className="navbar-toggler-icon" />
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="nav navbar-nav ml-auto">
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="nav navbar-nav ml-auto navbarTargetName">
               <li className="nav-item active">
                 <Link to="/" className="nav-link">
                   <i className="fas fa-home" />
+                  Home
                   <span className="sr-only">(current)</span>
                 </Link>
               </li>
@@ -78,13 +79,12 @@ class Navbar extends Component {
                 <Link
                   to="/create"
                   className="nav-link"
-                  id="create_button"
                   // type="button"
                   // class="btn btn-custom"
                   data-toggle="modal"
                   data-target="#exampleModalCenter"
                 >
-                  <i className="fas fa-plus" />
+                  <i className="fas fa-plus" /> Add Chatroom
                 </Link>
               </li>
               <div
@@ -114,12 +114,10 @@ class Navbar extends Component {
                       </button>
                     </div>
                     <div className="modal-body">
-                      {/* <label className="chatRoomName">Chatroom Name:</label> */}
                       <input
                         className="popUpInput"
                         onChange={this.changeHandler}
                         placeholder="Enter Name"
-                        id="create_input"
                       />
                     </div>
                     <div className="modal-footer">
@@ -130,11 +128,9 @@ class Navbar extends Component {
                       >
                         Close
                       </button>
-
                       <li className="nav-item ">
                         <Link
                           to="/create"
-                          id="create_room_button"
                           className="nav-link addBtnInPopUp"
                           onClick={this.clickHandler}
                           data-dismiss="modal"
@@ -150,29 +146,25 @@ class Navbar extends Component {
               <li className="nav-item ">
                 <Link className="nav-link" to="/setting">
                   <i className="fas fa-cog" />
+                  Settings
                 </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link"
+                  class="nav-link "
                   href="#"
-                  id="navbarDropdown"
+                  // id="navbarDropdownMenuLink"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  id="dropdown_menu"
                 >
-                  <i className="far fa-caret-square-down" />
+                  <i className="far fa-caret-square-down" /> Login/SignUp
                 </a>
 
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   {this.props.user.username === "A Lurker" ? (
-                    <Link
-                      className="dropdown-item"
-                      to="/login"
-                      id="login_button"
-                    >
+                    <Link className="dropdown-item" to="/login">
                       <h6> Login </h6>
                     </Link>
                   ) : (
