@@ -42,8 +42,8 @@ class Login extends Component {
 
               <div className="smallLoginForm">
                 <div className="descLogin">
-                  <h1 className="title">Welcome back to Geo-Chat</h1>
-                  <h4 className="description">
+                  <h1 className="titleLogin">Welcome back to Geo-Chat</h1>
+                  <h4 className="descriptionLogin">
                     Sign Up to continue to your account.
                   </h4>
                 </div>

@@ -1,0 +1,18 @@
+.deleteBtnHome {
+	/* border: 2px solid red; */
+	margin-top: 20px;
+	font-size: 20px;
+	border-radius: 5px;
+	background: #825eeb;
+	width: 40%;
+	color: white;
+}
+.card-title {
+	/* border: 2px solid red; */
+	font-size: 25px;
+}
+
+.card-subtitle {
+	/* border: solid blue; */
+	font-size: 20px;
+}

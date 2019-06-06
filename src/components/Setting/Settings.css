@@ -1,101 +1,71 @@
 .settings-form {
-	border: 2px solid blue;
+	/* border: 2px solid blue; */
 	justify-content: space-evenly;
 	align-items: center;
 	display: flex;
 	height: 100vh;
 	width: 100vw;
 }
-input {
-	border: none;
-	border-bottom: 2px solid rgb(165, 163, 163);
+.insideSettings {
 	/* border: 2px solid red; */
-	outline: none;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-}
-
-label {
-	/* border-bottom: 2px solid black; */
-	height: 2vh;
-	font-size: 13px;
-}
-
-.usernameForm {
-	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	width: 100vw;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	height: 12vh;
-	flex-direction: column;
-}
-
-.smallUsernameForm {
+	width: 60%;
+	height: 90vh;
 	justify-content: space-around;
 	align-items: center;
-	display: flex;
-	font-size: 10px;
 	flex-direction: column;
-	/* border: 2px solid red; */
-	height: 8vh;
+	display: flex;
 }
 
-.changeUsernameBtn {
-	border: 2px solid transparent;
-	background: skyblue;
+.newUsername {
+	border: 2px solid rgb(179, 175, 175);
+	width: 58%;
+	height: 7vh;
 	border-radius: 5px;
+	padding-left: 20px;
 }
-
-.ImageUploadForm {
-	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	width: 100vw;
-	justify-content: center;
+label {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	/* border: solid blue; */
+	width: 58%;
+	font-size: 20px;
+}
+.makeUserNameCloser {
+	border: 2px solid red;
+	justify-self: center;
 	align-items: center;
 	display: flex;
-	height: 12vh;
+	height: 20vh;
 	flex-direction: column;
+	width: 60%;
 }
-
-.oldPasswordForm {
-	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	width: 100vw;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	height: 12vh;
-	flex-direction: column;
+.oldPw {
+	border: 2px solid rgb(179, 175, 175);
+	width: 58%;
+	height: 7vh;
+	border-radius: 5px;
+	padding-left: 20px;
 }
-
-.newPasswordForm {
-	-webkit-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	-moz-box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	box-shadow: 9px 4px 6px 2px rgba(161, 161, 161, 0.75);
-	width: 100vw;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	height: 12vh;
-	flex-direction: column;
+.newPw {
+	border: 2px solid rgb(179, 175, 175);
+	width: 58%;
+	height: 7vh;
+	border-radius: 5px;
+	padding-left: 20px;
 }
 
 .deleteBtn {
 	border: 2px solid transparent;
-	background: rgb(74, 74, 219);
+	/* background: rgb(74, 74, 219); */
+	background: #825eeb;
 	border-radius: 5px;
 	color: white;
 }
 
 .contact {
 	border-radius: 5px;
-	background: rgb(74, 74, 219);
+	background: #825eeb;
 	color: white;
 	width: 130px;
 	height: 30px;
@@ -104,4 +74,197 @@ label {
 .contact:hover {
 	color: white;
 	text-decoration: none;
+}
+.contactAndDelete {
+	/* border: solid green; */
+	justify-content: space-evenly;
+	align-items: center;
+	display: flex;
+	width: 50%;
+}
+.changeTextColor {
+}
+.fa-palette {
+	/* border: solid green; */
+	font-size: 32px;
+	color: #825eeb;
+	cursor: pointer;
+}
+.changeOldPw {
+	width: 55%;
+	height: 6vh;
+	border-radius: 5px;
+	background: #825eeb;
+	color: white;
+}
+
+.changeUsernameBtn {
+	width: 55%;
+	height: 6vh;
+	border-radius: 5px;
+	background: #825eeb;
+	color: white;
+}
+.putImageAndTextColorCloser {
+	/* border: solid red; */
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	width: 90%;
+	height: 13vh;
+}
+.uploadImageField {
+	width: 50%;
+	/* border: solid green; */
+}
+
+.changeColorField {
+	/* border: solid yellow; */
+	width: 40%;
+	height: 100%;
+	justify-content: space-around;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.colorWheel {
+	/* border: solid red; */
+	width: 30%;
+	height: 5vh;
+}
+
+@media (max-width: 500px) {
+	.settings-form {
+		/* border: 2px solid blue; */
+		justify-content: space-evenly;
+		align-items: center;
+		display: flex;
+		height: 100vh;
+		width: 100vw;
+	}
+	.insideSettings {
+		/* border: 2px solid red; */
+		width: 100%;
+		height: 90vh;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		display: flex;
+	}
+
+	.newUsername {
+		border: 2px solid rgb(179, 175, 175);
+		width: 58%;
+		height: 5vh;
+		border-radius: 5px;
+		padding-left: 20px;
+	}
+	label {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		/* border: solid blue; */
+		width: 58%;
+		font-size: 20px;
+	}
+	/* .makeUserNameCloser {
+		border: 2px solid red;
+		justify-self: center;
+		align-items: center;
+		display: flex;
+		height: 20vh;
+		flex-direction: column;
+		width: 60%;
+	} */
+	.oldPw {
+		border: 2px solid rgb(179, 175, 175);
+		width: 58%;
+		height: 5vh;
+		border-radius: 5px;
+		padding-left: 20px;
+	}
+	.newPw {
+		border: 2px solid rgb(179, 175, 175);
+		width: 58%;
+		height: 5vh;
+		border-radius: 5px;
+		padding-left: 20px;
+	}
+
+	.deleteBtn {
+		border: 2px solid transparent;
+		/* background: rgb(74, 74, 219); */
+		background: #825eeb;
+		border-radius: 5px;
+		color: white;
+	}
+
+	.contact {
+		border-radius: 5px;
+		background: #825eeb;
+		color: white;
+		width: 130px;
+		height: 30px;
+	}
+
+	.contact:hover {
+		color: white;
+		text-decoration: none;
+	}
+	.contactAndDelete {
+		/* border: solid green; */
+		justify-content: space-evenly;
+		align-items: center;
+		display: flex;
+		width: 100%;
+	}
+
+	.fa-palette {
+		/* border: solid green; */
+		font-size: 32px;
+		color: #825eeb;
+		cursor: pointer;
+	}
+	.changeOldPw {
+		width: 55%;
+		height: 5vh;
+		border-radius: 5px;
+		background: #825eeb;
+		color: white;
+	}
+
+	.changeUsernameBtn {
+		width: 55%;
+		height: 5vh;
+		border-radius: 5px;
+		background: #825eeb;
+		color: white;
+	}
+	.putImageAndTextColorCloser {
+		/* border: solid red; */
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		width: 100%;
+		height: 18vh;
+	}
+	.uploadImageField {
+		width: 70%;
+		/* border: solid green; */
+	}
+
+	.changeColorField {
+		/* border: solid yellow; */
+		width: 40%;
+		height: 100%;
+		justify-content: space-around;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+	.colorWheel {
+		/* border: solid red; */
+		width: 70%;
+		height: 5vh;
+	}
 }

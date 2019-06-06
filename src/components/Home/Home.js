@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import "./Home.css";
 import { getCoords, getRooms, getUser } from "../../store";
 
 class Home extends Component {
