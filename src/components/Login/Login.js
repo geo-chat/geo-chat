@@ -30,7 +30,7 @@ class Login extends Component {
   };
 
   render() {
-    if (this.props.user.username) {
+    if (this.props.user.username !== "A Lurker") {
       return <Redirect to="/" />;
     } else {
       return (

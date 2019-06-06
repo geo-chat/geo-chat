@@ -47,13 +47,13 @@ app.post("/api/chat/getrooms", cc.getRooms);
 app.post("/test-upload", ac.uploadFiles);
 app.put("/api/chat/addtoroom", cc.addToRoom);
 app.put("/api/chat/leaveroom", cc.leaveRoom);
+app.get("/api/chat/getUsernames/:id", cc.getUsernames);
 app.get("/api/getGoogle", (req, res) => {
   axios
     .post(
       `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_KEY}`
     )
     .then(response => {
-      console.log(response.data);
       res.status(200).json(response.data);
     });
 });

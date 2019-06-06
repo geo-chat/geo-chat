@@ -59,7 +59,7 @@ class Settings extends Component {
     this.props.editHexcolor(this.state.hexColor);
   };
   render() {
-    if (!this.props.user.username) {
+    if (this.props.user.username === "A Lurker") {
       return <Redirect to="/login" />;
     } else {
       return (
