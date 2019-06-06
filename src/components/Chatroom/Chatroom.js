@@ -165,7 +165,7 @@ class Chatroom extends Component {
 								return (
 									<div className="messages" key={index}>
 										<p className="userMessage" style={{ color: message.color }}>
-											{message.user}: {message.message}
+											<p>{message.user}:</p> <p className="userMsg">{message.message}</p>
 										</p>
 									</div>
 								);

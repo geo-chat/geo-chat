@@ -7,6 +7,7 @@
 	height: 100vh;
 	width: 100%;
 	background: #fcfcfe;
+	overflow: auto;
 
 	/* max-height: 100vh; */
 }
@@ -28,7 +29,8 @@
 .addingFormSide {
 	display: flex;
 	flex-direction: row;
-	height: 95vh;
+	min-height: 95vh;
+	overflow: scroll;
 	/* border: 2px solid green; */
 }
 .peopleInChat {
@@ -119,7 +121,7 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	display: flex;
-	min-height: 13vh;
+	/* min-height: 13vh; */
 	width: 100%;
 	box-sizing: border-box;
 	word-break: break-all;
@@ -161,14 +163,16 @@
 	hyphens: auto;
 	overflow-wrap: break-word;
 	font-weight: bold;
-	/* padding: 50px; */
+
+	padding: 10px;
 	/* overflow: auto; */
 	/* overflow-wrap: inherit; */
 }
-/* .userMsg {
+.userMsg {
 	font-size: 25px;
-	padding-left: 10px;
-} */
+	/* padding: 10px; */
+	/* text-align: center; */
+}
 .wholeInput {
 	/* border: 2px solid blue; */
 	justify-content: center;
@@ -189,10 +193,7 @@
 	height: 70px;
 	border-radius: 50%;
 } */
-/* .scrollMsg {
-	width: 80%;
-	border: red solid;
-} */
+
 .fa-arrow-left {
 	color: white;
 	font-size: 25px;
@@ -265,13 +266,14 @@
 			'Helvetica Neue', sans-serif;
 	}
 	.chatRoomForm {
-		/* border: 2px solid green; */
 		justify-content: flex-end;
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		height: 95vh;
+		height: 100vh;
 		width: 100%;
+		background: #fcfcfe;
+		overflow: auto;
 		/* max-height: 100vh; */
 	}
 
@@ -291,7 +293,7 @@
 		/* border: 2px solid blue; */
 		width: 90%;
 		max-height: 90vh;
-		overflow: auto;
+		overflow: scroll;
 	}
 	.fa-paper-plane {
 		/* border: 2px solid blue; */
@@ -319,7 +321,7 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		display: flex;
-		min-height: 13vh;
+		/* min-height: 13vh; */
 		width: 100%;
 		box-sizing: border-box;
 		word-break: break-all;
@@ -332,7 +334,7 @@
 		align-items: center;
 		display: flex;
 		width: 100%;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 	}
 	/* .msgForm {
 		border: 2px solid red;
@@ -360,8 +362,8 @@
 		hyphens: auto;
 		overflow-wrap: break-word;
 		font-weight: bold;
-		padding: 5px;
-		box-sizing: initial;
+		/* padding: 5px; */
+		/* box-sizing: initial; */
 	}
 	.wholeInput {
 		/* border: 2px solid red; */
@@ -369,6 +371,7 @@
 		align-items: center;
 		display: flex;
 		width: 72%;
+		margin-top: 10px;
 	}
 	.wholeSend {
 		width: 25%;
