@@ -1,0 +1,1 @@
+UPDATE chatuser SET room = null WHERE id = $1;

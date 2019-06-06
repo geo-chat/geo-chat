@@ -1,0 +1,1 @@
+SELECT username, img FROM chatuser WHERE room = $1;
