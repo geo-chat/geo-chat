@@ -77,11 +77,11 @@
 	/* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
 .descriptionLogin {
-	font-size: 30px;
+	font-size: 25px;
 	color: black;
 }
 .titleLogin {
-	font-size: 50px;
+	font-size: 30px;
 	color: black;
 }
 .descLogin {
@@ -195,11 +195,11 @@
 		cursor: pointer;
 		outline: blueviolet;
 	} */
-	.description {
+	.descriptionLogin {
 		font-size: 20px;
 	}
-	.title {
-		font-size: 35px;
+	.titleLogin {
+		font-size: 27px;
 	}
 	.iconInside {
 		position: relative;

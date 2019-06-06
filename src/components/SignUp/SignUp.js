@@ -41,8 +41,8 @@ class Signup extends Component {
 						</div>
 						<div className="smallSignUpForm">
 							<div className="descSignUp">
-								<h1 className="title">Welcome back to Geo-Chat</h1>
-								<h4 className="description">Sign Up to continue to your account.</h4>
+								<h1 className="titleSignUp">Welcome back to Geo-Chat</h1>
+								<h4 className="descriptionSignUp">Sign Up to continue to your account.</h4>
 							</div>
 							<div className="iconInside">
 								<i class="fas fa-user" />

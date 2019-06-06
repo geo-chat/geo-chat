@@ -14,7 +14,7 @@
 .geoChat {
 	color: #825eeb;
 	font-weight: bold;
-	font-size: 35px;
+	font-size: 30px;
 }
 
 .card-text {
@@ -320,13 +320,14 @@
 		align-items: center;
 		display: flex;
 		width: 100%;
+		height: 10vh;
 	}
 	.navbar-nav {
 		justify-content: center;
 		align-items: center;
 		display: flex;
 		width: 100%;
-		/* border: solid blue 2px; */
+		border: solid blue 2px;
 	}
 
 	.form-control {
@@ -390,9 +391,5 @@
 		display: flex;
 		height: 8vh;
 		width: 100%;
-	}
-	.navbar-collapse {
-		background: gray;
-		width: 100vw;
 	}
 }

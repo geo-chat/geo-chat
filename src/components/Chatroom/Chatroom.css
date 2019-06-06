@@ -4,7 +4,7 @@
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	height: 95vh;
+	height: 100vh;
 	width: 100%;
 	background: #fcfcfe;
 
@@ -70,11 +70,12 @@
 	-webkit-box-shadow: 0px 1px 13px 1px rgba(168, 166, 168, 1);
 	-moz-box-shadow: 0px 1px 13px 1px rgba(168, 166, 168, 1);
 	box-shadow: 0px 1px 13px 1px rgba(168, 166, 168, 1);
+	margin-bottom: 30px;
 }
 .scrollMsg {
 	/* border: 2px solid blue; */
 	width: 92%;
-	max-height: 90vh;
+	max-height: 100%;
 	overflow: scroll;
 	display: flex;
 	justify-content: flex-start;
@@ -83,8 +84,8 @@
 }
 .fa-paper-plane {
 	/* border: 2px solid blue; */
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	border-radius: 50%;
 	justify-content: center;
 	align-items: center;
@@ -92,6 +93,18 @@
 	color: white;
 	background: #825eeb;
 	font-size: 20px;
+}
+.btnOutSidePaperPlane {
+	outline: none;
+	border: 2px solid transparent;
+	background: transparent;
+	/* border: blue solid; */
+	/* width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	justify-content: center;
+	align-items: center;
+	display: flex; */
 }
 
 /* .sendBtn {
@@ -138,25 +151,24 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: flex-start;
+	justify-content: first baseline;
 	align-items: center;
-	/* align-content: center; */
+	align-content: flex-start;
 	width: 100%;
-	min-height: 100px;
+	min-height: 11vh;
 	font-size: 20px;
 	word-break: break-all;
 	hyphens: auto;
 	overflow-wrap: break-word;
-	padding: 50px;
-
 	font-weight: bold;
+	/* padding: 50px; */
 	/* overflow: auto; */
 	/* overflow-wrap: inherit; */
 }
-.userMsg {
+/* .userMsg {
 	font-size: 25px;
 	padding-left: 10px;
-}
+} */
 .wholeInput {
 	/* border: 2px solid blue; */
 	justify-content: center;
@@ -171,12 +183,12 @@
 	align-items: center;
 	display: flex;
 }
-.fa-paper-plane {
+/* .fa-paper-plane {
 	font-size: 20px;
 	width: 70px;
 	height: 70px;
 	border-radius: 50%;
-}
+} */
 /* .scrollMsg {
 	width: 80%;
 	border: red solid;
@@ -191,22 +203,69 @@
 }
 
 @media (max-width: 500px) {
-	.peopleInChat {
+	.navbarInsidePeople {
+		/* border: solid yellow; */
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		width: 100%;
+	}
+	.chatRoomNav {
+		width: 50%;
+		/* border: solid red; */
+	}
+	.personName {
 		display: none;
+	}
+	.workOnProg {
+		/* border: solid green; */
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		overflow: scroll;
+		width: 100%;
+	}
+	.borderBoxChatRoom {
+		/* border: yellow solid; */
+		justify-content: flex-start;
+		align-items: center;
+		display: flex;
+		height: 7vh;
+		width: 30%;
+	}
+	.addingFormSide {
+		display: flex;
+		flex-direction: column;
+		height: 95vh;
+		/* border: 2px solid pink; */
+	}
+	.peopleInChat {
+		/* border: solid red; */
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: stretch;
+		align-content: stretch;
+		border-radius: 10px;
+		background: #3f429b;
+		color: white;
+		height: 20vh;
 	}
 	.menuForChatRoom {
 		/* border: 2px solid red; */
 		color: white;
 		font-size: 20px;
-		justify-content: space-around;
-		align-items: center;
+		justify-content: center;
+		align-items: flex-start;
 		display: flex;
-		width: 35%;
+		width: 15%;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 			'Helvetica Neue', sans-serif;
 	}
 	.chatRoomForm {
-		/* border: 2px solid red; */
+		/* border: 2px solid green; */
 		justify-content: flex-end;
 		align-items: center;
 		display: flex;
@@ -217,7 +276,9 @@
 	}
 
 	.inputMessage {
-		/* border: 2px solid blue; */
+		justify-content: flex-start;
+		align-items: center;
+		display: flex;
 		height: 6vh;
 		width: 100%;
 		border: 2px solid transparent;
@@ -228,7 +289,7 @@
 	}
 	.scrollMsg {
 		/* border: 2px solid blue; */
-		width: 92%;
+		width: 90%;
 		max-height: 90vh;
 		overflow: auto;
 	}
@@ -252,12 +313,13 @@
 	} */
 	.messages {
 		/* border: 2px solid yellow; */
-		justify-content: space-evenly;
+		justify-content: center;
 		align-content: center;
+		align-items: center;
 		flex-direction: column;
 		flex-wrap: wrap;
 		display: flex;
-		min-height: 11vh;
+		min-height: 13vh;
 		width: 100%;
 		box-sizing: border-box;
 		word-break: break-all;
@@ -265,12 +327,11 @@
 		overflow-wrap: break-word;
 	}
 	.input-Btn {
-		/* border: 2px solid green; */
+		/* border: 2px solid pink; */
 		justify-content: flex-end;
 		align-items: center;
 		display: flex;
 		width: 100%;
-		word-break: break-all;
 		margin-bottom: 20px;
 	}
 	/* .msgForm {
@@ -283,21 +344,24 @@
 		height: 90vh;
 	} */
 	.userMessage {
-		background: #d5d6e0;
-		/* border: 2px solid red; */
+		/* border: solid red; */
+		background: #d5d6f0;
 		border-radius: 20px;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
-		align-items: stretch;
-		align-content: stretch;
+		justify-content: first baseline;
+		align-items: center;
+		align-content: flex-start;
 		width: 100%;
-		height: 100%;
-		font-size: 15px;
+		min-height: 10vh;
+		font-size: 19px;
 		word-break: break-all;
 		hyphens: auto;
 		overflow-wrap: break-word;
+		font-weight: bold;
+		padding: 5px;
+		box-sizing: initial;
 	}
 	.wholeInput {
 		/* border: 2px solid red; */
@@ -308,9 +372,13 @@
 	}
 	.wholeSend {
 		width: 25%;
+		height: 100%;
 		/* border: 2px solid green; */
 		justify-content: center;
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
+	}
+	.userMsg {
+		font-size: 15px;
 	}
 }

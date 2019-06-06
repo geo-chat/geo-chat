@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import { getCoords, getRooms } from '../../store';
+import '../Home/Home.css';
 
 class Home extends Component {
 	constructor(props) {
@@ -64,7 +65,9 @@ class Home extends Component {
 										Enter Chat Room
 									</Link>
 									{room.userid === this.props.user.id ? (
-										<button onClick={() => this.deleteRoom(room.id)}>Delete</button>
+										<button className="deleteBtnHome" onClick={() => this.deleteRoom(room.id)}>
+											Delete
+										</button>
 									) : null}
 								</div>
 							</div>
