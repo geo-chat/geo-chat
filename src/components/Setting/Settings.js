@@ -47,19 +47,12 @@ class Settings extends Component {
   handleLogout = () => {
     this.props.logout();
   };
-
-  // show = () => {
-  //   this.setState({ show: !this.state.show });
-  // };
-  // newPassword = () => {
-  //   this.setState({ showNewPassword: !this.state.showNewPassword });
-  // };
   updateColor = () => {
     console.log(this.state.hexColor);
     this.props.editHexcolor(this.state.hexColor);
   };
   render() {
-    if (!this.props.user.username) {
+    if (this.props.user.username === "A Lurker") {
       return <Redirect to="/login" />;
     } else {
       return (
@@ -78,6 +71,7 @@ class Settings extends Component {
                     type="color"
                     value={this.state.hexColor}
                     onChange={e => this.setState({ hexColor: e.target.value })}
+                    id="color_input"
                   />
                   {/* <button > */}
                   <i

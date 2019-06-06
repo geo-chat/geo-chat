@@ -9,10 +9,7 @@ class Navbar extends Component {
   constructor() {
     super();
     this.state = {
-      lat: null,
-      lng: null,
-      chatName: "",
-      rooms: []
+      chatName: ""
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
@@ -22,16 +19,21 @@ class Navbar extends Component {
   handleLogout = () => {
     this.props.logout();
   };
-  async clickHandler() {
+  clickHandler() {
     console.log(this.props);
     if (this.state.name === "") {
       alert("Please enter a name for your chatroom");
+    } else if (this.props.user.id === 0) {
+      alert("Please Login");
     } else {
-      await axios
+      axios
         .post("/api/chat/create", {
           name: this.state.chatName,
           lat: this.props.lat,
           lng: this.props.lng
+        })
+        .then(res => {
+          console.log(res);
         })
         .catch(err => console.log(err));
       this.setState({ chatName: "" });
@@ -76,6 +78,7 @@ class Navbar extends Component {
                 <Link
                   to="/create"
                   className="nav-link"
+                  id="create_button"
                   // type="button"
                   // class="btn btn-custom"
                   data-toggle="modal"
@@ -116,6 +119,7 @@ class Navbar extends Component {
                         className="popUpInput"
                         onChange={this.changeHandler}
                         placeholder="Enter Name"
+                        id="create_input"
                       />
                     </div>
                     <div className="modal-footer">
@@ -126,8 +130,15 @@ class Navbar extends Component {
                       >
                         Close
                       </button>
+
                       <li className="nav-item ">
-                        <Link to="/create" className="nav-link addBtnInPopUp">
+                        <Link
+                          to="/create"
+                          id="create_room_button"
+                          className="nav-link addBtnInPopUp"
+                          onClick={this.clickHandler}
+                          data-dismiss="modal"
+                        >
                           Add Chatroom
                         </Link>
                       </li>
@@ -150,13 +161,18 @@ class Navbar extends Component {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  id="dropdown_menu"
                 >
                   <i className="far fa-caret-square-down" />
                 </a>
 
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   {this.props.user.username === "A Lurker" ? (
-                    <Link className="dropdown-item" to="/login">
+                    <Link
+                      className="dropdown-item"
+                      to="/login"
+                      id="login_button"
+                    >
                       <h6> Login </h6>
                     </Link>
                   ) : (

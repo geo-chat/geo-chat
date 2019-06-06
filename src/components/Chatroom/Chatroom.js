@@ -136,8 +136,6 @@ class Chatroom extends Component {
             })}
           </div>
           <div className="chatRoomForm">
-            {/* <div className="msgForm"> */}
-            {/* {this.state.index !== -1 ? <h2>{this.props.rooms[this.state.index].member}</h2> : null} */}
             <ToastContainer />
             <div className="scrollMsg">
               {this.state.messages.map((message, index) => {
@@ -150,7 +148,6 @@ class Chatroom extends Component {
                   </div>
                 );
               })}
-              {/* </div> */}
             </div>
             {this.props.user.username === "A Lurker" ? (
               <div className="inputMessage">Please Login To Chat</div>
