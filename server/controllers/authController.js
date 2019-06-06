@@ -52,6 +52,7 @@ const deleteAccount = (req, res) => {
 const signup = async (req, res) => {
   const db = req.app.get("db");
   const { username, password } = req.body;
+  console.log(req.body);
   const taken = await db.verify(username).catch(err => err);
   if (taken[0]) {
     res.status(403).json("username is already taken");
@@ -75,7 +76,9 @@ const login = async (req, res) => {
     } else {
       req.session.user = {
         id: results[0].id,
-        username: results[0].username
+        username: results[0].username,
+        img: results[0].img,
+        hexcolor: results[0].hexcolor
       };
       res.status(200).json(results[0]);
     }
@@ -84,7 +87,7 @@ const login = async (req, res) => {
 const getUser = async (req, res) => {
   const { session } = req;
   if (!session.user) {
-    session.user = { username: "Guest", id: 0 };
+    session.user = { username: "A Lurker", id: 0 };
   }
   console.log(session.user);
   res.status(200).json(session.user);

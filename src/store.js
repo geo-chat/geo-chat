@@ -9,6 +9,7 @@ const initialState = {
   rooms: []
 };
 
+const GET_USER = "GET_USER";
 const GET_COORDS = "GET_COORDS";
 const GET_ROOMS = "GET_ROOMS";
 const ADD_TO_ROOM = "ADD_TO_ROOM";
@@ -22,6 +23,12 @@ const EDIT_IMG = "EDIT_IMG";
 const EDIT_PASSWORD = "EDIT_PASSWORD";
 const EDIT_HEXCOLOR = "EDIT_HEXCOLOR";
 
+export function getUser() {
+  return {
+    type: GET_USER,
+    payload: axios.get("/api/auth/getuser")
+  };
+}
 export function getCoords() {
   return {
     type: GET_COORDS,
@@ -97,6 +104,11 @@ export function editPassword(oldPassword, newPassword) {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case `${GET_USER}_FULFILLED`:
+      return {
+        ...state,
+        user: action.payload.data
+      };
     case `${GET_COORDS}_FULFILLED`:
       return {
         ...state,

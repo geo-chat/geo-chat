@@ -52,15 +52,15 @@ class Navbar extends Component {
 					</Link>
 
 					<button
-						class="navbar-toggler"
+						className="navbar-toggler"
 						type="button"
 						data-toggle="collapse"
-						data-target="#navbarNavDropdown"
-						aria-controls="navbarNavDropdown"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
 						aria-expanded="false"
 						aria-label="Toggle navigation"
 					>
-						<span class="navbar-toggler-icon" />
+						<span className="navbar-toggler-icon" />
 					</button>
 
 					<div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -147,7 +147,7 @@ class Navbar extends Component {
 								</a>
 
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									{!this.props.user.username ? (
+									{this.props.user.username === 'A Lurker' ? (
 										<Link className="dropdown-item" to="/login">
 											<h6> Login </h6>
 										</Link>

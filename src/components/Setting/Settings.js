@@ -42,12 +42,6 @@ class Settings extends Component {
 		this.props.logout();
 	};
 
-	// show = () => {
-	//   this.setState({ show: !this.state.show });
-	// };
-	// newPassword = () => {
-	//   this.setState({ showNewPassword: !this.state.showNewPassword });
-	// };
 	updateColor = () => {
 		console.log(this.state.hexColor);
 		this.props.editHexcolor(this.state.hexColor);
