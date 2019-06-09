@@ -100,19 +100,14 @@
 	outline: none;
 	border: 2px solid transparent;
 	background: transparent;
-	/* border: blue solid; */
-	/* width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	justify-content: center;
-	align-items: center;
-	display: flex; */
+	margin-bottom: 20px;
 }
 
 /* .sendBtn {
-	border: 2px solid blue;
+	border: 2px solid yellow;
 	width: 50%;
 	border-radius: 10px;
+	background: blue;
 } */
 .messages {
 	/* border: 2px solid yellow; */
@@ -137,18 +132,9 @@
 	word-break: break-all;
 	margin-bottom: 10px;
 }
-/* .msgForm {
-	border: 2px solid red;
-	width: 100%;
-	justify-content: flex-end;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 90vh;
-} */
+
 .userMessage {
 	background: #d5d6f0;
-	/* border: 2px solid red; */
 	border-radius: 20px;
 	display: flex;
 	flex-direction: row;
@@ -163,14 +149,11 @@
 	hyphens: auto;
 	overflow-wrap: break-word;
 	font-weight: bold;
-
 	padding: 10px;
-	/* overflow: auto; */
-	/* overflow-wrap: inherit; */
 }
 .userMsg {
 	font-size: 25px;
-	/* padding: 10px; */
+	margin-left: 5px;
 	/* text-align: center; */
 }
 .wholeInput {
@@ -186,14 +169,8 @@
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	/* background: red; */
 }
-/* .fa-paper-plane {
-	font-size: 20px;
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-} */
-
 .fa-arrow-left {
 	color: white;
 	font-size: 25px;
@@ -228,11 +205,11 @@
 	}
 	.borderBoxChatRoom {
 		/* border: yellow solid; */
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
 		display: flex;
 		height: 7vh;
-		width: 30%;
+		width: 20%;
 	}
 	.addingFormSide {
 		display: flex;
@@ -378,10 +355,16 @@
 		height: 100%;
 		/* border: 2px solid green; */
 		justify-content: center;
-		align-items: flex-start;
+		align-items: center;
 		display: flex;
 	}
 	.userMsg {
 		font-size: 15px;
+	}
+	.btnOutSidePaperPlane {
+		outline: none;
+		border: 2px solid transparent;
+		background: transparent;
+		margin-bottom: 15px;
 	}
 }

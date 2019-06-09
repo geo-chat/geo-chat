@@ -83,13 +83,20 @@ label {
 	width: 50%;
 }
 .changeTextColor {
+	background: #825eeb;
+	border: none;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	width: 50%;
+	height: 5vh;
 }
-.fa-palette {
-	/* border: solid green; */
+/* .fa-palette {
+	border: solid green;
 	font-size: 32px;
 	color: #825eeb;
-	cursor: pointer;
-}
+	
+} */
 .changeOldPw {
 	width: 55%;
 	height: 6vh;
@@ -134,6 +141,16 @@ label {
 }
 
 @media (max-width: 500px) {
+	.changeTextColor {
+		background: #825eeb;
+		border: none;
+		color: white;
+		cursor: pointer;
+		border-radius: 5px;
+		width: 90%;
+		font-size: 13px;
+		height: 5vh;
+	}
 	.settings-form {
 		/* border: 2px solid blue; */
 		justify-content: space-evenly;
