@@ -94,11 +94,18 @@ const logout = (req, res) => {
   req.session.destroy();
   res.sendStatus(200);
 };
-const editUsername = (req, res) => {
+const editUsername = async (req, res) => {
   const db = req.app.get("db");
   const { username } = req.body;
   const { id } = req.session.user;
-  db.edit_username([username, +id]);
+  let user = await db.edit_username([username, +id]);
+  req.session.user = {
+    id: user[0].id,
+    username: user[0].username,
+    img: user[0].img,
+    hexcolor: user[0].hexcolor
+  };
+  res.status(200).json(user[0]);
 };
 const editPassword = async (req, res) => {
   const db = req.app.get("db");
@@ -114,11 +121,18 @@ const editPassword = async (req, res) => {
     res.sendStatus(200);
   }
 };
-const editImg = (req, res) => {
+const editImg = async (req, res) => {
   const db = req.app.get("db");
   const { img } = req.body;
   const { id } = req.session.user;
-  db.edit_img([img, +id]);
+  let user = await db.edit_img([img, +id]).catch(error => console.log(error));
+  req.session.user = {
+    id: user[0].id,
+    username: user[0].username,
+    img: user[0].img,
+    hexcolor: user[0].hexcolor
+  };
+  res.status(200).json(user[0]);
 };
 const editHexColor = async (req, res) => {
   const db = req.app.get("db");
@@ -127,6 +141,12 @@ const editHexColor = async (req, res) => {
   let user = await db
     .edit_hex_color([hexcolor, +id])
     .catch(error => console.log(error));
+  req.session.user = {
+    id: user[0].id,
+    username: user[0].username,
+    img: user[0].img,
+    hexcolor: user[0].hexcolor
+  };
   res.status(200).json(user[0]);
 };
 module.exports = {
