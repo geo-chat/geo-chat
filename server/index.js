@@ -6,12 +6,12 @@ const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
 const fs = require("fs");
-const options = {
-  key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
-  cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
-};
-const server = require("https").createServer(options);
-// const server = require("http").createServer(app);
+// const options = {
+//   key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
+//   cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
+// };
+// const server = require("https").createServer(options);
+const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const path = require("path");
 const axios = require("axios");
@@ -93,9 +93,9 @@ io.of("/chat").on("connection", socket => {
   });
 });
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 server.listen(7778, () => {
   console.log("Big brother listening on 7778");
