@@ -19,10 +19,6 @@ const axios = require("axios");
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../build/index.html"));
-// });
-
 const { CONNECTION_STRING, SESSION_SECRET, GOOGLE_KEY } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
@@ -97,12 +93,12 @@ io.of("/chat").on("connection", socket => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../build/index.html"));
+// });
 
 server.listen(7778, () => {
-  console.log("Big brother listening on 7777");
+  console.log("Big brother listening on 7778");
 });
 
 app.listen(PORT, () => {

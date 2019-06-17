@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.5",
+    "cypress": "^3.3.1",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-session": "^1.16.1",
@@ -52,5 +53,5 @@
     ]
   },
   "main": "server/index.js",
-  "proxy": "http://localhost:6969"
+  "proxy": "http://localhost:6970"
 }
