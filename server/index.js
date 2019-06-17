@@ -5,7 +5,15 @@ const massive = require("massive");
 const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
-const http = require("http").createServer(app);
+var fs = require("fs");
+var privateKey = fs.readFileSync("../key").toString();
+var certificate = fs.readFileSync("../crt").toString();
+var ca = fs.readFileSync("../intermediate.crt").toString();
+const http = express.createServer({
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+});
 const io = require("socket.io")(http);
 const path = require("path");
 const axios = require("axios");
