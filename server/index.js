@@ -5,16 +5,14 @@ const massive = require("massive");
 const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
-var fs = require("fs");
-var privateKey = fs.readFileSync("../key").toString();
-var certificate = fs.readFileSync("../crt").toString();
-var ca = fs.readFileSync("../intermediate.crt").toString();
-const http = express.createServer({
-  key: privateKey,
-  cert: certificate,
-  ca: ca
-});
-const io = require("socket.io")(http);
+const fs = require("fs");
+const options = {
+  key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
+};
+const server = require("https").createServer(options);
+// const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 const path = require("path");
 const axios = require("axios");
 
@@ -103,7 +101,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-http.listen(7777, () => {
+server.listen(7777, () => {
   console.log("Big brother listening on 7777");
 });
 
