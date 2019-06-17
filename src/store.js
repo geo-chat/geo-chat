@@ -111,7 +111,7 @@ function reducer(state = initialState, action) {
         user: action.payload.data
       };
     case `${GET_COORDS}_FULFILLED`:
-      console.log(action.payload.data);
+      console.log(action.payload);
       return {
         ...state,
         lat: action.payload.data.location.lat,
