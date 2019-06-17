@@ -105,11 +105,13 @@ export function editPassword(oldPassword, newPassword) {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case `${GET_USER}_FULFILLED`:
+      console.log(action.payload.data);
       return {
         ...state,
         user: action.payload.data
       };
     case `${GET_COORDS}_FULFILLED`:
+      console.log(action.payload.data);
       return {
         ...state,
         lat: action.payload.data.location.lat,
