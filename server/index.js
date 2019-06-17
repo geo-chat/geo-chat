@@ -101,7 +101,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-server.listen(7777, () => {
+server.listen(7778, () => {
   console.log("Big brother listening on 7777");
 });
 
