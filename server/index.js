@@ -6,12 +6,12 @@ const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
 const fs = require("fs");
-// const options = {
-//   key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
-//   cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
-// };
-// const server = require("https").createServer(options);
-const server = require("http").createServer(app);
+const options = {
+  key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
+};
+const server = require("https").createServer(options);
+// const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const path = require("path");
 const axios = require("axios");
@@ -64,7 +64,7 @@ app.get("/api/getGoogle", (req, res) => {
     });
 });
 
-const PORT = 6969;
+const PORT = 6970;
 
 io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
