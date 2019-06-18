@@ -64,7 +64,7 @@ app.get("/api/getGoogle", (req, res) => {
     });
 });
 
-const PORT = 6970;
+const PORT = 6969;
 
 io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
