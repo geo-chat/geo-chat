@@ -22,7 +22,8 @@ class Home extends Component {
       .catch(err => err);
   };
   async renderRooms() {
-    await this.props.getCoords();
+    await navigator.geolocation.getCurrentPosition(this.props.getCoords);
+    // await this.props.getCoords();
     this.props.getRooms(this.props.lat, this.props.lng);
   }
 
