@@ -29,12 +29,21 @@ export function getUser() {
     payload: axios.get("/api/auth/getuser")
   };
 }
+
 export function getCoords() {
   return {
     type: GET_COORDS,
-    payload: axios.get("/api/getGoogle")
+    payload: axios.post(
+      `https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyByZu5ucxdwZvoCHLRbane634jGUP7tjCo`
+    )
   };
 }
+// export function getCoords() {
+//   return {
+//     type: GET_COORDS,
+//     payload: axios.get("/api/getGoogle")
+//   };
+// }
 export function getRooms(lat, lng) {
   return {
     type: GET_ROOMS,
