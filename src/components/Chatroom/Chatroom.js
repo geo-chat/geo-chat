@@ -24,12 +24,9 @@ class Chatroom extends Component {
     // const socket = io("http://192.168.254.58:7778/chat", {
     //   secure: true
     // });
-    // JB work
-    // const socket = io("http://172.31.99.189:7778/chat", {
-    //   secure: true
-    // });
+
     //ssh server
-    const socket = io("http://157.230.212.208:7778/chat", {
+    const socket = io("https://157.230.212.208:7778/chat", {
       secure: true
     });
     this.setState({ socket });

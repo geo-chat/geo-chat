@@ -29,16 +29,10 @@ export function getUser() {
     payload: axios.get("/api/auth/getuser")
   };
 }
-// export function getCoords() {
-//   return {
-//     type: GET_COORDS,
-//     payload: axios.get("/api/getGoogle")
-//   };
-// }
-export function getCoords(position) {
+export function getCoords() {
   return {
     type: GET_COORDS,
-    payload: position
+    payload: axios.get("/api/getGoogle")
   };
 }
 export function getRooms(lat, lng) {
@@ -116,17 +110,11 @@ function reducer(state = initialState, action) {
         ...state,
         user: action.payload.data
       };
-    // case `${GET_COORDS}_FULFILLED`:
-    //   return {
-    //     ...state,
-    //     lat: action.payload.data.location.lat,
-    //     lng: action.payload.data.location.lng
-    //   };
     case `${GET_COORDS}_FULFILLED`:
       return {
         ...state,
-        lat: action.payload.coords.latitude,
-        lng: action.payload.coords.longitude
+        lat: action.payload.data.location.lat,
+        lng: action.payload.data.location.lng
       };
     case `${GET_ROOMS}_FULFILLED`:
       return {
