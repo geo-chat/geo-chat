@@ -61,6 +61,7 @@ app.get("/api/getGoogle", (req, res) => {
       `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_KEY}`
     )
     .then(response => {
+      console.log(response);
       res.status(200).json(response.data);
     });
 });
