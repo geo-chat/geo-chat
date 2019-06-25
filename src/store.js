@@ -48,7 +48,7 @@ export function getRooms(lat, lng) {
 export function getUser() {
   return {
     type: GET_USER,
-    payload: axios.post("/api/auth/getuser", { test: "postmalone" })
+    payload: axios.get("/api/auth/getuser")
   };
 }
 

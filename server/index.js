@@ -15,7 +15,7 @@ const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const path = require("path");
 
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
 const { CONNECTION_STRING, SESSION_SECRET, GOOGLE_KEY } = process.env;
@@ -40,7 +40,7 @@ app.use(
 app.delete("/api/chat/deleteroom/:chatid", cc.deleteRoom);
 app.delete("/api/auth/deleteaccount", ac.deleteAccount);
 app.post("/api/auth/signup", ac.signup);
-app.post("/api/auth/getuser", ac.getUser);
+app.get("/api/auth/getuser", ac.getUser);
 app.post("/api/auth/login", ac.login);
 app.delete("/api/auth/logout", ac.logout);
 app.put("/api/auth/editusername", ac.editUsername);
