@@ -23,7 +23,10 @@ class Home extends Component {
   };
   async renderRooms() {
     await this.props.getCoords();
-    this.props.getRooms(this.props.lat, this.props.lng);
+    if (this.props.lat !== 0 && this.props.lng !== 0) {
+      this.props.getRooms(this.props.lat, this.props.lng);
+    }
+    console.log(this.props);
   }
 
   render() {
