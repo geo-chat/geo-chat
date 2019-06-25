@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const session = require("express-session");
 const fs = require("fs");
 const fileType = require("file-type");
 const multiparty = require("multiparty");
@@ -84,7 +85,9 @@ const login = async (req, res) => {
   }
 };
 const getUser = async (req, res) => {
-  console.log("Hit back");
+  if (!req.session.user) {
+    req.session.user = { username: "A Lurker", id: 0 };
+  }
   res.status(200).json(req.session.user);
 };
 const logout = (req, res) => {

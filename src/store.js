@@ -114,6 +114,7 @@ export function editPassword(oldPassword, newPassword) {
 }
 
 function reducer(state = initialState, action) {
+  console.log(action.type);
   switch (action.type) {
     case `${GET_USER}_FULFILLED`:
       console.log(action.payload.data);
