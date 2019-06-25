@@ -97,9 +97,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-server.listen(7778, () => {
-  console.log("Big brother listening on 7778");
-});
+// server.listen(7778, () => {
+//   console.log("Big brother listening on 7778");
+// });
 
 app.listen(PORT, () => {
   console.log(`Listening for bad things to happen on ${PORT}`);
