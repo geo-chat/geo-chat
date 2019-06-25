@@ -87,7 +87,8 @@ const getUser = (req, res) => {
   // if (!req.session.user) {
   //   req.session.user = { username: "A Lurker", id: 0 };
   // }
-  req.session.user.user = { username: "A Lurker", id: 0 };
+  const test = req.body;
+  req.session.user = { username: "A Lurker", id: 0 };
   res.status(200).json(req.session.user);
 };
 const logout = (req, res) => {

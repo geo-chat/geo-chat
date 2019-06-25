@@ -48,7 +48,7 @@ export function getRooms(lat, lng) {
 export function getUser() {
   return {
     type: GET_USER,
-    payload: axios.post("/api/auth/getuser", { test })
+    payload: axios.post("/api/auth/getuser", { test: "postmalone" })
   };
 }
 
@@ -117,10 +117,10 @@ function reducer(state = initialState, action) {
   console.log(action.type);
   switch (action.type) {
     case `${GET_USER}_FULFILLED`:
-      console.log(action.payload.data.user);
+      console.log(action.payload.data);
       return {
         ...state,
-        user: action.payload.data.user
+        user: action.payload.data
       };
     case `${GET_COORDS}_FULFILLED`:
       console.log(action.payload.data.location);
