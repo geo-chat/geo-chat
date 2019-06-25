@@ -23,14 +23,6 @@ const EDIT_IMG = "EDIT_IMG";
 const EDIT_PASSWORD = "EDIT_PASSWORD";
 const EDIT_HEXCOLOR = "EDIT_HEXCOLOR";
 
-export function getUser() {
-  console.log("requesting user");
-  return {
-    type: GET_USER,
-    payload: axios.get("/api/auth/getuser")
-  };
-}
-
 export function getCoords() {
   return {
     type: GET_COORDS,
@@ -52,6 +44,14 @@ export function getRooms(lat, lng) {
     payload: axios.post("/api/chat/getrooms", { lat, lng })
   };
 }
+
+export function getUser() {
+  return {
+    type: GET_USER,
+    payload: axios.get("/api/auth/getuser")
+  };
+}
+
 export function addToRoom(id, lat, lng) {
   return {
     type: ADD_TO_ROOM,
@@ -117,10 +117,10 @@ function reducer(state = initialState, action) {
   console.log(action.type);
   switch (action.type) {
     case `${GET_USER}_FULFILLED`:
-      console.log(action.payload.data);
+      console.log(action.payload.data.user);
       return {
         ...state,
-        user: action.payload.data
+        user: action.payload.data.user
       };
     case `${GET_COORDS}_FULFILLED`:
       console.log(action.payload.data.location);
