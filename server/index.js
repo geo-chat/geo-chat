@@ -40,7 +40,7 @@ app.use(
 app.delete("/api/chat/deleteroom/:chatid", cc.deleteRoom);
 app.delete("/api/auth/deleteaccount", ac.deleteAccount);
 app.post("/api/auth/signup", ac.signup);
-//app.get("/api/auth/getuser", ac.getUser);
+app.get("/api/auth/getuser", ac.getUser);
 app.post("/api/auth/login", ac.login);
 app.delete("/api/auth/logout", ac.logout);
 app.put("/api/auth/editusername", ac.editUsername);
