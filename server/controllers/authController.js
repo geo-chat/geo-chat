@@ -84,7 +84,7 @@ const login = async (req, res) => {
     }
   }
 };
-const getUser = async (req, res) => {
+const getUser = (req, res) => {
   // if (!req.session.user) {
   //   req.session.user = { username: "A Lurker", id: 0 };
   // }
