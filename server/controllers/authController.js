@@ -1,5 +1,4 @@
 const bcrypt = require("bcryptjs");
-const session = require("express-session");
 const fs = require("fs");
 const fileType = require("file-type");
 const multiparty = require("multiparty");
