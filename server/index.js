@@ -15,7 +15,7 @@ const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const path = require("path");
 
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
 const { CONNECTION_STRING, SESSION_SECRET, GOOGLE_KEY } = process.env;
@@ -93,9 +93,9 @@ io.of("/chat").on("connection", socket => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../build/index.html"));
+// });
 
 // server.listen(7778, () => {
 //   console.log("Big brother listening on 7778");
