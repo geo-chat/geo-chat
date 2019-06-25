@@ -46,6 +46,7 @@ export function getCoords() {
 //   };
 // }
 export function getRooms(lat, lng) {
+  console.log(`${lat} and ${lng}`);
   return {
     type: GET_ROOMS,
     payload: axios.post("/api/chat/getrooms", { lat, lng })
