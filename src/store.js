@@ -23,20 +23,20 @@ const EDIT_IMG = "EDIT_IMG";
 const EDIT_PASSWORD = "EDIT_PASSWORD";
 const EDIT_HEXCOLOR = "EDIT_HEXCOLOR";
 
-export function getCoords() {
-  return {
-    type: GET_COORDS,
-    payload: axios.post(
-      `https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyByZu5ucxdwZvoCHLRbane634jGUP7tjCo`
-    )
-  };
-}
 // export function getCoords() {
 //   return {
 //     type: GET_COORDS,
-//     payload: axios.get("/api/getGoogle")
+//     payload: axios.post(
+//       `https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyByZu5ucxdwZvoCHLRbane634jGUP7tjCo`
+//     )
 //   };
 // }
+export function getCoords() {
+  return {
+    type: GET_COORDS,
+    payload: axios.get("/api/getGoogle")
+  };
+}
 export function getRooms(lat, lng) {
   console.log(`${lat} and ${lng}`);
   return {
