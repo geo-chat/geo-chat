@@ -8,7 +8,7 @@ const session = require("express-session");
 const fs = require("fs");
 const options = {
   key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
-  // cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/cert.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem"),
   ca: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
 };
 const server = require("https").createServer(options);
