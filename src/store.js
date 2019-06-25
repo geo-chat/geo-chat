@@ -24,6 +24,7 @@ const EDIT_PASSWORD = "EDIT_PASSWORD";
 const EDIT_HEXCOLOR = "EDIT_HEXCOLOR";
 
 export function getUser() {
+  console.log("requesting user");
   return {
     type: GET_USER,
     payload: axios.get("/api/auth/getuser")
