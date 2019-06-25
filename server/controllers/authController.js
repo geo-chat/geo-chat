@@ -85,10 +85,7 @@ const login = async (req, res) => {
   }
 };
 const getUser = async (req, res) => {
-  if (!req.session.user) {
-    session.user = { username: "A Lurker", id: 0 };
-  }
-  res.status(200).json(session.user);
+  res.status(200).json(req.session.user);
 };
 const logout = (req, res) => {
   req.session.destroy();

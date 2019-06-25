@@ -8,16 +8,23 @@ const session = require("express-session");
 const fs = require("fs");
 const options = {
   key: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/privkey.pem"),
-  cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem"),
-  ca: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
+  cert: fs.readFileSync("/etc/letsencrypt/live/geo-chat.online/fullchain.pem")
 };
-const server = require("https").createServer(options);
+const server = require("https").createServer(options, app);
 // const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const path = require("path");
 
+const getSession = (req, res, next) => {
+  if (!req.session.user) {
+    req.session.user = { username: "A Lurker", id: 0 };
+  }
+  next();
+};
+
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
+app.use(getSession);
 
 const { CONNECTION_STRING, SESSION_SECRET, GOOGLE_KEY } = process.env;
 massive(CONNECTION_STRING)
