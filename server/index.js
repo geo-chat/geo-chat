@@ -16,6 +16,7 @@ const io = require("socket.io")(server);
 const path = require("path");
 
 const getSession = (req, res, next) => {
+  console.log("hit middle");
   if (!req.session.user) {
     req.session.user = { username: "A Lurker", id: 0 };
   }

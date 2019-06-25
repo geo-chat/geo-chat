@@ -12,7 +12,7 @@ class Home extends Component {
     this.renderRooms = this.renderRooms.bind(this);
   }
   async componentDidMount() {
-    this.props.getUser();
+    // this.props.getUser();
     this.renderRooms();
   }
   deleteRoom = chatid => {
