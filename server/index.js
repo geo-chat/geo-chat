@@ -12,10 +12,9 @@ const options = {
     "/etc/letsencrypt/live/www.geo-chat.online/fullchain.pem"
   )
 };
-const server = require("https").createServer(options, app);
+const server = require("http").createServer(options, app);
 // const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-const path = require("path");
 
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
@@ -99,6 +98,6 @@ server.listen(PORT, () => {
   console.log(`Big brother listening on ${PORT}`);
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Listening for bad things to happen on ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Listening for bad things to happen on ${PORT}`);
+});
