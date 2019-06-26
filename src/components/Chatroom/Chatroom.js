@@ -26,7 +26,7 @@ class Chatroom extends Component {
     // });
 
     //ssh server
-    const socket = io("https://138.197.110.213:7778/chat", {
+    const socket = io("https://geo-chat.online/chat", {
       secure: true
     });
     this.setState({ socket });

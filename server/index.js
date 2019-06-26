@@ -95,8 +95,8 @@ io.of("/chat").on("connection", socket => {
   });
 });
 
-server.listen(7778, () => {
-  console.log("Big brother listening on 7778");
+server.listen(PORT, () => {
+  console.log(`Big brother listening on ${PORT}`);
 });
 
 app.listen(PORT, () => {
