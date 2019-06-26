@@ -21,7 +21,7 @@ class Chatroom extends Component {
   async componentDidMount() {
     window.addEventListener("beforeunload", this.componentCleanup);
     //home
-    // const socket = io("http://192.168.254.58:7778/chat", {
+    // const socket = io("http://192.168.254.58:6970/chat", {
     //   secure: true
     // });
 

@@ -99,6 +99,6 @@ server.listen(PORT, () => {
   console.log(`Big brother listening on ${PORT}`);
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening for bad things to happen on ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Listening for bad things to happen on ${PORT}`);
+// });
