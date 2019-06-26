@@ -21,14 +21,14 @@ class Chatroom extends Component {
   async componentDidMount() {
     window.addEventListener("beforeunload", this.componentCleanup);
     //home
-    const socket = io("http://192.168.254.58:7778/chat", {
-      secure: true
-    });
-
-    //ssh server
-    // const socket = io("https://157.230.212.208:7778/chat", {
+    // const socket = io("http://192.168.254.58:7778/chat", {
     //   secure: true
     // });
+
+    //ssh server
+    const socket = io("https://geo-chat.online/chat", {
+      secure: true
+    });
     this.setState({ socket });
     await this.props.getUser();
     this.initSocket();
