@@ -45,7 +45,7 @@ class Home extends Component {
           </div>
         </section>
         <main className="chatRooms">
-          {this.props.rooms !== [] ? (
+          {this.props.rooms[0] ? (
             this.props.rooms.map((room, index) => (
               <div key={index} className="card">
                 <div className="card-body">
@@ -58,7 +58,7 @@ class Home extends Component {
                     to={`/chatroom/${room.id}/${room.name}`}
                     className="card-link"
                   >
-                    Enter Chat Room
+                    Enter Chatroom
                   </Link>
                   {room.userid === this.props.user.id ? (
                     <button
@@ -72,7 +72,7 @@ class Home extends Component {
               </div>
             ))
           ) : (
-            <h3>No Rooms Available</h3>
+            <h2>Be the first to create a Chatroom in your area!</h2>
           )}
         </main>
       </div>

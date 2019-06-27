@@ -29,6 +29,7 @@ class Chatroom extends Component {
     const socket = io("geo-chat.online/chat", {
       secure: true
     });
+
     this.setState({ socket });
     await this.props.getUser();
     this.initSocket();

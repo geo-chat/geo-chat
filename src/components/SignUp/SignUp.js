@@ -27,7 +27,7 @@ class Signup extends Component {
   };
 
   render() {
-    if (this.props.user.username === "A Lurker") {
+    if (this.props.user.username !== "A Lurker") {
       return <Redirect to="/" />;
     } else {
       return (
@@ -35,15 +35,12 @@ class Signup extends Component {
           <Navbar />
           <form className="signUpForm" onSubmit={this.handleSubmit}>
             <div className="outsideSignUp">
-              <div className="imageSignUp">
-                {/* <h1 className="title">Welcome back to Geo-Chat</h1>
-							<h4 className="description">Sign Up to continue to your account.</h4> */}
-              </div>
+              <div className="imageSignUp" />
               <div className="smallSignUpForm">
                 <div className="descSignUp">
-                  <h1 className="titleSignUp">Welcome back to Geo-Chat</h1>
+                  <h1 className="titleSignUp">Welcome to Geo-Chat</h1>
                   <h4 className="descriptionSignUp">
-                    Sign Up to continue to your account.
+                    Create a username and password
                   </h4>
                 </div>
                 <div className="iconInside">

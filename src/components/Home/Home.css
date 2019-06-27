@@ -1,18 +1,26 @@
 .deleteBtnHome {
-	/* border: 2px solid red; */
-	margin-top: 20px;
-	font-size: 20px;
-	border-radius: 5px;
-	background: #825eeb;
-	width: 40%;
-	color: white;
+  /* border: 2px solid red; */
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  background: #825eeb;
+  width: 40%;
+  color: white;
 }
 .card-title {
-	/* border: 2px solid red; */
-	font-size: 25px;
+  /* border: 2px solid red; */
+  font-size: 25px;
 }
-
+.card-link {
+  margin-top: 20px;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  background: #825eeb;
+  min-width: 40%;
+  color: white;
+}
 .card-subtitle {
-	/* border: solid blue; */
-	font-size: 20px;
+  /* border: solid blue; */
+  font-size: 20px;
 }

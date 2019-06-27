@@ -3,7 +3,7 @@ import promise from "redux-promise-middleware";
 import axios from "axios";
 
 const initialState = {
-  user: {},
+  user: { username: "A Lurker" },
   lat: null,
   lng: null,
   rooms: []
@@ -31,12 +31,6 @@ export function getCoords() {
     )
   };
 }
-// export function getCoords() {
-//   return {
-//     type: GET_COORDS,
-//     payload: axios.get("/api/getGoogle")
-//   };
-// }
 export function getRooms(lat, lng) {
   console.log(`${lat} and ${lng}`);
   return {
@@ -129,6 +123,9 @@ function reducer(state = initialState, action) {
         lat: action.payload.data.location.lat,
         lng: action.payload.data.location.lng
       };
+    case `${GET_COORDS}_REJECTED`:
+      alert("please allow location services to access our content");
+      return state;
     case `${GET_ROOMS}_FULFILLED`:
       return {
         ...state,

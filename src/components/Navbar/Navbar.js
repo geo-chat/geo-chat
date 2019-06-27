@@ -155,9 +155,14 @@ class Navbar extends Component {
 
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   {this.props.user.username === "A Lurker" ? (
-                    <Link className="dropdown-item" to="/login">
-                      <h6> Login </h6>
-                    </Link>
+                    <div>
+                      <Link className="dropdown-item" to="/login">
+                        <h6> Login </h6>
+                      </Link>
+                      <Link to="/signup" className="dropdown-item">
+                        Sign up
+                      </Link>
+                    </div>
                   ) : (
                     <Link
                       to="/login"
@@ -168,9 +173,9 @@ class Navbar extends Component {
                     </Link>
                   )}
 
-                  <Link to="/signup" className="dropdown-item">
+                  {/* <Link to="/signup" className="dropdown-item">
                     Sign up
-                  </Link>
+                  </Link> */}
                 </div>
               </li>
             </ul>
