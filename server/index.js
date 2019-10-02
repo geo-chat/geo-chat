@@ -5,10 +5,16 @@ const massive = require("massive");
 const ac = require("./controllers/authController");
 const cc = require("./controllers/chatController");
 const session = require("express-session");
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
-const path = require("path");
-const axios = require("axios");
+const fs = require("fs");
+// const options = {
+//   key: fs.readFileSync("/etc/letsencrypt/live/www.geo-chat.online/privkey.pem"),
+//   cert: fs.readFileSync(
+//     "/etc/letsencrypt/live/www.geo-chat.online/fullchain.pem"
+//   )
+// };
+// const server = require("http").createServer(options, app);
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
@@ -48,17 +54,8 @@ app.post("/test-upload", ac.uploadFiles);
 app.put("/api/chat/addtoroom", cc.addToRoom);
 app.put("/api/chat/leaveroom", cc.leaveRoom);
 app.get("/api/chat/getUsernames/:id", cc.getUsernames);
-app.get("/api/getGoogle", (req, res) => {
-  axios
-    .post(
-      `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_KEY}`
-    )
-    .then(response => {
-      res.status(200).json(response.data);
-    });
-});
 
-const PORT = 6969;
+const PORT = 6970;
 
 io.of("/chat").on("connection", socket => {
   socket.emit("connected", "Hello and welcome");
@@ -87,14 +84,6 @@ io.of("/chat").on("connection", socket => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
-});
-
-http.listen(7777, () => {
-  console.log("Big brother listening on 7777");
-});
-
-app.listen(PORT, () => {
-  console.log(`Listening for bad things to happen on ${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Big brother listening on ${PORT}`);
 });

@@ -48,7 +48,7 @@ class Login extends Component {
                   </h4>
                 </div>
                 <div className="iconInside">
-                  <i class="fas fa-user" />
+                  <i className="fas fa-user" />
                   <input
                     className="usernameLogin"
                     name="username"
@@ -59,7 +59,7 @@ class Login extends Component {
                   />
                 </div>
                 <div className="iconInside">
-                  <i class="fas fa-lock" />
+                  <i className="fas fa-lock" />
                   <input
                     className="passwordLogin"
                     name="password"
@@ -92,7 +92,6 @@ class Login extends Component {
   }
 }
 const mapStateToProps = reduxState => {
-  console.log(reduxState);
   return {
     user: reduxState.user
   };

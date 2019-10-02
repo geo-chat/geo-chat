@@ -3,7 +3,7 @@ import promise from "redux-promise-middleware";
 import axios from "axios";
 
 const initialState = {
-  user: {},
+  user: { username: "A Lurker" },
   lat: null,
   lng: null,
   rooms: []
@@ -23,24 +23,29 @@ const EDIT_IMG = "EDIT_IMG";
 const EDIT_PASSWORD = "EDIT_PASSWORD";
 const EDIT_HEXCOLOR = "EDIT_HEXCOLOR";
 
+export function getCoords() {
+  return {
+    type: GET_COORDS,
+    payload: axios.post(
+      `https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyByZu5ucxdwZvoCHLRbane634jGUP7tjCo`
+    )
+  };
+}
+export function getRooms(lat, lng) {
+  console.log(`${lat} and ${lng}`);
+  return {
+    type: GET_ROOMS,
+    payload: axios.post("/api/chat/getrooms", { lat, lng })
+  };
+}
+
 export function getUser() {
   return {
     type: GET_USER,
     payload: axios.get("/api/auth/getuser")
   };
 }
-export function getCoords() {
-  return {
-    type: GET_COORDS,
-    payload: axios.get("/api/getGoogle")
-  };
-}
-export function getRooms(lat, lng) {
-  return {
-    type: GET_ROOMS,
-    payload: axios.post("/api/chat/getrooms", { lat, lng })
-  };
-}
+
 export function addToRoom(id, lat, lng) {
   return {
     type: ADD_TO_ROOM,
@@ -103,18 +108,24 @@ export function editPassword(oldPassword, newPassword) {
 }
 
 function reducer(state = initialState, action) {
+  console.log(action.type);
   switch (action.type) {
     case `${GET_USER}_FULFILLED`:
+      console.log(action.payload.data);
       return {
         ...state,
         user: action.payload.data
       };
     case `${GET_COORDS}_FULFILLED`:
+      console.log(action.payload.data.location);
       return {
         ...state,
         lat: action.payload.data.location.lat,
         lng: action.payload.data.location.lng
       };
+    case `${GET_COORDS}_REJECTED`:
+      alert("please allow location services to access our content");
+      return state;
     case `${GET_ROOMS}_FULFILLED`:
       return {
         ...state,
@@ -161,7 +172,6 @@ function reducer(state = initialState, action) {
         user: action.payload.data
       };
     case `${EDIT_HEXCOLOR}_FULFILLED`:
-      console.log(action.payload.data);
       return {
         ...state,
         user: action.payload.data
